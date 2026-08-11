@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-aovet-primary: #1A6B38;
+  --color-aovet-dark: #0D3D20;
+  --color-aovet-accent: #F4B942;
+  --color-aovet-danger: #C8372C;
+  --color-aovet-bg: #F7F9F5;
+  --color-aovet-text: #1F2937;
+}
+
+/* Clases utilitarias personalizadas */
+.imagen-curva-referencia {
+  border-radius: 2rem 2rem 0 0;
+}
+
+@media (min-width: 1024px) {
+  .imagen-curva-referencia {
+    border-radius: 30% 0 0 30% / 50% 0 0 50%;
+  }
+}
+
+@theme {
+  --font-heading: "Bricolage Grotesque", sans-serif;
+  --font-body: "Instrument Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-aovet-bg);
+    color: var(--color-aovet-text);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
