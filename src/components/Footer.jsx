@@ -43,19 +43,19 @@ const Footer = () => {
                 <div className="p-2 bg-white/10 rounded-lg group-hover:bg-[var(--color-aovet-accent)] group-hover:text-[var(--color-aovet-dark)] transition-colors">
                   <MapPin size={20} />
                 </div>
-                <span>Quito, Ecuador</span>
+                <span>San Juanpamba - Vía a Jadan<br/>Cuenca, Ecuador</span>
               </div>
               <div className="flex items-center gap-3 group">
                 <div className="p-2 bg-white/10 rounded-lg group-hover:bg-[var(--color-aovet-accent)] group-hover:text-[var(--color-aovet-dark)] transition-colors">
                   <Phone size={20} />
                 </div>
-                <span>+593 99 999 9999</span>
+                <span>0985401224</span>
               </div>
               <div className="flex items-center gap-3 group">
                 <div className="p-2 bg-white/10 rounded-lg group-hover:bg-[var(--color-aovet-accent)] group-hover:text-[var(--color-aovet-dark)] transition-colors">
                   <Mail size={20} />
                 </div>
-                <span>info@aovet.com.ec</span>
+                <span>jonatanarichabala_89@hotmail.com</span>
               </div>
               <div className="flex items-center gap-3 group">
                 <div className="p-2 bg-white/10 rounded-lg group-hover:bg-[var(--color-aovet-accent)] group-hover:text-[var(--color-aovet-dark)] transition-colors">
@@ -70,7 +70,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/10 text-center text-gray-400 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
           <p>&copy; {new Date().getFullYear()} AOVET. Todos los derechos reservados.</p>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-white transition-colors">Políticas de Privacidad</a>
+            <a href="#" className="hover:text-white transition-colors">Política de Privacidad</a>
             <a href="#" className="hover:text-white transition-colors">Términos de Servicio</a>
           </div>
         </div>

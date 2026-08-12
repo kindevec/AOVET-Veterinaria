@@ -10,6 +10,7 @@ import Nosotros from './pages/Nosotros';
 import Productos from './pages/Productos';
 import Servicios from './pages/Servicios';
 import Contacto from './pages/Contacto';
+import ProductDetails from './components/ui/ProductDetails';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Inicio />} />
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/productos" element={<Productos />} />
+          <Route path="/producto/:id" element={<ProductDetails />} />
           <Route path="/servicios" element={<Servicios />} />
           <Route path="/contacto" element={<Contacto />} />
         </Routes>

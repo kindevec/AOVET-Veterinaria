@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp, Snowflake, Info, PackageCheck, ChevronLeft, Che
 import { productos } from '../data/productos';
 import ProductoCard from '../components/ui/ProductoCard';
 import BotonCTA from '../components/ui/BotonCTA';
+import CatalogosSection from '../components/secciones/CatalogosSection';
 
 // Imágenes para las 3 publicidades del Slider Hero
 import heroBg from '../assets/images/hero-bg.jpg';
@@ -12,10 +13,10 @@ import nosMainVet from '../assets/images/nos_main_vet_1785908284799.jpg';
 
 const categorias = [
   { id: 'todos', label: 'Todos' },
-  { id: 'aves', label: 'Aves 🐔' },
-  { id: 'bovinos', label: 'Bovinos 🐄' },
-  { id: 'porcinos', label: 'Porcinos 🐖' },
-  { id: 'mascotas', label: 'Mascotas 🐕' }
+  { id: 'avicultura', label: 'Avicultura 🐔' },
+  { id: 'ganaderia', label: 'Ganadería 🐄' },
+  { id: 'industrial', label: 'Industrial 🏭' },
+  { id: 'mascotas', label: 'Mascotas (Próximamente) 🐕' }
 ];
 
 const faqs = [
@@ -28,30 +29,30 @@ const slidesPublicidad = [
   {
     id: 1,
     tag: "LÍNEA AVÍCOLA DE ALTA EFICACIA",
-    titulo: "Biológicos & Vacunas de Última Generación",
-    subtitulo: "Protección total contra Newcastle, Bronquitis y Gumboro con trazabilidad térmica garantizada.",
-    ctaText: "Ver Vacunas Avícolas",
-    categoriaFiltro: "aves",
+    titulo: "Salud Integral para Aves",
+    subtitulo: "Las mejores soluciones en salud y nutrición avícola con trazabilidad térmica garantizada.",
+    ctaText: "Ver Línea Avícola",
+    categoriaFiltro: "avicultura",
     bgImage: heroBg,
     colorBadge: "bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)]"
   },
   {
     id: 2,
     tag: "PROMOCIÓN DESTACADA BOVINOS",
-    titulo: "Suplementación & Desparasitación Integral",
-    subtitulo: "Maximiza la ganancia de peso y producción lechera con Ivermectina 1% y Sales Minerales concentradas.",
+    titulo: "Salud y Bienestar Ganadero",
+    subtitulo: "Maximiza la ganancia de peso y producción lechera con Act Antiflam y tratamientos especializados.",
     ctaText: "Ver Productos Ganaderos",
-    categoriaFiltro: "bovinos",
+    categoriaFiltro: "ganaderia",
     bgImage: secFarmAction,
     colorBadge: "bg-[var(--color-aovet-primary)] text-white"
   },
   {
     id: 3,
-    tag: "EXCELENCIA FARMACÉUTICA",
-    titulo: "Soluciones para Mascotas & Porcicultura",
-    subtitulo: "Inmunización contra Circovirus PCV2 y antipulgas de acción prolongada para clínicas y granjas.",
+    tag: "EXCELENCIA INDUSTRIAL",
+    titulo: "Soluciones para Granjas Industriales",
+    subtitulo: "Promotores de crecimiento y tratamientos para maximizar el rendimiento productivo.",
     ctaText: "Ver Portafolio Completo",
-    categoriaFiltro: "porcinos",
+    categoriaFiltro: "industrial",
     bgImage: nosMainVet,
     colorBadge: "bg-amber-500 text-white"
   }
@@ -247,6 +248,9 @@ const Productos = () => {
         </div>
       </section>
 
+      {/* Sección de Catálogos */}
+      <CatalogosSection />
+
       {/* 4. Garantía y Cadena de Frío */}
       <section className="py-20 bg-[var(--color-aovet-dark)] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -258,7 +262,7 @@ const Productos = () => {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold font-serif mb-6">Garantía total de Cadena de Frío</h2>
               <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-                Sabemos que la eficacia de las vacunas y biológicos depende estrictamente del control de temperatura. En AOVET implementamos rigurosos protocolos de almacenamiento y transporte refrigerado.
+                Sabemos que la eficacia de los biológicos e insumos veterinarios depende estrictamente del control de temperatura. En AOVET implementamos rigurosos protocolos de almacenamiento y transporte refrigerado.
               </p>
               <ul className="space-y-4">
                 {[

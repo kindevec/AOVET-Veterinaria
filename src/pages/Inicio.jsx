@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, Plus, ArrowRight, ShieldCheck, Zap, PackageCheck, Award, HeartHandshake, Sparkles, CheckCircle } from 'lucide-react';
 import BotonCTA from '../components/ui/BotonCTA';
 import SeparadorGrieta from '../components/ui/SeparadorGrieta';
+import { productos } from '../data/productos';
 
 // Imágenes
 import heroBg from '../assets/images/hero-bg.jpg';
@@ -102,8 +103,8 @@ const Inicio = () => {
             <div className="flex flex-col justify-between h-full max-w-sm relative z-10">
               <div>
                 <span className="text-[var(--color-aovet-primary)] font-bold text-xs uppercase tracking-widest block mb-1">Avicultura de Alta Eficacia</span>
-                <h3 className="text-2xl md:text-3xl font-extrabold text-[#2C382E] font-serif mb-3 leading-tight">Biológicos & Vacunas Avícolas</h3>
-                <p className="text-sm text-[#2C382E] font-medium leading-relaxed mb-6">Inmunización comprobada contra Newcastle, Bronquitis y Gumboro con trazabilidad térmica.</p>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-[#2C382E] font-serif mb-3 leading-tight">Salud y Nutrición Avícola</h3>
+                <p className="text-sm text-[#2C382E] font-medium leading-relaxed mb-6">Protección integral y bioseguridad para maximizar el rendimiento de tu galpón.</p>
               </div>
               <span className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-aovet-primary)] group-hover:underline">Ver línea avícola <ArrowRight size={16} /></span>
             </div>
@@ -113,8 +114,8 @@ const Inicio = () => {
           <motion.div variants={fadeInUp} className="flex flex-col gap-[10px] h-full">
             <motion.div whileHover={{ y: -4 }} onClick={() => navigate('/productos')} className="flex-1 bg-[#EBE5D8] rounded-[2.5rem] p-6 sm:p-7 shadow-xl border border-white/60 flex items-center justify-between gap-4 cursor-pointer group">
               <div>
-                <h4 className="font-bold text-[#2C382E] text-lg mb-1">Ganadería & Sales</h4>
-                <p className="text-xs text-gray-600">Ivermectina 1% y minerales concentrados.</p>
+                <h4 className="font-bold text-[#2C382E] text-lg mb-1">Ganadería de Precisión</h4>
+                <p className="text-xs text-gray-600">Act Antiflam y tratamientos especializados.</p>
               </div>
               <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white flex-shrink-0 shadow-md">
                 <img src={catGanado} alt="Ganadería" className="w-full h-full object-cover" />
@@ -123,8 +124,8 @@ const Inicio = () => {
 
             <motion.div whileHover={{ y: -4 }} onClick={() => navigate('/productos')} className="flex-1 bg-[#E5DFD4] rounded-[2.5rem] p-6 sm:p-7 shadow-xl border border-white/60 flex items-center justify-between gap-4 cursor-pointer group">
               <div>
-                <h4 className="font-bold text-[#2C382E] text-lg mb-1">Porcicultura PCV2</h4>
-                <p className="text-xs text-gray-600">Promotores de crecimiento y vacunas.</p>
+                <h4 className="font-bold text-[#2C382E] text-lg mb-1">Sector Industrial</h4>
+                <p className="text-xs text-gray-600">Soluciones de alto rendimiento.</p>
               </div>
               <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white flex-shrink-0 shadow-md">
                 <img src={prodVacuna} alt="Porcinos" className="w-full h-full object-cover" />
@@ -142,7 +143,7 @@ const Inicio = () => {
             <div>
               <span className="text-[var(--color-aovet-accent)] font-bold text-xs uppercase tracking-widest block mb-2">Clínicas & Pet</span>
               <h3 className="text-2xl font-bold font-serif mb-3 leading-tight">Línea Pet Especializada</h3>
-              <p className="text-xs text-gray-300 leading-relaxed mb-6">Antipulgas en pipetas, vacunas antirrábicas y suplementos de alta palatabilidad.</p>
+              <p className="text-xs text-gray-300 leading-relaxed mb-6">Próximamente: Antipulgas, suplementos y cuidado especializado para mascotas.</p>
             </div>
             <div className="w-full h-36 rounded-2xl overflow-hidden border-2 border-white/20 shadow-md">
               <img src={catMascotas} alt="Línea Pet Mascotas" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -193,9 +194,9 @@ const Inicio = () => {
             className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-8 w-full z-10 mt-8 lg:mt-0"
           >
             {[
-              { id: 'avicultura', name: 'Avicultura', desc: 'Salud integral para galpones y aves.', img: catAves },
-              { id: 'ganaderia', name: 'Ganadería', desc: 'Biológicos y suplementos.', img: catGanado },
-              { id: 'mascotas', name: 'Línea Pet', desc: 'Cuidado especializado en clínicas.', img: catMascotas }
+              { id: 'avicultura', name: 'Avicultura', desc: 'Salud integral para aves.', img: catAves },
+              { id: 'ganaderia', name: 'Ganadería', desc: 'Desparasitantes y tratamientos.', img: catGanado },
+              { id: 'industrial', name: 'Industrial', desc: 'Soluciones productivas.', img: secVetProducts }
             ].map((cat, idx) => (
               <motion.div key={idx} variants={scaleIn} className="flex flex-col items-center text-center group cursor-pointer" onClick={() => navigate('/productos')}>
                 <div className={`w-40 h-40 rounded-full mb-6 flex items-center justify-center border-[6px] border-white/10 shadow-xl group-hover:scale-105 group-hover:border-[var(--color-aovet-accent)] transition-all overflow-hidden relative`}>
@@ -228,24 +229,19 @@ const Inicio = () => {
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={staggerContainer}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {[
-            { name: "Vitaforte ADE", desc: "Vitamínico inyectable", img: prodVitamina, price: "Contáctanos" },
-            { name: "Complejo B50", desc: "Reconstituyente", img: prodVitamina, price: "Contáctanos" },
-            { name: "Desparasitante F", desc: "Amplio espectro", img: prodVacuna, price: "Contáctanos" },
-            { name: "Vacuna Triple", desc: "Biológico importado", img: prodVacuna, price: "Contáctanos" }
-          ].map((prod, idx) => (
-            <motion.div key={idx} variants={fadeInUp} whileHover={{ y: -5 }} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-200 flex items-center gap-4 relative group hover:shadow-md transition-all">
-              <div className="w-20 h-24 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center flex-shrink-0">
-                <img src={prod.img} alt={prod.name} className="w-full h-full object-cover mix-blend-multiply" />
+          {productos.slice(0, 4).map((prod, idx) => (
+            <motion.div key={idx} variants={fadeInUp} whileHover={{ y: -5 }} onClick={() => navigate(`/producto/${prod.slug}`)} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-200 flex items-center gap-4 relative group hover:shadow-md transition-all cursor-pointer">
+              <div className="w-20 h-24 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center flex-shrink-0 p-1">
+                <img src={prod.imagen} alt={prod.nombre} className="w-full h-full object-contain mix-blend-multiply" />
               </div>
               <div className="flex flex-col justify-center flex-grow pr-8">
-                <h3 className="font-bold text-[var(--color-aovet-dark)] text-sm leading-tight mb-1">{prod.name}</h3>
-                <p className="text-xs text-gray-500 mb-2 leading-tight line-clamp-2">{prod.desc}</p>
-                <span className="font-bold text-[var(--color-aovet-primary)] text-sm">{prod.price}</span>
+                <h3 className="font-bold text-[var(--color-aovet-dark)] text-sm leading-tight mb-1">{prod.nombre}</h3>
+                <p className="text-xs text-gray-500 mb-2 leading-tight line-clamp-2">{prod.descripcionBreve || prod.descripcion}</p>
+                <span className="font-bold text-[var(--color-aovet-primary)] text-sm">Ver Detalles</span>
               </div>
-              <a href="https://wa.me/593999999999" target="_blank" rel="noreferrer" className="absolute bottom-4 right-4 w-8 h-8 rounded-full bg-[var(--color-aovet-primary)] text-white flex items-center justify-center hover:bg-[var(--color-aovet-dark)] transition-colors shadow-sm">
-                <Plus size={16} strokeWidth={3} />
-              </a>
+              <div className="absolute bottom-4 right-4 w-8 h-8 rounded-full bg-gray-100 text-[var(--color-aovet-primary)] flex items-center justify-center group-hover:bg-[var(--color-aovet-primary)] group-hover:text-white transition-colors shadow-sm">
+                <ArrowRight size={16} strokeWidth={2.5} />
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -299,7 +295,7 @@ const Inicio = () => {
             </motion.div>
             <motion.div variants={fadeInUp} className="text-center lg:text-left flex flex-col justify-center space-y-4">
               <h3 className="text-3xl font-extrabold text-[#2C382E] font-serif leading-tight">Insumos de Clase Mundial</h3>
-              <p className="text-sm text-gray-700 leading-relaxed">Importamos de los laboratorios más confiables a nivel internacional los medicamentos, vacunas y nutrientes que garantizan la salud de tu ganadería y avicultura.</p>
+              <p className="text-sm text-gray-700 leading-relaxed">Importamos de los laboratorios más confiables a nivel internacional los medicamentos y nutrientes que garantizan la salud de tu ganadería y avicultura.</p>
               <div className="pt-2 flex justify-center lg:justify-start gap-3">
                 <span className="inline-flex items-center gap-1 text-xs font-bold bg-white text-[#2C382E] px-4 py-2 rounded-full shadow-sm"><CheckCircle size={14} className="text-[var(--color-aovet-primary)]" /> Bio-seguros</span>
                 <span className="inline-flex items-center gap-1 text-xs font-bold bg-white text-[#2C382E] px-4 py-2 rounded-full shadow-sm"><CheckCircle size={14} className="text-[var(--color-aovet-primary)]" /> Garantía Total</span>
@@ -320,14 +316,14 @@ const Inicio = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-8 text-white">
                 <span className="text-[var(--color-aovet-accent)] font-bold text-xs uppercase tracking-widest mb-1">Acompañamiento Técnico</span>
                 <h4 className="text-2xl font-bold">Asistencia Directa en Finca</h4>
-                <p className="text-sm text-gray-200 max-w-lg mt-1">Nuestros profesionales visitan tus instalaciones para realizar diagnósticos certeros y planes de vacunación a medida.</p>
+                <p className="text-sm text-gray-200 max-w-lg mt-1">Nuestros profesionales visitan tus instalaciones para realizar diagnósticos certeros y planes de tratamiento a medida.</p>
               </div>
             </motion.div>
             <motion.div variants={fadeInUp} className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 flex flex-col justify-between shadow-sm border border-white/60 relative overflow-hidden">
               <div>
                 <div className="w-12 h-12 rounded-full bg-[var(--color-aovet-primary)] text-white flex items-center justify-center mb-6 shadow-sm"><HeartHandshake size={24} /></div>
                 <h3 className="text-2xl font-bold text-[#2C382E] font-serif mb-4">Consejos & Asesoría</h3>
-                <p className="text-sm text-gray-700 leading-relaxed mb-6">¿Dudas sobre dosis o planes de vacunación? Contáctate directamente con nuestros especialistas de campo.</p>
+                <p className="text-sm text-gray-700 leading-relaxed mb-6">¿Dudas sobre dosis o tratamientos? Contáctate directamente con nuestros especialistas de campo.</p>
               </div>
               <button onClick={() => window.open('https://wa.me/593999999999', '_blank')} className="w-full bg-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-dark)] text-white font-bold py-3.5 px-6 rounded-full transition-colors flex items-center justify-center gap-2 shadow-sm text-sm">
                 Consultar un especialista <ArrowRight size={16} />
