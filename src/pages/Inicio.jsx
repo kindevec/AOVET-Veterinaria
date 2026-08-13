@@ -64,12 +64,12 @@ const Inicio = () => {
           </div>
 
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 1.5 } } }} className="max-w-3xl text-center lg:text-left">
-            <motion.h1 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } } }} className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 drop-shadow-xl">
+            <motion.h1 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } } }} className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-[var(--color-aovet-dark)] leading-tight mb-6">
               Importamos confianza. <br/>
-              <span className="text-[var(--color-aovet-accent)] drop-shadow-lg">Distribuimos salud animal.</span>
+              <span className="text-[var(--color-aovet-primary)]">Distribuimos salud animal.</span>
             </motion.h1>
             
-            <motion.p variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } } }} className="text-xl text-white font-semibold mb-10 max-w-2xl mx-auto lg:mx-0 drop-shadow-md">
+            <motion.p variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } } }} className="text-xl text-gray-900 font-bold mb-10 max-w-2xl mx-auto lg:mx-0">
               Productos veterinarios de calidad para aves, bovinos, porcinos y mascotas, con el respaldo técnico que tu producción necesita.
             </motion.p>
             
