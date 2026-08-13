@@ -64,9 +64,9 @@ const Inicio = () => {
           </div>
 
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 1.5 } } }} className="max-w-3xl text-center lg:text-left">
-            <motion.h1 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } } }} className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#0D3D20] leading-tight mb-8 drop-shadow-2xl [-webkit-text-stroke:2px_#ffffff]">
+            <motion.h1 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } } }} className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-8 drop-shadow-2xl [-webkit-text-stroke:2px_#0D3D20]">
               Importamos confianza. <br/>
-              <span className="text-[#FF7F00] [-webkit-text-stroke:2px_#ffffff]">Distribuimos salud animal.</span>
+              <span className="text-[var(--color-aovet-accent)]">Distribuimos salud animal.</span>
             </motion.h1>
             
             <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", damping: 12, stiffness: 100 } } }} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
