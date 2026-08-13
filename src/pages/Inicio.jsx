@@ -225,7 +225,7 @@ const Inicio = () => {
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={staggerContainer}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {productos.slice(0, 4).map((prod, idx) => (
+          {productos.filter(p => ['act-antiflam', 'act-proboost-bolus', 'inusap-liquid', 'milkmore-gold'].includes(p.slug)).map((prod, idx) => (
             <motion.div key={idx} variants={fadeInUp} whileHover={{ y: -5 }} onClick={() => navigate(`/producto/${prod.slug}`)} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-200 flex items-center gap-4 relative group hover:shadow-md transition-all cursor-pointer">
               <div className="w-20 h-24 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center flex-shrink-0 p-1">
                 <img src={prod.imagen} alt={prod.nombre} className="w-full h-full object-contain mix-blend-multiply" />
