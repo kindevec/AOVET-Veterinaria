@@ -52,7 +52,7 @@ const Inicio = () => {
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroBg})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0D3D20]/90 via-[#0D3D20]/75 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-sky-400/80 via-sky-300/40 to-transparent"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center pt-12 pb-24">
