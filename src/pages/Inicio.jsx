@@ -7,7 +7,7 @@ import { productos } from '../data/productos';
 
 // Imágenes
 import heroBg from '../assets/images/hero-bg.jpg';
-import nosotrosBg from '../assets/images/distribuidor_aovet.jpg';
+import nosotrosBg from '../assets/images/nos_main_vet_1785908284799.jpg';
 import catAves from '../assets/images/cat_aves_1785906732448.jpg';
 import catGanado from '../assets/images/cat_ganado_1785906742113.jpg';
 import catMascotas from '../assets/images/cat_mascotas_1785906749507.jpg';
@@ -355,9 +355,9 @@ const Inicio = () => {
               })}
             </motion.div>
           </motion.div>
-          <div className="w-full h-[350px] lg:h-auto lg:w-[45%] z-0 flex items-center justify-center p-4 bg-white">
-            <div className="w-full h-full relative overflow-hidden flex items-center justify-center">
-              <img src={nosotrosBg} alt="Distribuidor AOVET" className="w-full h-full object-contain" />
+          <div className="w-full h-[350px] lg:h-auto lg:w-[45%] z-0">
+            <div className="w-full h-full relative overflow-hidden imagen-curva-referencia">
+              <img src={nosotrosBg} alt="Instalaciones AOVET" className="w-full h-full object-cover" />
             </div>
           </div>
         </motion.div>
