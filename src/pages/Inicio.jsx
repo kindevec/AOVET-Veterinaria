@@ -374,11 +374,12 @@ const Inicio = () => {
               <ShieldCheck size={64} strokeWidth={1} />
             </div>
             <div>
-              <h3 className="font-bold text-[var(--color-aovet-dark)] text-xl mb-4">¡Te esperamos!</h3>
+              <h3 className="font-bold text-[var(--color-aovet-dark)] text-xl mb-1">¡Te esperamos!</h3>
+              <p className="text-xs text-[var(--color-aovet-primary)] font-bold mb-4">Mgs. Mvz. Franklin Jonatan Arichabala Yanza</p>
               <ul className="space-y-3 text-sm text-gray-600">
-                <li className="flex items-center gap-3"><MapPin size={18} className="text-[var(--color-aovet-primary)]" /><span>Av. Principal, Quito, Ecuador</span></li>
-                <li className="flex items-center gap-3"><Clock size={18} className="text-[var(--color-aovet-primary)]" /><span>Lun - Vie: 08:00 - 18:00</span></li>
-                <li className="flex items-center gap-3"><Phone size={18} className="text-[var(--color-aovet-primary)]" /><span className="font-bold">+593 99 999 9999</span></li>
+                <li className="flex items-center gap-3"><MapPin size={18} className="text-[var(--color-aovet-primary)] flex-shrink-0" /><span>San Juanpamba - vía a Jadan Cuenca - Ecuador</span></li>
+                <li className="flex items-center gap-3"><Phone size={18} className="text-[var(--color-aovet-primary)] flex-shrink-0" /><span className="font-bold">0985401224</span></li>
+                <li className="flex items-center gap-3"><Mail size={18} className="text-[var(--color-aovet-primary)] flex-shrink-0" /><span>jonatanarichabala_89@hotmail.com</span></li>
               </ul>
             </div>
           </div>
