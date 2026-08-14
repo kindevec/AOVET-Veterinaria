@@ -25,7 +25,7 @@ const Nosotros = () => {
               Comprometidos con el campo ecuatoriano
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-8">
-              En <strong className="text-[var(--color-aovet-primary)]">AOVET</strong> importamos y distribuimos productos veterinarios certificados para el sector avícola, ganadero, porcícola y de mascotas, trabajando junto a marcas internacionales de confianza para llevar salud animal a cada rincón del país.
+              En <strong className="text-[var(--color-aovet-primary)]">AOVET</strong> nos especializamos en la importación y distribución de productos veterinarios, seleccionando cuidadosamente productos de fabricantes confiables que cumplan con altos estándares de calidad y seguridad.
             </p>
             
             <motion.div 

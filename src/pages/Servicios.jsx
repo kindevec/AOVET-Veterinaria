@@ -36,10 +36,10 @@ const Servicios = () => {
       {/* 1. Header Introductorio */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="text-center" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6 }}>
+          <motion.div className="text-center max-w-3xl mx-auto" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6 }}>
             <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-aovet-dark)] mb-4">Nuestros Servicios</h1>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              Más que proveedores, somos aliados estratégicos en la productividad y salud de tus animales.
+            <p className="text-gray-700 text-lg leading-relaxed">
+              Nuestro compromiso no se limita a entregar un producto. Buscamos brindar asesoría técnica, atención personalizada y soluciones adaptadas a las necesidades de cada cliente, contribuyendo a mejorar el rendimiento, bienestar y productividad de los animales.
             </p>
           </motion.div>
         </div>
@@ -149,7 +149,7 @@ const Servicios = () => {
             
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6 relative z-10">
               <button 
-                onClick={() => window.open('https://wa.me/593999999999', '_blank')}
+                onClick={() => window.open('https://wa.me/593985401224', '_blank')}
                 className="inline-flex items-center gap-2 bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)] font-bold px-8 py-4 rounded-full text-lg hover:bg-white transition-all transform hover:scale-105 active:scale-95 shadow-lg"
               >
                 Agenda una visita técnica <ArrowRight size={20} />

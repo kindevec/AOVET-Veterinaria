@@ -111,7 +111,7 @@ const Hero = () => {
             />
             <BotonCTA 
               text="Cotizar por WhatsApp" 
-              href="https://wa.me/593999999999"
+              href="https://wa.me/593985401224"
               variant="secondary"
             />
           </motion.div>

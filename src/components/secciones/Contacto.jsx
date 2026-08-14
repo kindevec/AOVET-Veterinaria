@@ -78,7 +78,7 @@ const Contacto = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-aovet-primary)] focus:border-transparent transition-all"
-                  placeholder="Ej. 099 999 9999"
+                  placeholder="Ej. 098 540 1224"
                 />
               </div>
 
@@ -130,9 +130,8 @@ const Contacto = () => {
             className="flex flex-col"
           >
             <div className="bg-gray-100 rounded-3xl overflow-hidden h-64 mb-8 shadow-inner relative">
-              {/* Mapa de Google Iframe Simulado (reemplazar src) */}
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.17181079374!2d-78.58334460064506!3d-0.1865937989914488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a4002422c9f%3A0x44b991e158ef5572!2sQuito%2C%20Ecuador!5e0!3m2!1ses!2s!4v1700000000000!5m2!1ses!2s" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63748.17293529321!2d-78.9600000!3d-2.8900000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d3a681c19d7b4f%3A0x6b77c593685c2c7b!2sCuenca%2C%20Ecuador!5e0!3m2!1ses!2sec!4v1700000000000!5m2!1ses!2sec" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
@@ -146,32 +145,33 @@ const Contacto = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div>
-                <h4 className="text-xl font-bold text-[var(--color-aovet-dark)] mb-3">Sede Principal</h4>
-                <p className="text-gray-600">Av. de los Productores N12-34 y Campo Verde.<br/>Quito, Ecuador.</p>
+                <h4 className="text-xl font-bold text-[var(--color-aovet-dark)] mb-2">Sede Principal</h4>
+                <p className="text-xs text-[var(--color-aovet-primary)] font-bold mb-1">Mgs. Mvz. Franklin Jonatan Arichabala Yanza</p>
+                <p className="text-gray-600">San Juanpamba - Vía a Jadan<br/>Cuenca, Ecuador.</p>
               </div>
               
               <div>
-                <h4 className="text-xl font-bold text-[var(--color-aovet-dark)] mb-3">Horario de Atención</h4>
+                <h4 className="text-xl font-bold text-[var(--color-aovet-dark)] mb-2">Horario de Atención</h4>
                 <p className="text-gray-600">Lunes a Viernes:<br/>8:00 AM - 6:00 PM</p>
+                <p className="text-gray-500 text-xs mt-1">Sábados: 8:00 AM - 1:00 PM</p>
               </div>
 
               <div>
-                <h4 className="text-xl font-bold text-[var(--color-aovet-dark)] mb-3">Llámanos</h4>
-                <p className="text-[var(--color-aovet-primary)] font-bold text-lg">+593 99 999 9999</p>
-                <p className="text-[var(--color-aovet-primary)] font-bold text-lg">+593 2 222 3333</p>
+                <h4 className="text-xl font-bold text-[var(--color-aovet-dark)] mb-2">Llámanos / WhatsApp</h4>
+                <p className="text-[var(--color-aovet-primary)] font-bold text-lg">0985401224</p>
+                <p className="text-gray-600 text-xs">+593 98 540 1224</p>
               </div>
 
               <div>
-                <h4 className="text-xl font-bold text-[var(--color-aovet-dark)] mb-3">Correo</h4>
-                <a href="mailto:info@aovet.com.ec" className="text-gray-600 hover:text-[var(--color-aovet-primary)] transition-colors">info@aovet.com.ec</a><br/>
-                <a href="mailto:ventas@aovet.com.ec" className="text-gray-600 hover:text-[var(--color-aovet-primary)] transition-colors">ventas@aovet.com.ec</a>
+                <h4 className="text-xl font-bold text-[var(--color-aovet-dark)] mb-2">Correo Electrónico</h4>
+                <a href="mailto:jonatanarichabala_89@hotmail.com" className="text-gray-600 hover:text-[var(--color-aovet-primary)] transition-colors text-sm break-all font-medium">jonatanarichabala_89@hotmail.com</a>
               </div>
             </div>
             
             <div className="mt-8">
                <BotonCTA 
                 text="Chatear con un asesor" 
-                href="https://wa.me/593999999999"
+                href="https://wa.me/593985401224"
                 variant="outline"
                 className="w-full sm:w-auto"
               />

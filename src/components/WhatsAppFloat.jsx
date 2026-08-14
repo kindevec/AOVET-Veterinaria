@@ -15,7 +15,7 @@ const WhatsappIcon = ({ size = 32, className = "" }) => (
 );
 
 const WhatsAppFloat = () => {
-  const numeroWhatsApp = "593999999999";
+  const numeroWhatsApp = "593985401224";
   const whatsappUrl = `https://wa.me/${numeroWhatsApp}`;
 
   return (
@@ -23,7 +23,7 @@ const WhatsAppFloat = () => {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-xl hover:bg-[#20bd5a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] flex items-center justify-center"
+      className="fixed bottom-24 md:bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-xl hover:bg-[#20bd5a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] flex items-center justify-center"
       animate={{
         scale: [1, 1.1, 1],
       }}

@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 
 const ProductoCard = ({ producto }) => {
-  const numeroWhatsApp = "593999999999";
+  const numeroWhatsApp = "593985401224";
   const mensaje = encodeURIComponent(`Hola, quiero cotizar ${producto.nombre}`);
   const whatsappUrl = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
 

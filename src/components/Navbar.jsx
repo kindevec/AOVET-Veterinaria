@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
 import logoImg from '../assets/logo-aovet.png';
 
@@ -14,7 +13,6 @@ const navLinks = [
 
 const Navbar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
 
@@ -30,8 +28,6 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const closeMenu = () => setMobileMenuOpen(false);
 
   // En Inicio la opacidad, sombra y desenfoque aumentan suavemente conforme el usuario baja
   const bgOpacity = isHome ? scrollProgress * 0.95 : 0.95;
@@ -57,7 +53,6 @@ const Navbar = () => {
           {/* Logo */}
           <Link 
             to="/" 
-            onClick={closeMenu}
             className="flex items-center gap-2 z-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)]"
           >
             <img 
@@ -82,7 +77,7 @@ const Navbar = () => {
               </Link>
             ))}
             <motion.a
-              href="https://wa.me/593999999999"
+              href="https://wa.me/593985401224"
               target="_blank"
               rel="noopener noreferrer"
               className={`px-5 py-2.5 rounded-full font-bold transition-all duration-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)] ${
@@ -96,53 +91,8 @@ const Navbar = () => {
               WhatsApp
             </motion.a>
           </nav>
-
-          {/* Mobile Menu Button */}
-          <button
-            className={`md:hidden z-50 p-2 transition-colors duration-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)] ${
-              isNavDark && !mobileMenuOpen ? 'text-white' : 'text-[var(--color-aovet-text)]'
-            }`}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Menú principal"
-          >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
         </div>
       </div>
-
-      {/* Mobile Menu Panel */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-0 pt-24 bg-white/95 backdrop-blur-xl z-40 flex flex-col px-6"
-          >
-            <nav className="flex flex-col gap-6 items-center text-xl font-bold text-[var(--color-aovet-dark)]">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  onClick={closeMenu}
-                  className={`w-full text-center py-3 border-b border-gray-100 hover:text-[var(--color-aovet-primary)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)] ${location.pathname === link.href ? 'text-[var(--color-aovet-primary)]' : ''}`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <a
-                href="https://wa.me/593999999999"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 w-full text-center px-6 py-4 bg-[var(--color-aovet-primary)] text-white rounded-full hover:bg-[var(--color-aovet-dark)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)]"
-              >
-                Cotizar por WhatsApp
-              </a>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   );
 };

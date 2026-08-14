@@ -3,12 +3,12 @@ import { Users, Leaf, ShieldCheck, Milestone, Award, CheckCircle2, HeartHandshak
 import SeparadorGrieta from '../components/ui/SeparadorGrieta';
 
 // Imágenes
-import nosMainVet from '../assets/images/nos_main_vet_1785908284799.jpg';
-import nosTeamDir from '../assets/images/nos_team_dir_1785908292981.jpg';
-import nosTeamTech from '../assets/images/sec_arch_vet_1785907340022.jpg';
-import nosotrosBg from '../assets/images/nosotros-bg.jpg';
-import secFarmAction from '../assets/images/sec_farm_action_1785907355629.jpg';
-import catGanado from '../assets/images/cat_ganado_1785906742113.jpg';
+import nosMainVet from '../assets/images/aovet_paisaje_campo.jpg';
+import nosTeamDir from '../assets/images/aovet_paisaje_campo.jpg';
+import nosTeamTech from '../assets/images/aovet_ternero_salud.jpg';
+import nosotrosBg from '../assets/images/aovet_ganado_campo.jpg';
+import secFarmAction from '../assets/images/aovet_ganado_campo.jpg';
+import catGanado from '../assets/images/aovet_ganado_campo.jpg';
 
 const valores = [
   "Calidad certificada",
@@ -38,8 +38,11 @@ const Nosotros = () => {
               <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--color-aovet-dark)] font-serif mb-6 leading-tight">
                 Comprometidos con la salud y productividad animal
               </h1>
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                En <strong className="text-[var(--color-aovet-primary)]">AOVET</strong> importamos y distribuimos productos veterinarios certificados para el sector avícola, ganadero, porcícola y de mascotas, trabajando junto a laboratorios internacionales de confianza para llevar salud animal a cada rincón del Ecuador.
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                En <strong className="text-[var(--color-aovet-primary)]">AOVET</strong> nos especializamos en la importación y distribución de productos veterinarios, seleccionando cuidadosamente productos de fabricantes confiables que cumplan con altos estándares de calidad y seguridad.
+              </p>
+              <p className="text-base text-gray-600 leading-relaxed mb-8">
+                Nuestro compromiso no se limita a entregar un producto. Buscamos brindar asesoría técnica, atención personalizada y soluciones adaptadas a las necesidades de cada cliente, contribuyendo a mejorar el rendimiento, bienestar y productividad de los animales.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -223,23 +226,27 @@ const Nosotros = () => {
       </section>
 
       {/* SECCIÓN 5: SOSTENIBILIDAD Y COMPROMISO AMBIENTAL */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-12">
-        <div className="bg-[var(--color-aovet-dark)] rounded-[2.5rem] p-10 md:p-16 text-white relative overflow-hidden shadow-xl grid lg:grid-cols-2 gap-10 items-center">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-12">
+        <div className="bg-[var(--color-aovet-dark)] rounded-3xl sm:rounded-[2.5rem] p-6 sm:p-10 md:p-16 text-white relative overflow-hidden shadow-2xl grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <div className="relative z-10">
-            <div className="w-16 h-16 bg-[var(--color-aovet-primary)] rounded-full flex items-center justify-center mb-6 shadow-md">
-              <Leaf size={32} className="text-[var(--color-aovet-accent)]" />
+            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[var(--color-aovet-primary)] rounded-full flex items-center justify-center mb-6 shadow-md border border-white/10">
+              <Leaf size={28} className="text-[var(--color-aovet-accent)]" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-6 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-serif mb-4 sm:mb-6 leading-tight">
               Compromiso con la Sostenibilidad y el Entorno
             </h2>
-            <p className="text-lg text-gray-300 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed font-normal">
               Entendemos que el desarrollo pecuario depende directamente del equilibrio con la naturaleza. En AOVET promovemos el uso responsable de productos sanitarios, reciclaje de materiales de empaque y asesoría enfocada en buenas prácticas pecuarias sostenibles.
             </p>
           </div>
 
-          <div className="h-72 rounded-2xl overflow-hidden relative shadow-lg">
-            <img src={catGanado} alt="Ganadería sostenible" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-aovet-dark)]/40 to-transparent"></div>
+          <div className="h-64 sm:h-80 lg:h-full min-h-[260px] sm:min-h-[340px] rounded-2xl sm:rounded-3xl overflow-hidden relative shadow-xl border border-white/15 group">
+            <img 
+              src={catGanado} 
+              alt="Ganadería sostenible AOVET" 
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
           </div>
         </div>
       </section>

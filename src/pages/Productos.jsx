@@ -9,7 +9,7 @@ import CatalogosSection from '../components/secciones/CatalogosSection';
 // Imágenes para las 3 publicidades del Slider Hero
 import heroBg from '../assets/images/hero-bg.jpg';
 import secFarmAction from '../assets/images/sec_farm_action_1785907355629.jpg';
-import nosMainVet from '../assets/images/nos_main_vet_1785908284799.jpg';
+import nosMainVet from '../assets/images/aovet_paisaje_campo.jpg';
 
 const categorias = [
   { id: 'todos', label: 'Todos' },
@@ -142,7 +142,7 @@ const Productos = () => {
                   {slidesPublicidad[currentSlide].ctaText} <ArrowRight size={18} />
                 </button>
                 <a
-                  href="https://wa.me/593999999999"
+                  href="https://wa.me/593985401224"
                   target="_blank"
                   rel="noreferrer"
                   className="bg-white/20 hover:bg-white hover:text-[var(--color-aovet-dark)] text-white font-bold py-4 px-8 rounded-full backdrop-blur-md transition-all border border-white/30"
@@ -336,7 +336,7 @@ const Productos = () => {
                 <p className="text-sm text-gray-600">Habla directamente con nuestro equipo de soporte.</p>
               </div>
             </div>
-            <BotonCTA text="Chatear ahora" href="https://wa.me/593999999999" variant="primary" />
+            <BotonCTA text="Chatear ahora" href="https://wa.me/593985401224" variant="primary" />
           </div>
         </div>
       </section>

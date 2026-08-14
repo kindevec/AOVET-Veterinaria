@@ -94,7 +94,7 @@ const ProductDetails = () => {
               </a>
             )}
             <a 
-              href={`https://wa.me/593999999999?text=Hola, quiero cotizar ${productData.nombre}`}
+              href={`https://wa.me/593985401224?text=Hola, quiero cotizar ${productData.nombre}`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gray-100 hover:bg-gray-200 text-[var(--color-aovet-dark)] font-bold py-3.5 px-6 rounded-full transition-all border border-gray-200 hover:shadow-sm"

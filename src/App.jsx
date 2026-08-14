@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import BottomNav from './components/BottomNav';
 import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
 import ScrollToTop from './components/ScrollToTop';
@@ -14,7 +15,7 @@ import ProductDetails from './components/ui/ProductDetails';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[var(--color-aovet-bg)] flex flex-col font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-[var(--color-aovet-bg)] flex flex-col font-sans overflow-x-hidden pb-16 md:pb-0">
       <ScrollToTop />
       <Navbar />
       
@@ -30,6 +31,7 @@ function App() {
       </main>
 
       <Footer />
+      <BottomNav />
       <WhatsAppFloat />
     </div>
   );
