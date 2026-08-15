@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
-import logoImg from '../assets/logo-aovet.png';
+import logoImg from '../assets/logo-aovet.webp';
 
 const navLinks = [
   { name: 'Inicio', href: '/' },
@@ -58,6 +58,9 @@ const Navbar = () => {
             <img 
               src={logoImg} 
               alt="AOVET Logo" 
+              width="180"
+              height="68"
+              decoding="async"
               className="h-[68px] w-auto transition-all duration-500 drop-shadow-[0_0_2px_rgba(255,255,255,0.8)]" 
             />
           </Link>

@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
 
 // SVG del logo oficial de WhatsApp
-const WhatsappIcon = ({ size = 32, className = "" }) => (
+const WhatsappIcon = ({ size = 26, className = "" }) => (
   <svg 
     width={size} 
     height={size} 
@@ -15,29 +17,134 @@ const WhatsappIcon = ({ size = 32, className = "" }) => (
 );
 
 const WhatsAppFloat = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isOtherVisible, setIsOtherVisible] = useState(false);
+  const location = useLocation();
   const numeroWhatsApp = "593985401224";
   const whatsappUrl = `https://wa.me/${numeroWhatsApp}`;
 
+  // Hook to detect screen width (mobile vs PC)
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 767px)');
+    const listener = () => setIsMobile(media.matches);
+    listener(); // Initial check
+    media.addEventListener('change', listener);
+    return () => media.removeEventListener('change', listener);
+  }, []);
+
+  const handleClick = (e) => {
+    // Only intercept clicks and require two-step slide-out on mobile view
+    if (isMobile && !isOpen) {
+      e.preventDefault();
+      setIsOpen(true);
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen && isMobile) {
+      const timer = setTimeout(() => {
+        setIsOpen(false);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen, isMobile]);
+
+  // Hook to observe visibility of other WhatsApp buttons on the page
+  useEffect(() => {
+    // Small timeout to allow the route elements to mount and render fully
+    const timer = setTimeout(() => {
+      const otherButtons = Array.from(
+        document.querySelectorAll(
+          'a[href*="wa.me"]:not(#whatsapp-float), a[href*="whatsapp.com"]:not(#whatsapp-float), button[id*="whatsapp"]:not(#whatsapp-float)'
+        )
+      ).filter(btn => {
+        // Exclude buttons inside cards/recommendations to avoid hiding the bubble for minor links
+        let parent = btn.parentElement;
+        while (parent) {
+          if (
+            parent.tagName !== 'HEADER' && 
+            parent.tagName !== 'FOOTER' && 
+            parent.tagName !== 'NAV'
+          ) {
+            const classes = Array.from(parent.classList);
+            const isCard = classes.some(c => 
+              c.includes('card') || 
+              c === 'shadow-lg' || 
+              c === 'shadow-md' || 
+              c === 'rounded-2xl' || 
+              c === 'rounded-3xl' ||
+              c.includes('rounded-[')
+            );
+            if (isCard) {
+              return false; // Exclude card buttons
+            }
+          }
+          parent = parent.parentElement;
+        }
+        return true; // Keep main page CTAs
+      });
+
+      if (otherButtons.length === 0) {
+        setIsOtherVisible(false);
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const isAnyVisible = entries.some((entry) => entry.isIntersecting);
+          setIsOtherVisible(isAnyVisible);
+        },
+        {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        }
+      );
+
+      otherButtons.forEach((btn) => observer.observe(btn));
+
+      return () => {
+        otherButtons.forEach((btn) => observer.unobserve(btn));
+        observer.disconnect();
+      };
+    }, 150);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
   return (
     <motion.a
+      id="whatsapp-float"
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-24 md:bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-xl hover:bg-[#20bd5a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] flex items-center justify-center"
-      animate={{
-        scale: [1, 1.1, 1],
-      }}
+      onClick={handleClick}
+      className={
+        isMobile
+          ? "fixed bottom-24 right-0 z-50 bg-[#25D366] text-white p-3 rounded-full shadow-2xl hover:bg-[#20bd5a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] flex items-center justify-center cursor-pointer border border-[#1fbd58]"
+          : "fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-xl hover:bg-[#20bd5a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] flex items-center justify-center cursor-pointer"
+      }
+      animate={
+        isOtherVisible
+          ? { scale: 0, opacity: 0 }
+          : isMobile
+            ? { x: isOpen ? -16 : 24, scale: 1, opacity: 1 }
+            : { x: 0, scale: 1, opacity: 1 }
+      }
       transition={{
-        duration: 2,
-        repeat: Infinity,
-        repeatDelay: 5,
-        ease: "easeInOut"
+        type: "spring",
+        stiffness: 260,
+        damping: 20
       }}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
+      style={{
+        pointerEvents: isOtherVisible ? 'none' : 'auto'
+      }}
+      whileHover={isOtherVisible ? {} : { scale: 1.08 }}
+      whileTap={isOtherVisible ? {} : { scale: 0.95 }}
       aria-label="Contactar por WhatsApp"
     >
-      <WhatsappIcon size={32} />
+      <WhatsappIcon size={isMobile ? 26 : 32} />
     </motion.a>
   );
 };

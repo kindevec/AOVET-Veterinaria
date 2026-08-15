@@ -7,9 +7,9 @@ import BotonCTA from '../components/ui/BotonCTA';
 import CatalogosSection from '../components/secciones/CatalogosSection';
 
 // Imágenes para las 3 publicidades del Slider Hero
-import heroBg from '../assets/images/hero-bg.jpg';
-import secFarmAction from '../assets/images/sec_farm_action_1785907355629.jpg';
-import nosMainVet from '../assets/images/aovet_paisaje_campo.jpg';
+import heroBg from '../assets/images/hero-bg.webp';
+import secFarmAction from '../assets/images/sec_farm_action_1785907355629.webp';
+import nosMainVet from '../assets/images/aovet_paisaje_campo.webp';
 
 const categorias = [
   { id: 'todos', label: 'Todos' },
@@ -92,13 +92,13 @@ const Productos = () => {
       
       {/* 1. HERO SLIDER DE PUBLICIDAD (Gran imagen de fondo + Carousel 3 promos) */}
       <section className="relative min-h-[580px] md:min-h-[640px] flex items-center justify-center bg-gray-900 overflow-hidden">
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           <motion.div
             key={currentSlide}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 0.7 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
             className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${slidesPublicidad[currentSlide].bgImage})` }}
           >

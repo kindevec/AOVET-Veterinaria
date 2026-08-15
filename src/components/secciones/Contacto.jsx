@@ -167,15 +167,6 @@ const Contacto = () => {
                 <a href="mailto:jonatanarichabala_89@hotmail.com" className="text-gray-600 hover:text-[var(--color-aovet-primary)] transition-colors text-sm break-all font-medium">jonatanarichabala_89@hotmail.com</a>
               </div>
             </div>
-            
-            <div className="mt-8">
-               <BotonCTA 
-                text="Chatear con un asesor" 
-                href="https://wa.me/593985401224"
-                variant="outline"
-                className="w-full sm:w-auto"
-              />
-            </div>
           </motion.div>
 
         </div>

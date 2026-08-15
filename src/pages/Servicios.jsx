@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
-import { Stethoscope, Truck, ShieldCheck, Headset, MapPin, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Stethoscope, Truck, ShieldCheck, Headset, MapPin, CheckCircle2, ArrowRight, MessageCircle } from 'lucide-react';
 import SeparadorGrieta from '../components/ui/SeparadorGrieta';
 import BotonCTA from '../components/ui/BotonCTA';
 
@@ -61,6 +61,22 @@ const Servicios = () => {
                 </motion.div>
               )
             })}
+          </motion.div>
+
+          {/* Botón de WhatsApp debajo de la grilla */}
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="mt-12 flex justify-center"
+          >
+            <BotonCTA 
+              text="Contactar un Asesor por WhatsApp" 
+              href="https://wa.me/593985401224" 
+              variant="secondary" 
+              icon={MessageCircle} 
+            />
           </motion.div>
         </div>
       </section>

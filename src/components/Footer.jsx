@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
-import logoImg from '../assets/logo-aovet-white.png';
+import logoImg from '../assets/logo-aovet-white.webp';
 
 const Footer = () => {
   return (
@@ -9,7 +9,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           
           <div className="flex flex-col gap-4">
-            <img src={logoImg} alt="AOVET Logo" className="h-14 md:h-16 w-auto object-contain self-start drop-shadow-md" />
+            <img 
+              src={logoImg} 
+              alt="AOVET Logo" 
+              width="160"
+              height="64"
+              loading="lazy"
+              decoding="async"
+              className="h-14 md:h-16 w-auto object-contain self-start drop-shadow-md" 
+            />
             <p className="text-gray-300 mt-2">
               Importamos confianza. Distribuimos salud animal. Tu socio estratégico en el sector agropecuario y veterinario.
             </p>
