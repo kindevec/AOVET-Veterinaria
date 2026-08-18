@@ -1,5 +1,5 @@
-import prodVitamina from '../assets/images/prod_vitamina_1785906757394.jpg';
-import secVetProducts from '../assets/images/sec_vet_products_1785907348242.jpg';
+import prodVitamina from '../assets/images/prod_vitamina_1785906757394.webp';
+import secVetProducts from '../assets/images/sec_vet_products_1785907348242.webp';
 
 export const productos = [
 
@@ -9,7 +9,7 @@ export const productos = [
     nombre: "Act Antiflam Spray",
     descripcion: "Spray antiinflamatorio para el tratamiento de la mastitis en bovinos y otros animales.",
     descripcionBreve: "Spray antiinflamatorio para el tratamiento de la mastitis.",
-    imagen: "/images/fichas/Act_Antiflam_Clean.png",
+    imagen: "/images/fichas/Act_Antiflam_Clean.webp",
     fichaTecnicaUrl: "/fichas/Act_Antiflam_Spray.pdf",
     slug: "act-antiflam",
     composicion: [
@@ -40,7 +40,7 @@ export const productos = [
     nombre: "Act Organic Choline",
     descripcion: "Aditivo zootécnico que reemplaza el cloruro de colina al 60% para el alimento balanceado.",
     descripcionBreve: "Aditivo zootécnico para Alimento balanceado que sustituye al cloruro de colina.",
-    imagen: "/images/fichas/Act_Organic_Choline_Clean.png",
+    imagen: "/images/fichas/Act_Organic_Choline_Clean.webp",
     fichaTecnicaUrl: "/fichas/Act_Organic_Choline.pdf",
     slug: "act-organic-choline",
     composicion: [
@@ -66,7 +66,7 @@ export const productos = [
     nombre: "Act Proboost Bolus",
     descripcion: "Mejora la inmunidad, repone las bacterias buenas y favorece la salud intestinal.",
     descripcionBreve: "Combinación única de probióticos, enzimas y oligoelementos con aminoácidos en bolo.",
-    imagen: "/images/fichas/Act_Proboost_Clean.png",
+    imagen: "/images/fichas/Act_Proboost_Clean.webp",
     fichaTecnicaUrl: "/fichas/Act_Proboost_Bolus.pdf",
     slug: "act-proboost-bolus",
     composicion: [
@@ -90,7 +90,7 @@ export const productos = [
     nombre: "InuSAP Liquid",
     descripcion: "Extracto de planta natural - Premezcla como promotor de crecimiento.",
     descripcionBreve: "Estimula el crecimiento de bacterias intestinales beneficiosas.",
-    imagen: "/images/fichas/Inusap_Liquid_Clean.png",
+    imagen: "/images/fichas/Inusap_Liquid_Clean.webp",
     fichaTecnicaUrl: "/fichas/Inusap_Liquid.pdf",
     slug: "inusap-liquid",
     composicion: [
@@ -116,7 +116,7 @@ export const productos = [
     nombre: "Milkmore Gold",
     descripcion: "Maximiza la producción de leche y mejora la salud del ganado.",
     descripcionBreve: "Suplemento líquido fortificado de minerales quelados, vitaminas y hierbas.",
-    imagen: "/images/fichas/Milkmore_Gold_Clean.png",
+    imagen: "/images/fichas/Milkmore_Gold_Clean.webp",
     fichaTecnicaUrl: "/fichas/Milkmore_Gold.pdf",
     slug: "milkmore-gold",
     composicion: [

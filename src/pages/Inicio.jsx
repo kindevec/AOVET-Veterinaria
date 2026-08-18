@@ -7,18 +7,18 @@ import CarruselRecomendados from '../components/ui/CarruselRecomendados';
 import { productos } from '../data/productos';
 
 // Imágenes
-import heroBg from '../assets/images/hero-bg.jpg';
-import nosotrosBg from '../assets/images/aovet_paisaje_campo.jpg';
-import catAves from '../assets/images/cat_aves_1785906732448.jpg';
-import catGanado from '../assets/images/cat_ganado_1785906742113.jpg';
-import catMascotas from '../assets/images/cat_mascotas_1785906749507.jpg';
-import prodVitamina from '../assets/images/prod_vitamina_1785906757394.jpg';
-import prodVacuna from '../assets/images/prod_vacuna_1785906764797.jpg';
+import heroBg from '../assets/images/hero-bg.webp';
+import nosotrosBg from '../assets/images/aovet_paisaje_campo.webp';
+import catAves from '../assets/images/cat_aves_1785906732448.webp';
+import catGanado from '../assets/images/cat_ganado_1785906742113.webp';
+import catMascotas from '../assets/images/cat_mascotas_1785906749507.webp';
+import prodVitamina from '../assets/images/prod_vitamina_1785906757394.webp';
+import prodVacuna from '../assets/images/prod_vacuna_1785906764797.webp';
 
-import secArchCow from '../assets/images/aovet_ganado_campo.jpg';
-import secArchVet from '../assets/images/aovet_ternero_salud.jpg';
-import secVetProducts from '../assets/images/aovet_ganado_campo.jpg';
-import secFarmAction from '../assets/images/aovet_ganado_campo.jpg';
+import secArchCow from '../assets/images/aovet_ganado_campo.webp';
+import secArchVet from '../assets/images/aovet_ternero_salud.webp';
+import secVetProducts from '../assets/images/aovet_ganado_campo.webp';
+import secFarmAction from '../assets/images/aovet_ganado_campo.webp';
 
 // Variantes de animación reutilizables
 const fadeInUp = {
@@ -65,7 +65,10 @@ const Inicio = () => {
           </div>
 
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 1.5 } } }} className="max-w-3xl text-center lg:text-left">
-            <motion.h1 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } } }} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 sm:mb-8 [text-shadow:-1.5px_-1.5px_0_#0D3D20,1.5px_-1.5px_0_#0D3D20,-1.5px_1.5px_0_#0D3D20,1.5px_1.5px_0_#0D3D20,0_10px_15px_rgba(0,0,0,0.5)]">
+            <motion.h1 
+              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } } }} 
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 sm:mb-8 antialiased hero-stroke [text-shadow:0_10px_15px_rgba(0,0,0,0.5)]"
+            >
               Importamos confianza. <br/>
               <span className="text-[#FFCC00]">Distribuimos salud animal.</span>
             </motion.h1>
@@ -95,11 +98,18 @@ const Inicio = () => {
             className="md:col-span-2 bg-[#E7ECE4] rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-8 shadow-xl border border-white/60 flex flex-col justify-between cursor-pointer group relative overflow-hidden h-full min-h-[240px] sm:min-h-[280px]"
           >
             <div className="absolute right-0 bottom-0 top-4 sm:top-2 w-[44%] sm:w-[48%] max-w-[280px] pointer-events-none z-0 flex items-end justify-end p-2 sm:p-4">
-              <img 
-                src="/aves_clean.png" 
-                alt="Salud y Nutrición Avícola AOVET" 
-                className="w-full h-auto max-h-[220px] sm:max-h-[260px] object-contain object-right-bottom group-hover:scale-105 transition-transform duration-700 drop-shadow-md" 
-              />
+              <picture className="w-full h-auto flex items-end justify-end">
+                <source srcSet="/aves_clean.avif" type="image/avif" />
+                <img 
+                  src="/aves_clean.webp" 
+                  alt="Salud y Nutrición Avícola AOVET" 
+                  width="280"
+                  height="260"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto max-h-[220px] sm:max-h-[260px] object-contain object-right-bottom group-hover:scale-105 transition-transform duration-700 drop-shadow-md" 
+                />
+              </picture>
             </div>
             <div className="flex flex-col justify-between h-full max-w-[62%] sm:max-w-sm relative z-10">
               <div>
@@ -119,7 +129,7 @@ const Inicio = () => {
                 <p className="text-xs text-gray-600 leading-tight">Act Antiflam y tratamientos especializados.</p>
               </div>
               <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-white flex-shrink-0 shadow-md group-hover:scale-105 transition-transform duration-500">
-                <img src={catGanado} alt="Ganadería" className="w-full h-full object-cover" />
+                <img src={catGanado} alt="Ganadería" width="80" height="80" loading="lazy" decoding="async" className="w-full h-full object-cover" />
               </div>
             </motion.div>
 
@@ -129,7 +139,7 @@ const Inicio = () => {
                 <p className="text-xs text-gray-600 leading-tight">Soluciones de alto rendimiento.</p>
               </div>
               <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-white flex-shrink-0 shadow-md group-hover:scale-105 transition-transform duration-500">
-                <img src={prodVacuna} alt="Porcinos" className="w-full h-full object-cover" />
+                <img src={prodVacuna} alt="Porcinos" width="80" height="80" loading="lazy" decoding="async" className="w-full h-full object-cover" />
               </div>
             </motion.div>
           </motion.div>
@@ -148,7 +158,7 @@ const Inicio = () => {
                 <p className="text-xs text-gray-300 leading-tight">Próximamente: Antipulgas, suplementos y cuidado.</p>
               </div>
               <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-white/40 shadow-lg flex-shrink-0 sm:self-center sm:my-1">
-                <img src={catMascotas} alt="Línea Pet Mascotas" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src={catMascotas} alt="Línea Pet Mascotas" width="96" height="96" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
             </div>
             <div className="hidden sm:block mt-2">
@@ -213,7 +223,7 @@ const Inicio = () => {
                 onClick={() => navigate('/productos')}
               >
                 <div className="w-20 h-20 sm:w-44 sm:h-44 lg:w-48 lg:h-48 rounded-full sm:mb-6 flex-shrink-0 flex items-center justify-center border-[3px] sm:border-[6px] border-white/20 sm:border-white/10 shadow-lg group-hover:scale-105 group-hover:border-[var(--color-aovet-accent)] transition-all overflow-hidden relative">
-                  <img src={cat.img} alt={cat.name} className="w-full h-full object-cover" />
+                  <img src={cat.img} alt={cat.name} width="192" height="192" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-bold text-white text-base sm:text-lg lg:text-xl mb-1 sm:mb-2">{cat.name}</h3>
@@ -282,13 +292,17 @@ const Inicio = () => {
             </motion.div>
             <motion.div variants={scaleIn} className="flex flex-col items-center justify-center relative">
               <div className="w-56 sm:w-64 h-72 sm:h-80 rounded-t-[7rem] sm:rounded-t-[8rem] rounded-b-3xl bg-[#C87D53] overflow-hidden p-3 shadow-xl relative flex items-end justify-center">
-                <div className="w-full h-full rounded-t-[6.5rem] sm:rounded-t-[7.5rem] rounded-b-2xl overflow-hidden bg-white"><img src={secArchCow} alt="Ganado vacuno AOVET" className="w-full h-full object-cover" /></div>
+                <div className="w-full h-full rounded-t-[6.5rem] sm:rounded-t-[7.5rem] rounded-b-2xl overflow-hidden bg-white">
+                  <img src={secArchCow} alt="Ganado vacuno AOVET" width="256" height="320" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                </div>
               </div>
               <div className="absolute -bottom-4 -right-2 md:right-8 bg-white border-2 border-[#C87D53] text-[#2C382E] text-xs font-bold w-18 h-18 sm:w-20 sm:h-20 rounded-full flex flex-col items-center justify-center text-center shadow-lg p-1 animate-pulse"><Award size={16} className="text-[#C87D53] mb-0.5 sm:mb-1" /><span className="text-[10px] sm:text-xs">100% Calidad</span></div>
             </motion.div>
             <motion.div variants={fadeInUp} className="flex flex-col items-center lg:items-start space-y-4">
               <div className="w-full max-w-xs bg-white/80 backdrop-blur-sm rounded-3xl p-4 shadow-sm border border-white flex flex-col items-center text-center">
-                <div className="w-40 sm:w-48 h-40 sm:h-48 rounded-t-[4rem] sm:rounded-t-[5rem] rounded-b-2xl overflow-hidden mb-4 bg-gray-100 shadow-inner"><img src={secArchVet} alt="Veterinaria especialista" className="w-full h-full object-cover" /></div>
+                <div className="w-40 sm:w-48 h-40 sm:h-48 rounded-t-[4rem] sm:rounded-t-[5rem] rounded-b-2xl overflow-hidden mb-4 bg-gray-100 shadow-inner">
+                  <img src={secArchVet} alt="Veterinaria especialista" width="192" height="192" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                </div>
                 <h4 className="font-bold text-[#2C382E] text-sm sm:text-base mb-1">Respaldo Técnico</h4><p className="text-xs text-gray-600 leading-relaxed px-2">Asesoría personalizada en cada dosis para maximizar la productividad en finca.</p>
               </div>
             </motion.div>
@@ -297,7 +311,18 @@ const Inicio = () => {
           {/* PARTE 2 */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center pt-4">
             <motion.div variants={fadeInUp} className="flex justify-center items-center">
-              <img src="/Insumos.png" alt="Insumos veterinarios AOVET" className="max-h-[260px] sm:max-h-[340px] w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform duration-300" />
+              <picture className="flex justify-center items-center">
+                <source srcSet="/Insumos.avif" type="image/avif" />
+                <img 
+                  src="/Insumos.webp" 
+                  alt="Insumos veterinarios AOVET" 
+                  width="340"
+                  height="340"
+                  loading="lazy"
+                  decoding="async"
+                  className="max-h-[260px] sm:max-h-[340px] w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform duration-300" 
+                />
+              </picture>
             </motion.div>
             <motion.div variants={fadeInUp} className="text-center lg:text-left flex flex-col justify-center space-y-4">
               <h3 className="text-2xl sm:text-3xl font-extrabold text-[#2C382E] font-serif leading-tight">Insumos de Clase Mundial</h3>
@@ -309,7 +334,9 @@ const Inicio = () => {
             </motion.div>
             <motion.div variants={scaleIn} className="flex justify-center">
               <div className="w-56 sm:w-60 h-64 sm:h-72 rounded-t-[6rem] sm:rounded-t-[7rem] rounded-b-3xl bg-[#AEC2AA] p-3 shadow-lg flex flex-col items-center justify-between text-center text-[#2C382E]">
-                <div className="w-full h-36 sm:h-44 rounded-t-[5.5rem] sm:rounded-t-[6.5rem] rounded-b-2xl overflow-hidden bg-white"><img src={catGanado} alt="Ganadería de precisión" className="w-full h-full object-cover" /></div>
+                <div className="w-full h-36 sm:h-44 rounded-t-[5.5rem] sm:rounded-t-[6.5rem] rounded-b-2xl overflow-hidden bg-white">
+                  <img src={catGanado} alt="Ganadería de precisión" width="240" height="176" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                </div>
                 <div className="py-2"><span className="font-bold text-xs sm:text-sm block">Ganadería de Precisión</span><span className="text-[10px] sm:text-[11px] text-gray-700">Mayor producción de leche y carne.</span></div>
               </div>
             </motion.div>
@@ -318,7 +345,7 @@ const Inicio = () => {
           {/* PARTE 3 */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch pt-4">
             <motion.div variants={fadeInUp} className="lg:col-span-2 h-[260px] sm:h-[350px] lg:h-auto rounded-none sm:rounded-3xl overflow-hidden shadow-md relative group">
-              <img src={secFarmAction} alt="Veterinario en campo Ecuador" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src={secFarmAction} alt="Veterinario en campo Ecuador" width="800" height="400" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-5 sm:p-8 text-white">
                 <span className="text-[var(--color-aovet-accent)] font-bold text-[11px] sm:text-xs uppercase tracking-widest mb-1">Acompañamiento Técnico</span>
                 <h4 className="text-xl sm:text-2xl font-bold">Asistencia Directa en Finca</h4>
@@ -367,7 +394,7 @@ const Inicio = () => {
           </motion.div>
           <div className="w-full h-[280px] sm:h-[350px] lg:h-auto lg:w-[45%] z-0">
             <div className="w-full h-full relative overflow-hidden lg:imagen-curva-referencia">
-              <img src={nosotrosBg} alt="Campo ganadero y producción agropecuaria AOVET Ecuador" className="w-full h-full object-cover" />
+              <img src={nosotrosBg} alt="Campo ganadero y producción agropecuaria AOVET Ecuador" width="600" height="450" loading="lazy" decoding="async" className="w-full h-full object-cover" />
             </div>
           </div>
         </motion.div>

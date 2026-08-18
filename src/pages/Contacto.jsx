@@ -71,7 +71,7 @@ const Contacto = () => {
                   <textarea id="mensaje" name="mensaje" value={formData.mensaje} onChange={handleChange} required rows="4" className="w-full px-4 py-3 text-sm rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-aovet-primary)] focus:border-transparent transition-all resize-none bg-gray-50/50" placeholder="¿En qué podemos asesorarte?"></textarea>
                 </div>
                 <button type="submit" className="w-full bg-[var(--color-aovet-primary)] text-white font-bold py-4 rounded-xl hover:bg-[var(--color-aovet-dark)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)] active:scale-[0.98] shadow-md flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer">
-                  <MessageCircle size={18} /> Enviar Mensaje por WhatsApp
+                  Enviar Mensaje
                 </button>
               </form>
             </motion.div>
@@ -152,8 +152,8 @@ const Contacto = () => {
                     <Phone size={20} />
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-[var(--color-aovet-dark)] mb-0.5">Llámanos / WhatsApp</h4>
-                    <a href="https://wa.me/593985401224" target="_blank" rel="noopener noreferrer" className="text-[var(--color-aovet-primary)] font-bold text-base hover:underline block">
+                    <h4 className="text-base font-bold text-[var(--color-aovet-dark)] mb-0.5">Teléfono de Contacto</h4>
+                    <a href="tel:+593985401224" className="text-[var(--color-aovet-primary)] font-bold text-base hover:underline block">
                       0985401224
                     </a>
                     <p className="text-[11px] text-gray-500">+593 98 540 1224</p>

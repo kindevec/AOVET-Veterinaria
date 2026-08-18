@@ -58,12 +58,19 @@ const ProductDetails = () => {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
           >
-            <img 
-              src={productData.imagen} 
-              alt={productData.nombre} 
-              className="w-full h-full object-contain mix-blend-multiply transition-transform duration-300 ease-out" 
-              style={zoomStyle}
-            />
+            <picture className="w-full h-full flex items-center justify-center">
+              <source srcSet={productData.imagen.replace('.webp', '.avif')} type="image/avif" />
+              <source srcSet={productData.imagen} type="image/webp" />
+              <img 
+                src={productData.imagen.replace('.webp', '.png')} 
+                alt={productData.nombre} 
+                width="400"
+                height="300"
+                decoding="async"
+                className="max-w-full max-h-full object-contain mix-blend-multiply transition-transform duration-300 ease-out" 
+                style={zoomStyle}
+              />
+            </picture>
           </div>
           <div className="absolute top-6 right-6 pointer-events-none bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)] font-bold px-4 py-1 rounded-full text-sm uppercase shadow-sm">
             {productData.categoria}

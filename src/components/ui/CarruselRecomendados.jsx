@@ -137,12 +137,19 @@ const CarruselRecomendados = () => {
 
                 {/* Imagen Central del Producto Directa y Limpia */}
                 <div className="relative z-10 flex-grow flex items-center justify-center my-2 sm:my-3 py-1">
-                  <img 
-                    src={prod.imagen} 
-                    alt={prod.nombre} 
-                    className="h-36 sm:h-48 md:h-52 w-auto max-w-full object-contain mix-blend-multiply drop-shadow-xl group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
+                  <picture className="flex items-center justify-center">
+                    <source srcSet={prod.imagen.replace('.webp', '.avif')} type="image/avif" />
+                    <source srcSet={prod.imagen} type="image/webp" />
+                    <img 
+                      src={prod.imagen.replace('.webp', '.png')} 
+                      alt={prod.nombre} 
+                      width="200"
+                      height="200"
+                      loading="lazy"
+                      decoding="async"
+                      className="h-36 sm:h-48 md:h-52 w-auto max-w-full object-contain mix-blend-multiply drop-shadow-xl group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </picture>
                 </div>
 
                 {/* Información y Títulos */}

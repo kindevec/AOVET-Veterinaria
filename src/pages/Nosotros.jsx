@@ -3,12 +3,12 @@ import { Users, Leaf, ShieldCheck, Milestone, Award, CheckCircle2, HeartHandshak
 import SeparadorGrieta from '../components/ui/SeparadorGrieta';
 
 // Imágenes
-import nosMainVet from '../assets/images/aovet_paisaje_campo.jpg';
-import nosTeamDir from '../assets/images/aovet_paisaje_campo.jpg';
-import nosTeamTech from '../assets/images/aovet_ternero_salud.jpg';
-import nosotrosBg from '../assets/images/aovet_ganado_campo.jpg';
-import secFarmAction from '../assets/images/aovet_ganado_campo.jpg';
-import catGanado from '../assets/images/aovet_ganado_campo.jpg';
+import nosMainVet from '../assets/images/nos_main_vet_1785908284799.webp';
+import nosTeamDir from '../assets/images/nos_team_dir_1785908292981.webp';
+import nosTeamTech from '../assets/images/aovet_ternero_salud.webp';
+import nosotrosBg from '../assets/images/nosotros-bg.webp';
+import secFarmAction from '../assets/images/sec_farm_action_1785907355629.webp';
+import catGanado from '../assets/images/aovet_ganado_campo.webp';
 
 const valores = [
   "Calidad certificada",
@@ -65,6 +65,9 @@ const Nosotros = () => {
               <img 
                 src={nosMainVet} 
                 alt="Instalaciones y centro de distribución AOVET" 
+                width="600"
+                height="480"
+                decoding="async"
                 className="w-full h-full object-cover" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-aovet-dark)]/70 via-transparent to-transparent"></div>
@@ -107,7 +110,7 @@ const Nosotros = () => {
               className="bg-[#E7ECE4] rounded-[2.5rem] overflow-hidden shadow-md border border-gray-100 flex flex-col justify-between"
             >
               <div className="h-56 relative overflow-hidden">
-                <img src={secFarmAction} alt="Misión AOVET en campo" className="w-full h-full object-cover" />
+                <img src={secFarmAction} alt="Misión AOVET en campo" width="560" height="224" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#E7ECE4] via-transparent to-transparent"></div>
                 <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[var(--color-aovet-primary)] font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider">
                   Misión
@@ -130,7 +133,7 @@ const Nosotros = () => {
               className="bg-[var(--color-aovet-dark)] text-white rounded-[2.5rem] overflow-hidden shadow-xl flex flex-col justify-between"
             >
               <div className="h-56 relative overflow-hidden">
-                <img src={nosotrosBg} alt="Visión AOVET logística" className="w-full h-full object-cover" />
+                <img src={nosotrosBg} alt="Visión AOVET logística" width="560" height="224" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-aovet-dark)] via-transparent to-transparent"></div>
                 <div className="absolute top-4 left-4 bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)] font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider">
                   Visión
@@ -207,7 +210,7 @@ const Nosotros = () => {
                 className="bg-[var(--color-aovet-bg)] rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col"
               >
                 <div className="h-64 w-full overflow-hidden relative">
-                  <img src={team.img} alt={team.role} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={team.img} alt={team.role} width="360" height="256" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-aovet-dark)]/60 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 text-white font-bold text-lg">
                     {team.role}
@@ -244,6 +247,10 @@ const Nosotros = () => {
             <img 
               src={catGanado} 
               alt="Ganadería sostenible AOVET" 
+              width="600"
+              height="400"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
