@@ -42,6 +42,7 @@
   --font-heading: "Bricolage Grotesque", sans-serif;
   --font-body: "Instrument Sans", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
+  --font-display: "Unbounded", "Syne", "Outfit", sans-serif;
 }
 
 @layer base {
