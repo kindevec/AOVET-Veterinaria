@@ -89,7 +89,7 @@ const ProductDetails = () => {
           <p className="text-xl text-gray-600 mb-8 leading-relaxed text-justify">{productData.descripcionBreve || productData.descripcion}</p>
           
           <div className="flex flex-wrap gap-4 mb-10">
-            {productData.fichaTecnicaUrl ? (
+            {productData.fichaTecnicaUrl && (
               <a 
                 href={productData.fichaTecnicaUrl}
                 target="_blank"
@@ -99,21 +99,12 @@ const ProductDetails = () => {
                 <Download size={20} />
                 <span>Descargar Ficha Técnica</span>
               </a>
-            ) : (
-              <button 
-                onClick={() => alert("La ficha técnica de este producto estará disponible para descarga próximamente.")}
-                className="bg-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-dark)] text-white font-bold py-3.5 px-6 rounded-full transition-all flex items-center gap-2 shadow-md hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
-                title="Descargar Ficha Técnica"
-              >
-                <Download size={20} />
-                <span>Descargar Ficha Técnica</span>
-              </button>
             )}
             <a 
               href={`https://wa.me/593985401224?text=Hola, quiero cotizar ${productData.nombre}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gray-100 hover:bg-gray-200 text-[var(--color-aovet-dark)] font-bold py-3.5 px-6 rounded-full transition-all border border-gray-200 hover:shadow-sm"
+              className={productData.fichaTecnicaUrl ? "bg-gray-100 hover:bg-gray-200 text-[var(--color-aovet-dark)] font-bold py-3.5 px-6 rounded-full transition-all border border-gray-200 hover:shadow-sm" : "bg-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-dark)] text-white font-bold py-3.5 px-6 rounded-full transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"}
             >
               Solicitar Cotización
             </a>
