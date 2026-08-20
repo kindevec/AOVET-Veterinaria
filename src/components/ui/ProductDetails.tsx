@@ -128,8 +128,9 @@ const ProductDetails = () => {
                 </h3>
                 <ul className="space-y-3">
                   {productData.beneficios.map((ben, idx) => (
-                    <li key={idx} className="text-gray-700 flex items-start gap-3 leading-relaxed">
-                      <span className="text-[var(--color-aovet-accent)] mt-1">•</span> {ben}
+                    <li key={idx} className="text-gray-700 flex items-start gap-3 leading-relaxed text-justify">
+                      <span className="text-[var(--color-aovet-accent)] mt-1 flex-shrink-0">•</span> 
+                      <span className="text-justify">{ben}</span>
                     </li>
                   ))}
                 </ul>
@@ -144,9 +145,9 @@ const ProductDetails = () => {
                   </h3>
                   <ul className="text-sm text-gray-700 space-y-2">
                     {productData.composicion.map((comp, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
+                      <li key={idx} className="flex items-start gap-2 text-justify">
                         <div className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-1.5 flex-shrink-0"></div>
-                        <span>{comp}</span>
+                        <span className="text-justify">{comp}</span>
                       </li>
                     ))}
                   </ul>
@@ -170,8 +171,9 @@ const ProductDetails = () => {
                 </h3>
                 <ul className="text-sm text-orange-700 space-y-2">
                   {productData.advertencias.map((adv, idx) => (
-                    <li key={idx} className="flex items-center gap-2">
-                      <span className="font-bold">-</span> {adv}
+                    <li key={idx} className="flex items-start gap-2 text-justify">
+                      <span className="font-bold flex-shrink-0">-</span> 
+                      <span className="text-justify">{adv}</span>
                     </li>
                   ))}
                 </ul>
