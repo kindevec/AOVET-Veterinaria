@@ -230,7 +230,7 @@ const Inicio = () => {
               <motion.h2 variants={fadeInUp} className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-aovet-accent)] uppercase tracking-wide mb-4 sm:mb-6">
                 SOLUCIONES <br className="hidden sm:inline" /> ESPECIALIZADAS
               </motion.h2>
-              <motion.p variants={fadeInUp} className="text-gray-300 text-sm sm:text-base md:text-lg font-medium mb-6 sm:mb-10 max-w-sm mx-auto lg:mx-0">
+              <motion.p variants={fadeInUp} className="text-gray-300 text-sm sm:text-base md:text-lg font-medium mb-6 sm:mb-10 max-w-sm mx-auto lg:mx-0 text-justify">
                 Líneas de productos veterinarios diseñadas para satisfacer los más altos estándares de cada sector productivo.
               </motion.p>
             </div>
@@ -413,7 +413,7 @@ const Inicio = () => {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="w-full lg:w-[55%] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col justify-between z-10">
             <div className="mb-8 sm:mb-12">
               <motion.h2 variants={fadeInUp} className="text-2xl sm:text-3xl md:text-4xl text-[var(--color-aovet-dark)] font-serif italic mb-4 sm:mb-6">Por qué elegir AOVET</motion.h2>
-              <motion.p variants={fadeInUp} className="text-gray-700 text-sm sm:text-base md:text-lg font-medium max-w-md leading-relaxed">Elegir nuestra empresa significa contar con un aliado comprometido con la salud animal, la calidad y el crecimiento de nuestros clientes.</motion.p>
+              <motion.p variants={fadeInUp} className="text-gray-700 text-sm sm:text-base md:text-lg font-medium max-w-md leading-relaxed text-justify">Elegir nuestra empresa significa contar con un aliado comprometido con la salud animal, la calidad y el crecimiento de nuestros clientes.</motion.p>
             </div>
             <motion.button variants={fadeInUp} onClick={() => navigate('/nosotros')} className="w-full sm:w-auto self-center sm:self-start bg-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-dark)] text-white font-bold py-3.5 px-8 rounded-full transition-all flex items-center justify-center gap-2 mb-8 sm:mb-12 shadow-sm cursor-pointer text-sm sm:text-base active:scale-95">
               NUESTRA HISTORIA
