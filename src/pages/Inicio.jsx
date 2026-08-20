@@ -90,7 +90,7 @@ const Inicio = () => {
               }}
               whileHover={{ scale: 1.02 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.18] tracking-wide mb-6 sm:mb-8 antialiased hero-stroke [text-shadow:0_6px_16px_rgba(0,0,0,0.7),0_12px_30px_rgba(13,61,32,0.45)] cursor-default select-none slogan-animated"
-              style={{ fontFamily: "'Coconut Island', cursive, sans-serif" }}
+              style={{ fontFamily: "'Koala Station', cursive, sans-serif" }}
             >
               <motion.span 
                 className="inline-block"
