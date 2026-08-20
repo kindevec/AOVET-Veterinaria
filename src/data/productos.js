@@ -232,10 +232,14 @@ export const productos = [
     fichaTecnicaUrl: "/fichas/Amarillo_Natural.pdf",
     slug: "amarillo-natural",
     composicion: [
-      "Extracto de marigold: 35% (Xantofila al 4%)",
-      "Dióxido de sílice: 25%",
-      "Carbonato de calcio: 39.8%",
-      "BHT: 0.2% (Antioxidante)"
+      "Extracto de Marigold saponificado: 35.0% (Tagetes erecta)",
+      "Xantofila activa libre: 40 g/kg (4.0% mín.)",
+      "Zeaxantina y Luteína trans: Carotenoides de alta asimilación",
+      "Carbonato de Calcio (soporte mineral): 39.8%",
+      "Dióxido de Silicio (antiaglomerante): 25.0%",
+      "Antioxidante BHT estabilizador: 0.2%",
+      "Humedad máxima: 8.0%",
+      "Tamaño de partícula: 100% pasante por malla 40"
     ],
     beneficios: [
       "Mejora el tono amarillento y dorado de la yema de huevo y carne de aves.",
@@ -299,10 +303,14 @@ export const productos = [
     fichaTecnicaUrl: null,
     slug: "nucleo-pollos-broiler",
     composicion: [
-      "Vitaminas y microminerales esenciales",
-      "Aminoácidos sintéticos de alta biodisponibilidad",
-      "Fuentes de fósforo y calcio",
-      "Aditivos promotores de salud intestinal"
+      "Vitaminas esenciales: A, D3, E, K3, Complejo B, Biotina y Ácido Fólico",
+      "Microminerales quelados: Zinc, Manganeso, Cobre, Hierro, Yodo y Selenio",
+      "Aminoácidos sintéticos: L-Lisina HCl, DL-Metionina y L-Treonina",
+      "Macroelementos minerales: Fósforo disponible, Calcio y Sodio",
+      "Complejo multienzimático: Fitasa bacteriana, Xilanasa y Glucanasa",
+      "Salud intestinal: Probióticos seleccionados, prebióticos (MOS) y aceites esenciales",
+      "Inmunomoduladores: Antioxidantes biológicos y protectores hepáticos",
+      "Secuestrante de micotoxinas: Pared de levadura y aluminosilicatos purificados"
     ],
     beneficios: [
       "Óptimo Desarrollo: Favorece crecimiento uniforme y eficiente.",
