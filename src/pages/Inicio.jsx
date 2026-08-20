@@ -64,62 +64,13 @@ const Inicio = () => {
             </motion.svg>
           </div>
 
-          <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 1.2 } } }} className="max-w-3xl text-center lg:text-left">
-            <motion.div 
-              initial={{ opacity: 0, y: -12, scale: 0.9 }} 
-              animate={{ opacity: 1, y: 0, scale: 1 }} 
-              transition={{ duration: 0.8, delay: 0.1, type: "spring" }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/40 text-white text-xs sm:text-sm font-bold shadow-lg mb-4 cursor-default transition-all"
-            >
-              <Sparkles size={15} className="text-[#2EE59D] animate-pulse" />
-              <span>Nutrición & Salud Veterinaria de Precisión</span>
-              <Sparkles size={15} className="text-[#2EE59D] animate-pulse" />
-            </motion.div>
-
+          <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 1.5 } } }} className="max-w-3xl text-center lg:text-left">
             <motion.h1 
-              variants={{ 
-                hidden: { opacity: 0, y: 40, scale: 0.94 }, 
-                visible: { 
-                  opacity: 1, 
-                  y: 0, 
-                  scale: 1, 
-                  transition: { 
-                    type: "spring", 
-                    stiffness: 110, 
-                    damping: 12, 
-                    duration: 0.9 
-                  } 
-                } 
-              }} 
-              animate={{
-                y: [0, -6, 0],
-                transition: {
-                  repeat: Infinity,
-                  duration: 5,
-                  ease: "easeInOut"
-                }
-              }}
-              whileHover={{ scale: 1.025 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.18] tracking-wide mb-6 sm:mb-8 antialiased hero-stroke [text-shadow:0_6px_16px_rgba(0,0,0,0.7),0_12px_30px_rgba(13,61,32,0.6)] cursor-default select-none slogan-animated"
-              style={{ fontFamily: "'Koala Station', cursive, sans-serif" }}
+              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } } }} 
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 sm:mb-8 antialiased hero-stroke [text-shadow:0_10px_15px_rgba(0,0,0,0.5)]"
             >
-              <motion.span 
-                className="inline-block"
-                initial={{ opacity: 0, x: -25 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, type: "spring", stiffness: 100 }}
-              >
-                Importamos confianza.
-              </motion.span> 
-              <br/>
-              <motion.span 
-                className="text-[#2EE59D] inline-block drop-shadow-[0_0_25px_rgba(46,229,157,0.7)]"
-                initial={{ opacity: 0, x: 25, scale: 0.95 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.4, type: "spring", stiffness: 100 }}
-              >
-                Distribuimos salud animal.
-              </motion.span>
+              Importamos confianza. <br/>
+              <span className="text-[#FFCC00]">Distribuimos salud animal.</span>
             </motion.h1>
             
             <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", damping: 12, stiffness: 100 } } }} className="grid grid-cols-2 sm:flex sm:flex-row gap-2.5 sm:gap-4 justify-center lg:justify-start w-full sm:w-auto max-w-sm sm:max-w-none mx-auto lg:mx-0">
