@@ -239,7 +239,7 @@ const Inicio = () => {
       </section>
 
       {/* SECCIÓN 3: PRODUCTOS RECOMENDADOS (CARRUSEL 3D COVERFLOW) */}
-      <section className="py-6 sm:py-12 px-0 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+      <section className="py-6 sm:py-12 px-2 sm:px-6 lg:px-8 max-w-[1400px] mx-auto overflow-hidden sm:overflow-visible">
         <motion.div 
           initial={{ opacity: 0, width: "0%" }} whileInView={{ opacity: 1, width: "100%" }} transition={{ duration: 1 }} viewport={{ once: true }}
           className="flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8 px-4 sm:px-0"
