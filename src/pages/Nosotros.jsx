@@ -132,10 +132,7 @@ const Nosotros = () => {
                   <div className="w-14 h-14 rounded-2xl bg-[var(--color-aovet-primary)] text-white flex items-center justify-center shadow-lg shadow-[var(--color-aovet-primary)]/25 group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
                     <Target size={28} />
                   </div>
-                  <div>
-                    <span className="text-[var(--color-aovet-primary)] text-xs font-black uppercase tracking-wider block">Propósito Central</span>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-aovet-dark)] font-serif">Misión</h3>
-                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-aovet-dark)] font-serif">Misión</h3>
                 </div>
 
                 {/* Texto Justificado */}
@@ -180,10 +177,7 @@ const Nosotros = () => {
                   <div className="w-14 h-14 rounded-2xl bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)] flex items-center justify-center shadow-lg shadow-[var(--color-aovet-accent)]/25 group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
                     <Compass size={28} />
                   </div>
-                  <div>
-                    <span className="text-[var(--color-aovet-accent)] text-xs font-black uppercase tracking-wider block">Futuro & Metas</span>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-serif">Visión</h3>
-                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-serif">Visión</h3>
                 </div>
 
                 {/* Texto Justificado */}
