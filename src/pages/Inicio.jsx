@@ -67,7 +67,7 @@ const Inicio = () => {
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 1.5 } } }} className="max-w-3xl text-center lg:text-left">
             <motion.h1 
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } } }} 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.08] tracking-tight mb-6 sm:mb-8 antialiased hero-stroke [text-shadow:0_10px_15px_rgba(0,0,0,0.5)] font-['Unbounded',sans-serif]"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight mb-6 sm:mb-8 antialiased hero-stroke [text-shadow:0_10px_15px_rgba(0,0,0,0.5)] font-['Kanit',sans-serif]"
             >
               Importamos confianza. <br/>
               <span className="text-[#FFCC00]">Distribuimos salud animal.</span>
