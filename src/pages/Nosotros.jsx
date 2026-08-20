@@ -228,14 +228,14 @@ const Nosotros = () => {
                 whileInView={{ opacity: 1, y: 0 }} 
                 viewport={{ once: true }} 
                 transition={{ delay: idx * 0.1 }} 
-                className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between relative group hover:shadow-md transition-shadow"
+                className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between items-center text-center relative group hover:shadow-md transition-shadow"
               >
-                <div className="w-14 h-14 bg-[var(--color-aovet-primary)] text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-sm">
+                <div className="w-14 h-14 bg-[var(--color-aovet-primary)] text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-sm mx-auto group-hover:scale-105 transition-transform">
                   {hito.year}
                 </div>
-                <div>
-                  <h3 className="font-bold text-[var(--color-aovet-dark)] text-lg mb-2">{hito.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{hito.text}</p>
+                <div className="text-center w-full">
+                  <h3 className="font-bold text-[var(--color-aovet-dark)] text-lg mb-2 text-center">{hito.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed text-center">{hito.text}</p>
                 </div>
               </motion.div>
             ))}
