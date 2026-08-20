@@ -38,10 +38,10 @@ const Nosotros = () => {
               <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--color-aovet-dark)] font-serif mb-6 leading-tight">
                 Comprometidos con la salud y productividad animal
               </h1>
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              <p className="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
                 En <strong className="text-[var(--color-aovet-primary)]">AOVET</strong> nos especializamos en la importación y distribución de productos veterinarios, seleccionando cuidadosamente productos de fabricantes confiables que cumplan con altos estándares de calidad y seguridad.
               </p>
-              <p className="text-base text-gray-600 leading-relaxed mb-8">
+              <p className="text-base text-gray-600 leading-relaxed mb-8 text-justify">
                 Nuestro compromiso no se limita a entregar un producto. Buscamos brindar asesoría técnica, atención personalizada y soluciones adaptadas a las necesidades de cada cliente, contribuyendo a mejorar el rendimiento, bienestar y productividad de los animales.
               </p>
               
