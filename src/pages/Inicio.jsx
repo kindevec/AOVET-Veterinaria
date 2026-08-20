@@ -66,11 +66,49 @@ const Inicio = () => {
 
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 1.5 } } }} className="max-w-3xl text-center lg:text-left">
             <motion.h1 
-              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } } }} 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 sm:mb-8 antialiased hero-stroke [text-shadow:0_10px_15px_rgba(0,0,0,0.5)]"
+              variants={{ 
+                hidden: { opacity: 0, y: 35, scale: 0.95 }, 
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1, 
+                  transition: { 
+                    type: "spring", 
+                    stiffness: 110, 
+                    damping: 12, 
+                    duration: 0.8 
+                  } 
+                } 
+              }} 
+              animate={{
+                y: [0, -6, 0],
+                transition: {
+                  repeat: Infinity,
+                  duration: 4.5,
+                  ease: "easeInOut"
+                }
+              }}
+              whileHover={{ scale: 1.02 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.18] tracking-wide mb-6 sm:mb-8 antialiased hero-stroke [text-shadow:0_6px_16px_rgba(0,0,0,0.7),0_12px_28px_rgba(13,61,32,0.6)] cursor-default select-none"
+              style={{ fontFamily: "'Koala Station', cursive, sans-serif" }}
             >
-              Importamos confianza. <br/>
-              <span className="text-[#FFCC00]">Distribuimos salud animal.</span>
+              <motion.span 
+                className="inline-block"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, delay: 0.15 }}
+              >
+                Importamos confianza.
+              </motion.span> 
+              <br/>
+              <motion.span 
+                className="text-[#2EE59D] inline-block drop-shadow-[0_0_20px_rgba(46,229,157,0.75)]"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, delay: 0.35 }}
+              >
+                Distribuimos salud animal.
+              </motion.span>
             </motion.h1>
             
             <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", damping: 12, stiffness: 100 } } }} className="grid grid-cols-2 sm:flex sm:flex-row gap-2.5 sm:gap-4 justify-center lg:justify-start w-full sm:w-auto max-w-sm sm:max-w-none mx-auto lg:mx-0">
