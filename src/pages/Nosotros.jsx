@@ -266,15 +266,15 @@ const Nosotros = () => {
               >
                 <div className="h-64 sm:h-72 w-full overflow-hidden relative">
                   <img src={team.img} alt={team.role} width="360" height="288" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-aovet-dark)]/60 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 text-white font-bold text-lg sm:text-xl">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-aovet-dark)]/70 via-transparent to-transparent"></div>
+                  <div className="absolute bottom-4 left-0 right-0 text-center text-white font-bold text-lg sm:text-xl px-4">
                     {team.role}
                   </div>
                 </div>
-                <div className="p-6 sm:p-8 flex-grow flex flex-col justify-between">
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">{team.desc}</p>
-                  <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[var(--color-aovet-primary)]">
-                    <CheckCircle2 size={16} /> Equipo Calificado AOVET
+                <div className="p-6 sm:p-8 flex-grow flex flex-col justify-between items-center text-center">
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4 text-center">{team.desc}</p>
+                  <div className="flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-[var(--color-aovet-primary)]">
+                    <CheckCircle2 size={16} /> <span>Equipo Calificado AOVET</span>
                   </div>
                 </div>
               </motion.div>
