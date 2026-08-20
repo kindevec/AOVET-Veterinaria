@@ -230,7 +230,7 @@ const Inicio = () => {
               <motion.h2 variants={fadeInUp} className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-aovet-accent)] uppercase tracking-wide mb-4 sm:mb-6">
                 SOLUCIONES <br className="hidden sm:inline" /> ESPECIALIZADAS
               </motion.h2>
-              <motion.p variants={fadeInUp} className="text-gray-300 text-sm sm:text-base md:text-lg font-medium mb-6 sm:mb-10 max-w-sm mx-auto lg:mx-0 text-justify">
+              <motion.p variants={fadeInUp} className="text-gray-300 text-sm sm:text-base md:text-lg font-medium mb-6 sm:mb-10 max-w-sm mx-auto lg:mx-0 text-left">
                 Líneas de productos veterinarios diseñadas para satisfacer los más altos estándares de cada sector productivo.
               </motion.p>
             </div>
