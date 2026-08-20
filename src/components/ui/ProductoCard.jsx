@@ -34,9 +34,9 @@ const ProductoCard = ({ producto }) => {
         </div>
       </div>
       
-      <div className="p-6 flex flex-col flex-grow">
+      <div className="p-6 flex flex-col flex-grow text-center">
         <h3 className="text-xl font-bold mb-2 text-[var(--color-aovet-dark)] text-center">{producto.nombre}</h3>
-        <p className="text-gray-600 mb-6 flex-grow text-justify">{producto.descripcion}</p>
+        <p className="text-gray-600 mb-6 flex-grow text-center">{producto.descripcion}</p>
         
         <div className="mt-auto flex flex-col gap-2 w-full">
           {producto.slug && (
