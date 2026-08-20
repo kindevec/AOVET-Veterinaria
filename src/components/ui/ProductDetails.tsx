@@ -128,9 +128,9 @@ const ProductDetails = () => {
                 </h3>
                 <ul className="space-y-3">
                   {productData.beneficios.map((ben, idx) => (
-                    <li key={idx} className="text-gray-700 flex items-start gap-3 leading-relaxed text-justify">
+                    <li key={idx} className="text-gray-700 flex items-start gap-3 leading-relaxed text-left">
                       <span className="text-[var(--color-aovet-accent)] mt-1 flex-shrink-0">•</span> 
-                      <span className="text-justify">{ben}</span>
+                      <span className="text-left leading-relaxed">{ben}</span>
                     </li>
                   ))}
                 </ul>
@@ -145,9 +145,9 @@ const ProductDetails = () => {
                   </h3>
                   <ul className="text-sm text-gray-700 space-y-2">
                     {productData.composicion.map((comp, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-justify">
+                      <li key={idx} className="flex items-start gap-2 text-left">
                         <div className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-1.5 flex-shrink-0"></div>
-                        <span className="text-justify">{comp}</span>
+                        <span className="text-left leading-normal">{comp}</span>
                       </li>
                     ))}
                   </ul>
@@ -160,16 +160,16 @@ const ProductDetails = () => {
                     <Info size={20} className="text-[var(--color-aovet-primary)]"/> Dosificación
                   </h3>
                   {Array.isArray(productData.dosificacion) ? (
-                    <ul className="text-sm text-gray-700 space-y-2">
+                    <ul className="text-sm text-gray-700 space-y-2.5">
                       {productData.dosificacion.map((dosis, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-justify">
+                        <li key={idx} className="flex items-start gap-2.5 text-left">
                           <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-aovet-primary)] mt-1.5 flex-shrink-0"></div>
-                          <span className="text-justify">{dosis}</span>
+                          <span className="text-left leading-relaxed">{dosis}</span>
                         </li>
                       ))}
                     </ul>
                   ) : (
-                    <p className="text-sm text-gray-700 leading-relaxed text-justify">{productData.dosificacion}</p>
+                    <p className="text-sm text-gray-700 leading-relaxed text-left">{productData.dosificacion}</p>
                   )}
                 </div>
               )}
@@ -182,9 +182,9 @@ const ProductDetails = () => {
                 </h3>
                 <ul className="text-sm text-orange-700 space-y-2">
                   {productData.advertencias.map((adv, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-justify">
+                    <li key={idx} className="flex items-start gap-2 text-left">
                       <span className="font-bold flex-shrink-0">-</span> 
-                      <span className="text-justify">{adv}</span>
+                      <span className="text-left leading-normal">{adv}</span>
                     </li>
                   ))}
                 </ul>
