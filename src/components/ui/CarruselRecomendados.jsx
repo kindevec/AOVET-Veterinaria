@@ -67,7 +67,7 @@ const CarruselRecomendados = () => {
     >
       {/* Contenedor del Carrusel 3D Cards */}
       <div 
-        className="relative w-full h-[460px] sm:h-[480px] md:h-[500px] overflow-hidden flex items-center justify-center touch-pan-y"
+        className="relative w-full h-[470px] sm:h-[490px] md:h-[510px] overflow-hidden flex items-center justify-center touch-pan-y"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -85,14 +85,14 @@ const CarruselRecomendados = () => {
             opacity = 1;
           } else if (idx === (currentSlide - 1 + len) % len) {
             position = 'left';
-            transform = 'translateX(-62%) scale(0.85)';
+            transform = 'translateX(-92%) scale(0.86)';
             zIndex = 10;
-            opacity = 0.55;
+            opacity = 0.85;
           } else if (idx === (currentSlide + 1) % len) {
             position = 'right';
-            transform = 'translateX(62%) scale(0.85)';
+            transform = 'translateX(92%) scale(0.86)';
             zIndex = 10;
-            opacity = 0.55;
+            opacity = 0.85;
           } else {
             transform = 'translateX(0) scale(0.4)';
             opacity = 0;
@@ -103,7 +103,7 @@ const CarruselRecomendados = () => {
           return (
             <div
               key={prod.slug || idx}
-              className="absolute w-[86vw] max-w-[340px] sm:max-w-[420px] md:max-w-[480px] h-[92%] transition-all duration-700 ease-out cursor-pointer group"
+              className="absolute w-[82vw] max-w-[320px] sm:max-w-[350px] md:max-w-[370px] lg:max-w-[390px] h-[92%] transition-all duration-700 ease-out cursor-pointer group"
               style={{ transform, zIndex, opacity }}
               onClick={() => {
                 if (position === 'left') prevSlide();
@@ -113,10 +113,10 @@ const CarruselRecomendados = () => {
             >
               {/* Tarjeta del Producto Estilo Tuntun & AOVET */}
               <div 
-                className={`relative w-full h-full rounded-3xl sm:rounded-[2.5rem] bg-white p-5 sm:p-8 flex flex-col justify-between transition-all duration-700 overflow-hidden border ${
+                className={`relative w-full h-full rounded-3xl sm:rounded-[2.5rem] bg-white p-5 sm:p-7 flex flex-col justify-between transition-all duration-700 overflow-hidden border ${
                   isCenter 
                     ? 'border-[var(--color-aovet-primary)] shadow-[0_20px_50px_rgba(13,61,32,0.18)] ring-2 ring-[var(--color-aovet-accent)]/50' 
-                    : 'border-gray-200 shadow-md hover:border-[var(--color-aovet-primary)]/40 hover:shadow-xl'
+                    : 'border-gray-200 shadow-lg hover:border-[var(--color-aovet-primary)]/40 hover:shadow-xl'
                 }`}
               >
                 {/* Elementos de Fondo Suave */}
@@ -188,10 +188,10 @@ const CarruselRecomendados = () => {
                   </a>
                 </div>
 
-                {/* Capa de oscurecimiento suave para tarjetas laterales */}
+                {/* Capa de oscurecimiento muy suave para tarjetas laterales */}
                 <div 
                   className={`absolute inset-0 pointer-events-none transition-opacity duration-700 z-20 rounded-3xl sm:rounded-[2.5rem] ${
-                    isCenter ? 'opacity-0' : 'opacity-40 bg-[#112217]/25 backdrop-blur-[1px]'
+                    isCenter ? 'opacity-0' : 'opacity-20 bg-black/10'
                   }`}
                 ></div>
               </div>

@@ -142,5 +142,158 @@ export const productos = [
       "Solo para uso veterinario.",
       "Al ser un extracto natural no tiene efectos tóxicos."
     ]
+  },
+  {
+    id: 10,
+    categoria: "ganaderia",
+    nombre: "Recarevet Bolus",
+    descripcion: "Oligoelementos y probióticos para el cuidado reproductivo y fertilidad en rumiantes.",
+    descripcionBreve: "Cuidado reproductivo y fertilidad en rumiantes.",
+    imagen: "/images/fichas/Recare_Vet_Bolus_Clean.webp",
+    fichaTecnicaUrl: "/fichas/Recarevet_Bolus.pdf",
+    slug: "recarevet-bolus",
+    composicion: [
+      "Cobalto: 0.056 gm",
+      "Cobre: 0.700 gm",
+      "Hierro: 1.40 gm",
+      "Yodo: 0.14 gm",
+      "Manganeso: 0.56 gm",
+      "Zinc: 0.28 gm",
+      "Selenio: 0.004 gm",
+      "Lactobacillus acidophilus: 5000 mil. Cfu",
+      "Lactobacillus casei: 4000 mil. Cfu",
+      "Lactobacillus reuteri: 5000 mil. Cfu"
+    ],
+    beneficios: [
+      "Ayuda a fortalecer las funciones reproductivas y a corregir trastornos como el anoestro y celo silencioso.",
+      "Previene problemas durante el parto como distocia y retención de placenta.",
+      "Regulariza el ciclo reproductivo y aumenta la tasa de concepción.",
+      "Trata y previene deficiencias de minerales en el rebaño."
+    ],
+    dosificacion: "Ganado y Búfalo: 1 - 2 bolos por animal al día durante 8 a 10 días. Ovejas y cabras: ½ – 1 bolo al día durante 8 a 10 días.",
+    advertencias: [
+      "Suplemento alimenticio para animales. No apto para uso humano ni medicinal.",
+      "Exclusivamente para uso veterinario.",
+      "Especies diana: Ganado como vacas, búfalos, cabras y ovejas.",
+      "Duración: 24 meses a partir de la fecha de fabricación."
+    ]
+  },
+  {
+    id: 11,
+    categoria: "ganaderia",
+    nombre: "Mixicalf 21/16",
+    descripcion: "Sustituto lácteo soluble de alta digestibilidad para crianza y desarrollo de terneros.",
+    descripcionBreve: "Sustituto lácteo soluble para la crianza de terneros.",
+    imagen: "/images/fichas/Mixicalf_Clean.webp",
+    fichaTecnicaUrl: "/fichas/Mixicalf_21_16.pdf",
+    slug: "mixicalf",
+    composicion: [
+      "Proteínas: 21,00%",
+      "Grasas: 16,00%",
+      "Lactosa: 30,00%",
+      "Fibra: 1,50%",
+      "Calcio: 0,66% | Fósforo: 0,55%",
+      "Minerales: 9,00%",
+      "Vitamina A: 25 000 UI | Vitamina D3: 5 000 UI",
+      "Vitamina C: 50 mg | Vitamina E: 30 mg",
+      "Vitaminas B1: 15 mg, B2: 6 mg, B6: 1 mg, K3: 2,5 mg",
+      "Cobre: 10 mg"
+    ],
+    beneficios: [
+      "Polvo fino blanco cremoso con agradable sabor a leche de vainilla.",
+      "Fórmula altamente soluble y fácil de mezclar en baldes.",
+      "Combina 40% de productos lácteos y proteínas vegetales seleccionadas.",
+      "Enriquecido con materias grasas vegetales para un crecimiento saludable."
+    ],
+    dosificacion: "Seguir las etapas de preparación del programa de alimentación recomendado en finca.",
+    advertencias: [
+      "Presentación: Bolsas de 25 kg de papel foliado doble.",
+      "Mantener en lugar fresco y seco.",
+      "Vida útil: 12 meses (sellado)."
+    ]
+  },
+  {
+    id: 12,
+    categoria: "avicultura",
+    nombre: "Amarillo Natural",
+    descripcion: "Pigmentante natural con xantofila al 4% para yema de huevo, piel y carne de aves.",
+    descripcionBreve: "Pigmentante natural a base de extracto de marigold.",
+    imagen: "/images/fichas/Amarillo_Natural_Clean.webp",
+    fichaTecnicaUrl: "/fichas/Amarillo_Natural.pdf",
+    slug: "amarillo-natural",
+    composicion: [
+      "Extracto de marigold: 35% (Xantofila al 4%)",
+      "Dióxido de sílice: 25%",
+      "Carbonato de calcio: 39.8%",
+      "BHT: 0.2% (Antioxidante)"
+    ],
+    beneficios: [
+      "Mejora el tono amarillento y dorado de la yema de huevo y carne de aves.",
+      "Polvo fino de flujo libre para mezcla homogénea en alimento balanceado.",
+      "Protegido con antioxidantes para evitar degradación de pigmentos.",
+      "Origen natural y alta biodisponibilidad."
+    ],
+    dosificacion: "Gallinas ponedoras: 750 a 1250 g/ton. Pollos de engorde: 1000 a 1500 g/ton. Animales acuáticos: 1000 a 4000 g/ton.",
+    advertencias: [
+      "Presentación: Sacos de 20 kg (Peso neto).",
+      "Conservación: 24 meses en lugar fresco, seco y a la sombra.",
+      "Producto para uso veterinario / Venta libre."
+    ]
+  },
+  {
+    id: 13,
+    categoria: "avicultura",
+    nombre: "KROMS 5 - KROMS 10",
+    descripcion: "Radiador infrarrojo a gas para calefacción eficiente en galpones avícolas y porcinos.",
+    descripcionBreve: "Radiador infrarrojo a gas con doble superficie radiante.",
+    imagen: "/images/fichas/Kroms_Radiador_Clean.webp",
+    fichaTecnicaUrl: "/fichas/Kroms_Radiador_Infrarrojo.pdf",
+    slug: "kroms-radiador",
+    composicion: [
+      "Potencias: KROMS 5 (0.55 / 5 kW) | KROMS 10 (1.15 / 10 kW)",
+      "Modulantes desde el 10% al 100% de potencia nominal",
+      "Combustible: Gas Propano (GLP) o Gas Natural",
+      "Pantalla de aluminio anodizado reflectora",
+      "Conos interior y exterior en acero inoxidable",
+      "Válvula de seguridad termoeléctrica y fusible térmico"
+    ],
+    beneficios: [
+      "Doble superficie radiante que maximiza el calor y reduce consumo de gas.",
+      "Distribución homogénea para crianza de aves y lechones.",
+      "Sistema de seguridad integral con corte automático.",
+      "Bajo mantenimiento y estructura de alta durabilidad."
+    ],
+    dosificacion: "KROMS 5: 1500 a 1800 pollos / Cerdos en engorde. KROMS 10: 2500 a 3000 pollos / Cerdos en engorde. Instalar en suspensión según alturas recomendadas.",
+    advertencias: [
+      "Instalación de gas según normativa técnica vigente.",
+      "Compatible con cuadros de control Mini Therm, KROMS C, E, EA y KM12."
+    ]
+  },
+  {
+    id: 14,
+    categoria: "avicultura",
+    nombre: "Núcleo para Pollos Broiler",
+    descripcion: "Núcleo nutricional concentrado para máximo crecimiento y conversión en pollos de engorde.",
+    descripcionBreve: "Núcleo nutricional concentrado para pollos de engorde.",
+    imagen: "/images/fichas/Nucleo_Pollos_Broiler_Clean.webp",
+    fichaTecnicaUrl: null,
+    slug: "nucleo-pollos-broiler",
+    composicion: [
+      "Vitaminas y microminerales esenciales",
+      "Aminoácidos sintéticos de alta biodisponibilidad",
+      "Fuentes de fósforo y calcio",
+      "Aditivos promotores de salud intestinal"
+    ],
+    beneficios: [
+      "Óptimo Desarrollo: Favorece crecimiento uniforme y eficiente.",
+      "Salud y Defensas: Fortalece el sistema inmune de las aves.",
+      "Equilibrio Nutricional: Balance completo de vitaminas y minerales.",
+      "Mayor Conversión: Maximiza ganancia de peso y rendimiento en canal."
+    ],
+    dosificacion: "Mezclar en la proporción recomendada según la fase (iniciador, crecimiento y engorde).",
+    advertencias: [
+      "Presentación: Saco de 15 kg.",
+      "Almacenar en lugar fresco, seco y sobre tarimas."
+    ]
   }
 ];

@@ -92,36 +92,31 @@ const Nosotros = () => {
 
       <SeparadorGrieta />
 
-      {/* SECCIÓN 2: MISIÓN Y VISIÓN CON IMÁGENES */}
-      <section className="py-16 bg-white relative">
+      {/* SECCIÓN 2: MISIÓN Y VISIÓN */}
+      <section className="py-16 sm:py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 sm:mb-16">
             <span className="text-[var(--color-aovet-primary)] font-bold text-xs uppercase tracking-widest mb-1 block">Nuestra Razón de Ser</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--color-aovet-dark)] font-serif">Misión & Visión</h2>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-aovet-dark)] font-serif">Misión & Visión</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
             {/* Card Misión */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }} 
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }} 
               transition={{ duration: 0.6 }}
-              className="bg-[#E7ECE4] rounded-[2.5rem] overflow-hidden shadow-md border border-gray-100 flex flex-col justify-between"
+              className="bg-[#E7ECE4] rounded-3xl sm:rounded-[2.5rem] p-8 sm:p-12 lg:p-14 shadow-lg border border-gray-100/80 flex flex-col justify-start relative overflow-hidden group hover:shadow-xl transition-shadow"
             >
-              <div className="h-56 relative overflow-hidden">
-                <img src={secFarmAction} alt="Misión AOVET en campo" width="560" height="224" loading="lazy" decoding="async" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#E7ECE4] via-transparent to-transparent"></div>
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[var(--color-aovet-primary)] font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider">
+              <div className="mb-6 sm:mb-8">
+                <div className="inline-block bg-white text-[var(--color-aovet-primary)] font-serif font-black px-6 sm:px-8 py-2.5 sm:py-3.5 rounded-2xl shadow-md border border-black/5 text-2xl sm:text-3xl md:text-4xl">
                   Misión
                 </div>
               </div>
-              <div className="p-8 md:p-10 pt-2">
-                <h3 className="text-2xl font-bold text-[var(--color-aovet-dark)] font-serif mb-4">Salud y Productividad Animal</h3>
-                <p className="text-gray-700 leading-relaxed text-base">
-                  Brindar soluciones veterinarias de alta calidad mediante la importación y distribución de productos confiables e innovadores, contribuyendo a la salud y productividad animal. Nos comprometemos a ofrecer un servicio eficiente, asesoría técnica especializada y relaciones comerciales basadas en la confianza, satisfaciendo las necesidades de nuestros clientes y promoviendo el desarrollo sostenible del sector pecuario.
-                </p>
-              </div>
+              <p className="text-gray-700 leading-relaxed text-base sm:text-lg md:text-xl font-normal">
+                Brindar soluciones veterinarias de alta calidad mediante la importación y distribución de productos confiables e innovadores, contribuyendo a la salud y productividad animal. Nos comprometemos a ofrecer un servicio eficiente, asesoría técnica especializada y relaciones comerciales basadas en la confianza, satisfaciendo las necesidades de nuestros clientes y promoviendo el desarrollo sostenible del sector pecuario.
+              </p>
             </motion.div>
 
             {/* Card Visión */}
@@ -130,21 +125,16 @@ const Nosotros = () => {
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }} 
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-[var(--color-aovet-dark)] text-white rounded-[2.5rem] overflow-hidden shadow-xl flex flex-col justify-between"
+              className="bg-[var(--color-aovet-dark)] text-white rounded-3xl sm:rounded-[2.5rem] p-8 sm:p-12 lg:p-14 shadow-xl flex flex-col justify-start relative overflow-hidden group hover:shadow-2xl transition-shadow"
             >
-              <div className="h-56 relative overflow-hidden">
-                <img src={nosotrosBg} alt="Visión AOVET logística" width="560" height="224" loading="lazy" decoding="async" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-aovet-dark)] via-transparent to-transparent"></div>
-                <div className="absolute top-4 left-4 bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)] font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider">
+              <div className="mb-6 sm:mb-8">
+                <div className="inline-block bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)] font-serif font-black px-6 sm:px-8 py-2.5 sm:py-3.5 rounded-2xl shadow-md text-2xl sm:text-3xl md:text-4xl">
                   Visión
                 </div>
               </div>
-              <div className="p-8 md:p-10 pt-2">
-                <h3 className="text-2xl font-bold text-[var(--color-aovet-accent)] font-serif mb-4">Liderazgo e Innovación Nacional</h3>
-                <p className="text-gray-200 leading-relaxed text-base">
-                  Ser la empresa líder en la importación y distribución de productos veterinarios, reconocida por la excelencia de su portafolio, la innovación, el servicio al cliente y el respaldo técnico. Aspiramos a expandir nuestra presencia en el mercado nacional y regional, convirtiéndonos en el aliado estratégico de productores, médicos veterinarios y distribuidores para impulsar una producción animal más eficiente, saludable y sostenible.
-                </p>
-              </div>
+              <p className="text-gray-200 leading-relaxed text-base sm:text-lg md:text-xl font-normal">
+                Ser la empresa líder en la importación y distribución de productos veterinarios, reconocida por la excelencia de su portafolio, la innovación, el servicio al cliente y el respaldo técnico. Aspiramos a expandir nuestra presencia en el mercado nacional y regional, convirtiéndonos en el aliado estratégico de productores, médicos veterinarios y distribuidores para impulsar una producción animal más eficiente, saludable y sostenible.
+              </p>
             </motion.div>
           </div>
         </div>
@@ -196,11 +186,10 @@ const Nosotros = () => {
             <p className="text-gray-600 max-w-2xl mx-auto">Profesionales apasionados por la salud animal y el servicio técnico.</p>
           </div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {[
               { role: "Dirección General", desc: "Visión estratégica, desarrollo de alianzas internacionales y liderazgo comercial.", img: nosTeamDir },
-              { role: "Dirección Técnica Veterinaria", desc: "Médicos veterinarios dedicados al diagnóstico y seguimiento sanitario en finca.", img: nosTeamTech },
-              { role: "Logística & Cadena de Frío", desc: "Especialistas encargados de mantener la bioseguridad y entrega a tiempo.", img: nosotrosBg }
+              { role: "Dirección Técnica Veterinaria", desc: "Médicos veterinarios dedicados al diagnóstico y seguimiento sanitario en finca.", img: nosTeamTech }
             ].map((team, idx) => (
               <motion.div 
                 key={idx} 
@@ -209,16 +198,16 @@ const Nosotros = () => {
                 viewport={{ once: true }} 
                 className="bg-[var(--color-aovet-bg)] rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col"
               >
-                <div className="h-64 w-full overflow-hidden relative">
-                  <img src={team.img} alt={team.role} width="360" height="256" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="h-64 sm:h-72 w-full overflow-hidden relative">
+                  <img src={team.img} alt={team.role} width="360" height="288" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-aovet-dark)]/60 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 text-white font-bold text-lg">
+                  <div className="absolute bottom-4 left-4 text-white font-bold text-lg sm:text-xl">
                     {team.role}
                   </div>
                 </div>
-                <div className="p-6 flex-grow flex flex-col justify-between">
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">{team.desc}</p>
-                  <div className="flex items-center gap-2 text-xs font-bold text-[var(--color-aovet-primary)]">
+                <div className="p-6 sm:p-8 flex-grow flex flex-col justify-between">
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">{team.desc}</p>
+                  <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[var(--color-aovet-primary)]">
                     <CheckCircle2 size={16} /> Equipo Calificado AOVET
                   </div>
                 </div>

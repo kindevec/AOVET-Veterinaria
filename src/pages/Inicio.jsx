@@ -13,7 +13,7 @@ import catAves from '../assets/images/cat_aves_1785906732448.webp';
 import catGanado from '../assets/images/cat_ganado_1785906742113.webp';
 import catMascotas from '../assets/images/cat_mascotas_1785906749507.webp';
 import prodVitamina from '../assets/images/prod_vitamina_1785906757394.webp';
-import prodVacuna from '../assets/images/prod_vacuna_1785906764797.webp';
+import secIndustrial from '../assets/images/sec_industrial.webp';
 
 import secArchCow from '../assets/images/aovet_ganado_campo.webp';
 import secArchVet from '../assets/images/aovet_ternero_salud.webp';
@@ -139,7 +139,7 @@ const Inicio = () => {
                 <p className="text-xs text-gray-600 leading-tight">Soluciones de alto rendimiento.</p>
               </div>
               <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-white flex-shrink-0 shadow-md group-hover:scale-105 transition-transform duration-500">
-                <img src={prodVacuna} alt="Porcinos" width="80" height="80" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                <img src={secIndustrial} alt="Sector Industrial" width="80" height="80" loading="lazy" decoding="async" className="w-full h-full object-cover" />
               </div>
             </motion.div>
           </motion.div>
