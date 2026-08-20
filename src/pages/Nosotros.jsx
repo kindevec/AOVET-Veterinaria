@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Users, Leaf, ShieldCheck, Milestone, Award, CheckCircle2, HeartHandshake, Sparkles, Building2, Truck } from 'lucide-react';
+import { Users, Leaf, ShieldCheck, Milestone, Award, CheckCircle2, HeartHandshake, Sparkles, Building2, Truck, Target, Compass, Check } from 'lucide-react';
 import SeparadorGrieta from '../components/ui/SeparadorGrieta';
 
 // Imágenes
@@ -93,11 +93,23 @@ const Nosotros = () => {
       <SeparadorGrieta />
 
       {/* SECCIÓN 2: MISIÓN Y VISIÓN */}
-      <section className="py-16 sm:py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24 bg-white relative overflow-hidden">
+        {/* Decoración de Fondo */}
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-[var(--color-aovet-bg)] rounded-full filter blur-3xl opacity-70 pointer-events-none"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-emerald-50 rounded-full filter blur-3xl opacity-60 pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12 sm:mb-16">
-            <span className="text-[var(--color-aovet-primary)] font-bold text-xs uppercase tracking-widest mb-1 block">Nuestra Razón de Ser</span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-[var(--color-aovet-dark)] font-serif">Misión & Visión</h2>
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[var(--color-aovet-bg)] text-[var(--color-aovet-primary)] border border-[var(--color-aovet-primary)]/20 font-bold text-xs uppercase tracking-widest mb-3">
+              <Sparkles size={13} className="text-[var(--color-aovet-accent)]" />
+              Nuestra Razón de Ser
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-aovet-dark)] font-serif leading-tight">
+              Misión & Visión
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto mt-3 text-sm sm:text-base leading-relaxed">
+              Los pilares y valores estratégicos que guían nuestro compromiso diario con la sanidad animal.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
@@ -107,16 +119,46 @@ const Nosotros = () => {
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }} 
               transition={{ duration: 0.6 }}
-              className="bg-[#E7ECE4] rounded-3xl sm:rounded-[2.5rem] p-8 sm:p-12 lg:p-14 shadow-lg border border-gray-100/80 flex flex-col justify-start relative overflow-hidden group hover:shadow-xl transition-shadow"
+              className="bg-gradient-to-br from-[#F2F7F0] via-white to-[#E8F2E4] rounded-3xl sm:rounded-[2.5rem] p-8 sm:p-10 lg:p-12 shadow-xl border border-emerald-100/90 flex flex-col justify-between relative overflow-hidden group hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500"
             >
-              <div className="mb-6 sm:mb-8">
-                <div className="inline-block bg-white text-[var(--color-aovet-primary)] font-serif font-black px-6 sm:px-8 py-2.5 sm:py-3.5 rounded-2xl shadow-md border border-black/5 text-2xl sm:text-3xl md:text-4xl">
-                  Misión
+              {/* Marca de Agua / Icono Decorativo Suave */}
+              <div className="absolute -right-8 -bottom-8 w-44 h-44 text-emerald-900/5 pointer-events-none group-hover:scale-110 transition-transform duration-700">
+                <Target size={176} />
+              </div>
+
+              <div>
+                {/* Cabecera Misión */}
+                <div className="flex items-center gap-4 mb-6 sm:mb-8">
+                  <div className="w-14 h-14 rounded-2xl bg-[var(--color-aovet-primary)] text-white flex items-center justify-center shadow-lg shadow-[var(--color-aovet-primary)]/25 group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
+                    <Target size={28} />
+                  </div>
+                  <div>
+                    <span className="text-[var(--color-aovet-primary)] text-xs font-black uppercase tracking-wider block">Propósito Central</span>
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-aovet-dark)] font-serif">Misión</h3>
+                  </div>
+                </div>
+
+                {/* Texto Justificado */}
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-[1.05rem] text-justify font-normal mb-6">
+                  Brindar soluciones veterinarias de alta calidad mediante la importación y distribución de productos confiables e innovadores, contribuyendo a la salud y productividad animal. Nos comprometemos a ofrecer un servicio eficiente, asesoría técnica especializada y relaciones comerciales basadas en la confianza, satisfaciendo las necesidades de nuestros clientes y promoviendo el desarrollo sostenible del sector pecuario.
+                </p>
+              </div>
+
+              {/* Pilares Clave Misión */}
+              <div className="pt-4 border-t border-emerald-900/10 space-y-2 relative z-10">
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[var(--color-aovet-dark)]">
+                  <Check size={16} className="text-[var(--color-aovet-primary)] flex-shrink-0" />
+                  <span>Soluciones innovadoras y certificadas</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[var(--color-aovet-dark)]">
+                  <Check size={16} className="text-[var(--color-aovet-primary)] flex-shrink-0" />
+                  <span>Asesoría técnica y atención personalizada</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[var(--color-aovet-dark)]">
+                  <Check size={16} className="text-[var(--color-aovet-primary)] flex-shrink-0" />
+                  <span>Desarrollo sostenible del sector pecuario</span>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed text-base sm:text-lg md:text-xl font-normal">
-                Brindar soluciones veterinarias de alta calidad mediante la importación y distribución de productos confiables e innovadores, contribuyendo a la salud y productividad animal. Nos comprometemos a ofrecer un servicio eficiente, asesoría técnica especializada y relaciones comerciales basadas en la confianza, satisfaciendo las necesidades de nuestros clientes y promoviendo el desarrollo sostenible del sector pecuario.
-              </p>
             </motion.div>
 
             {/* Card Visión */}
@@ -125,16 +167,46 @@ const Nosotros = () => {
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }} 
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-[var(--color-aovet-dark)] text-white rounded-3xl sm:rounded-[2.5rem] p-8 sm:p-12 lg:p-14 shadow-xl flex flex-col justify-start relative overflow-hidden group hover:shadow-2xl transition-shadow"
+              className="bg-gradient-to-br from-[#0D3D20] via-[#124E2A] to-[#0A2E18] text-white rounded-3xl sm:rounded-[2.5rem] p-8 sm:p-10 lg:p-12 shadow-2xl border border-emerald-500/20 flex flex-col justify-between relative overflow-hidden group hover:shadow-[0_25px_60px_rgba(13,61,32,0.4)] hover:-translate-y-1.5 transition-all duration-500"
             >
-              <div className="mb-6 sm:mb-8">
-                <div className="inline-block bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)] font-serif font-black px-6 sm:px-8 py-2.5 sm:py-3.5 rounded-2xl shadow-md text-2xl sm:text-3xl md:text-4xl">
-                  Visión
+              {/* Marca de Agua / Icono Decorativo Suave */}
+              <div className="absolute -right-8 -bottom-8 w-44 h-44 text-white/5 pointer-events-none group-hover:scale-110 transition-transform duration-700">
+                <Compass size={176} />
+              </div>
+
+              <div>
+                {/* Cabecera Visión */}
+                <div className="flex items-center gap-4 mb-6 sm:mb-8">
+                  <div className="w-14 h-14 rounded-2xl bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)] flex items-center justify-center shadow-lg shadow-[var(--color-aovet-accent)]/25 group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
+                    <Compass size={28} />
+                  </div>
+                  <div>
+                    <span className="text-[var(--color-aovet-accent)] text-xs font-black uppercase tracking-wider block">Futuro & Metas</span>
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-serif">Visión</h3>
+                  </div>
+                </div>
+
+                {/* Texto Justificado */}
+                <p className="text-emerald-50/95 leading-relaxed text-sm sm:text-base md:text-[1.05rem] text-justify font-normal mb-6">
+                  Ser la empresa líder en la importación y distribución de productos veterinarios, reconocida por la excelencia de su portafolio, la innovación, el servicio al cliente y el respaldo técnico. Aspiramos a expandir nuestra presencia en el mercado nacional y regional, convirtiéndonos en el aliado estratégico de productores, médicos veterinarios y distribuidores para impulsar una producción animal más eficiente, saludable y sostenible.
+                </p>
+              </div>
+
+              {/* Pilares Clave Visión */}
+              <div className="pt-4 border-t border-white/10 space-y-2 relative z-10">
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-emerald-100">
+                  <Sparkles size={15} className="text-[var(--color-aovet-accent)] flex-shrink-0" />
+                  <span>Liderazgo en el mercado nacional y regional</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-emerald-100">
+                  <Sparkles size={15} className="text-[var(--color-aovet-accent)] flex-shrink-0" />
+                  <span>Excelencia de portafolio y respaldo técnico</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-emerald-100">
+                  <Sparkles size={15} className="text-[var(--color-aovet-accent)] flex-shrink-0" />
+                  <span>Aliado estratégico de productores y veterinarios</span>
                 </div>
               </div>
-              <p className="text-gray-200 leading-relaxed text-base sm:text-lg md:text-xl font-normal">
-                Ser la empresa líder en la importación y distribución de productos veterinarios, reconocida por la excelencia de su portafolio, la innovación, el servicio al cliente y el respaldo técnico. Aspiramos a expandir nuestra presencia en el mercado nacional y regional, convirtiéndonos en el aliado estratégico de productores, médicos veterinarios y distribuidores para impulsar una producción animal más eficiente, saludable y sostenible.
-              </p>
             </motion.div>
           </div>
         </div>
