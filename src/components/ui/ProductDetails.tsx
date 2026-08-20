@@ -136,9 +136,9 @@ const ProductDetails = () => {
               </div>
             )}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
               {productData.composicion && productData.composicion.length > 0 && (
-                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm">
+                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm h-fit">
                   <h3 className="flex items-center gap-2 text-lg font-bold text-[var(--color-aovet-dark)] mb-4">
                     <Droplets size={20} className="text-[var(--color-aovet-primary)]"/> Composición
                   </h3>
@@ -154,7 +154,7 @@ const ProductDetails = () => {
               )}
 
               {productData.dosificacion && (
-                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm">
+                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm h-fit">
                   <h3 className="flex items-center gap-2 text-lg font-bold text-[var(--color-aovet-dark)] mb-4">
                     <Info size={20} className="text-[var(--color-aovet-primary)]"/> Dosificación
                   </h3>
