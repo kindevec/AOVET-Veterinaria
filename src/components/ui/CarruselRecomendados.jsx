@@ -157,7 +157,7 @@ const CarruselRecomendados = () => {
                   <h3 className="text-lg sm:text-2xl font-black text-[var(--color-aovet-dark)] font-serif leading-tight group-hover:text-[var(--color-aovet-primary)] transition-colors line-clamp-1">
                     {prod.nombre}
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 leading-relaxed font-normal text-justify">
                     {prod.descripcionBreve || prod.descripcion}
                   </p>
                 </div>

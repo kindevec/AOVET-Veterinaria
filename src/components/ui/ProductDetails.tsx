@@ -86,7 +86,7 @@ const ProductDetails = () => {
           <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--color-aovet-dark)] font-serif mb-4 leading-tight">
             {productData.nombre}
           </h1>
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">{productData.descripcionBreve || productData.descripcion}</p>
+          <p className="text-xl text-gray-600 mb-8 leading-relaxed text-justify">{productData.descripcionBreve || productData.descripcion}</p>
           
           <div className="flex flex-wrap gap-4 mb-10">
             {productData.fichaTecnicaUrl ? (
@@ -158,7 +158,7 @@ const ProductDetails = () => {
                   <h3 className="flex items-center gap-2 text-lg font-bold text-[var(--color-aovet-dark)] mb-4">
                     <Info size={20} className="text-[var(--color-aovet-primary)]"/> Dosificación
                   </h3>
-                  <p className="text-sm text-gray-700 leading-relaxed">{productData.dosificacion}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed text-justify">{productData.dosificacion}</p>
                 </div>
               )}
             </div>
