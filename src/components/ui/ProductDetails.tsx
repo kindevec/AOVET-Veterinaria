@@ -159,7 +159,18 @@ const ProductDetails = () => {
                   <h3 className="flex items-center gap-2 text-lg font-bold text-[var(--color-aovet-dark)] mb-4">
                     <Info size={20} className="text-[var(--color-aovet-primary)]"/> Dosificación
                   </h3>
-                  <p className="text-sm text-gray-700 leading-relaxed text-justify">{productData.dosificacion}</p>
+                  {Array.isArray(productData.dosificacion) ? (
+                    <ul className="text-sm text-gray-700 space-y-2">
+                      {productData.dosificacion.map((dosis, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-justify">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-aovet-primary)] mt-1.5 flex-shrink-0"></div>
+                          <span className="text-justify">{dosis}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-sm text-gray-700 leading-relaxed text-justify">{productData.dosificacion}</p>
+                  )}
                 </div>
               )}
             </div>

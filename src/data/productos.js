@@ -170,7 +170,12 @@ export const productos = [
       "Regulariza el ciclo reproductivo y aumenta la tasa de concepción.",
       "Trata y previene deficiencias de minerales en el rebaño."
     ],
-    dosificacion: "Ganado y Búfalo: 1 - 2 bolos por animal al día durante 8 a 10 días. Ovejas y cabras: ½ – 1 bolo al día durante 8 a 10 días.",
+    dosificacion: [
+      "Ganado y Búfalo: 1 - 2 bolos por animal al día durante 8 a 10 días continuos.",
+      "Ovejas y cabras: ½ a 1 bolo al día durante 8 a 10 días continuos.",
+      "Vía de administración: Oral directa o disuelto en agua de bebida.",
+      "Tratamiento estratégico: Administrar antes del servicio o inseminación artificial."
+    ],
     advertencias: [
       "Suplemento alimenticio para animales. No apto para uso humano ni medicinal.",
       "Exclusivamente para uso veterinario.",
@@ -205,7 +210,12 @@ export const productos = [
       "Combina 40% de productos lácteos y proteínas vegetales seleccionadas.",
       "Enriquecido con materias grasas vegetales para un crecimiento saludable."
     ],
-    dosificacion: "Seguir las etapas de preparación del programa de alimentación recomendado en finca.",
+    dosificacion: [
+      "Preparación: Disolver 125 g a 150 g de Mixicalf por cada litro de agua a 45°C - 50°C.",
+      "Temperatura de toma: Suministrar a los terneros a temperatura corporal (38°C - 39°C).",
+      "Frecuencia: Distribuir en 2 tomas diarias de 2 a 2.5 litros según el programa de alimentación.",
+      "Recomendación: Facilitar agua limpia fresca y alimento balanceado de inicio a libre disposición."
+    ],
     advertencias: [
       "Presentación: Bolsas de 25 kg de papel foliado doble.",
       "Mantener en lugar fresco y seco.",
@@ -233,7 +243,12 @@ export const productos = [
       "Protegido con antioxidantes para evitar degradación de pigmentos.",
       "Origen natural y alta biodisponibilidad."
     ],
-    dosificacion: "Gallinas ponedoras: 750 a 1250 g/ton. Pollos de engorde: 1000 a 1500 g/ton. Animales acuáticos: 1000 a 4000 g/ton.",
+    dosificacion: [
+      "Gallinas ponedoras: 750 g a 1250 g por tonelada de alimento.",
+      "Pollos de engorde: 1000 g a 1500 g por tonelada de alimento.",
+      "Animales acuáticos: 1000 g a 4000 g por tonelada de balanceado.",
+      "Modo de uso: Mezclar homogéneamente con los ingredientes secos de la ración."
+    ],
     advertencias: [
       "Presentación: Sacos de 20 kg (Peso neto).",
       "Conservación: 24 meses en lugar fresco, seco y a la sombra.",
@@ -263,7 +278,12 @@ export const productos = [
       "Sistema de seguridad integral con corte automático.",
       "Bajo mantenimiento y estructura de alta durabilidad."
     ],
-    dosificacion: "KROMS 5: 1500 a 1800 pollos / Cerdos en engorde. KROMS 10: 2500 a 3000 pollos / Cerdos en engorde. Instalar en suspensión según alturas recomendadas.",
+    dosificacion: [
+      "KROMS 5: Capacidad para 1500 a 1800 pollos / galpón porcino.",
+      "KROMS 10: Capacidad para 2500 a 3000 pollos / galpón porcino.",
+      "Instalación: En suspensión según las alturas técnicas recomendadas en granja.",
+      "Control: Compatible con termostatos y cuadros automáticos de regulación."
+    ],
     advertencias: [
       "Instalación de gas según normativa técnica vigente.",
       "Compatible con cuadros de control Mini Therm, KROMS C, E, EA y KM12."
@@ -290,7 +310,12 @@ export const productos = [
       "Equilibrio Nutricional: Balance completo de vitaminas y minerales.",
       "Mayor Conversión: Maximiza ganancia de peso y rendimiento en canal."
     ],
-    dosificacion: "Mezclar en la proporción recomendada según la fase (iniciador, crecimiento y engorde).",
+    dosificacion: [
+      "Fase Inicial (Pre-inicio e inicio): 15 kg de núcleo por tonelada de alimento balanceado (1.5%).",
+      "Fase Crecimiento y Acabado: 10 kg a 12 kg de núcleo por tonelada de alimento (1.0% - 1.2%).",
+      "Preparación: Realizar una pre-mezcla con maíz molido antes de la incorporación total.",
+      "Programa: Ajustar según la línea genética (Ross, Cobb) y recomendación nutricional."
+    ],
     advertencias: [
       "Presentación: Saco de 15 kg.",
       "Almacenar en lugar fresco, seco y sobre tarimas."
