@@ -39,6 +39,14 @@
 }
 
 @font-face {
+  font-family: 'Myolin';
+  src: url('/fonts/Myolin.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Getla';
   src: url('/fonts/Getla.otf') format('opentype'),
        url('/fonts/Getla.ttf') format('truetype');
