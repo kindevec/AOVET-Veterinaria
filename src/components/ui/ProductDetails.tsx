@@ -126,50 +126,98 @@ const ProductDetails = () => {
                 <h3 className="flex items-center gap-2 text-xl font-bold text-[var(--color-aovet-dark)] mb-4 border-b pb-3">
                   <CheckCircle size={24} className="text-[var(--color-aovet-primary)]"/> Beneficios
                 </h3>
-                <ul className="space-y-3">
-                  {productData.beneficios.map((ben, idx) => (
-                    <li key={idx} className="text-gray-700 flex items-start gap-3 leading-relaxed">
-                      <span className="text-[var(--color-aovet-accent)] mt-1 flex-shrink-0">•</span> 
-                      <span className="text-justify [text-align-last:left] [hyphens:auto] w-full leading-relaxed">{ben}</span>
-                    </li>
-                  ))}
+                <ul className="space-y-2.5">
+                  {productData.beneficios.map((ben, idx) => {
+                    const colonIdx = ben.indexOf(':');
+                    if (colonIdx !== -1) {
+                      const label = ben.substring(0, colonIdx);
+                      const val = ben.substring(colonIdx + 1);
+                      return (
+                        <li key={idx} className="text-gray-700 flex items-start gap-2.5 leading-relaxed text-left">
+                          <span className="text-[var(--color-aovet-accent)] mt-0.5 flex-shrink-0 font-bold">•</span> 
+                          <span className="text-left leading-relaxed">
+                            <strong className="font-semibold text-[var(--color-aovet-dark)]">{label}:</strong>
+                            {val}
+                          </span>
+                        </li>
+                      );
+                    }
+                    return (
+                      <li key={idx} className="text-gray-700 flex items-start gap-2.5 leading-relaxed text-left">
+                        <span className="text-[var(--color-aovet-accent)] mt-0.5 flex-shrink-0 font-bold">•</span> 
+                        <span className="text-left leading-relaxed">{ben}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             )}
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
               {productData.composicion && productData.composicion.length > 0 && (
-                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm h-fit">
-                  <h3 className="flex items-center gap-2 text-lg font-bold text-[var(--color-aovet-dark)] mb-4">
+                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm h-full flex flex-col justify-start">
+                  <h3 className="flex items-center gap-2 text-lg font-bold text-[var(--color-aovet-dark)] mb-4 pb-2 border-b border-gray-200/60">
                     <Droplets size={20} className="text-[var(--color-aovet-primary)]"/> Composición
                   </h3>
-                  <ul className="text-sm text-gray-700 space-y-2">
-                    {productData.composicion.map((comp, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-2 flex-shrink-0"></div>
-                        <span className="text-justify [text-align-last:left] [hyphens:auto] leading-normal w-full">{comp}</span>
-                      </li>
-                    ))}
+                  <ul className={`text-sm text-gray-700 ${productData.composicion.length > 5 ? 'grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2' : 'space-y-2'}`}>
+                    {productData.composicion.map((comp, idx) => {
+                      const colonIdx = comp.indexOf(':');
+                      if (colonIdx !== -1) {
+                        const label = comp.substring(0, colonIdx);
+                        const val = comp.substring(colonIdx + 1);
+                        return (
+                          <li key={idx} className="flex items-start gap-2 text-left">
+                            <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-aovet-primary)] mt-1.5 flex-shrink-0"></div>
+                            <span className="leading-snug text-left text-gray-700">
+                              <strong className="font-semibold text-[var(--color-aovet-dark)]">{label}:</strong>
+                              {val}
+                            </span>
+                          </li>
+                        );
+                      }
+                      return (
+                        <li key={idx} className="flex items-start gap-2 text-left">
+                          <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-1.5 flex-shrink-0"></div>
+                          <span className="leading-snug text-left text-gray-700">{comp}</span>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               )}
 
               {productData.dosificacion && (
-                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm h-fit">
-                  <h3 className="flex items-center gap-2 text-lg font-bold text-[var(--color-aovet-dark)] mb-4">
+                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm h-full flex flex-col justify-start">
+                  <h3 className="flex items-center gap-2 text-lg font-bold text-[var(--color-aovet-dark)] mb-4 pb-2 border-b border-gray-200/60">
                     <Info size={20} className="text-[var(--color-aovet-primary)]"/> Dosificación
                   </h3>
                   {Array.isArray(productData.dosificacion) ? (
                     <ul className="text-sm text-gray-700 space-y-2.5">
-                      {productData.dosificacion.map((dosis, idx) => (
-                        <li key={idx} className="flex items-start gap-2.5">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-aovet-primary)] mt-2 flex-shrink-0"></div>
-                          <span className="text-justify [text-align-last:left] [hyphens:auto] leading-relaxed w-full">{dosis}</span>
-                        </li>
-                      ))}
+                      {productData.dosificacion.map((dosis, idx) => {
+                        const colonIdx = dosis.indexOf(':');
+                        if (colonIdx !== -1) {
+                          const label = dosis.substring(0, colonIdx);
+                          const val = dosis.substring(colonIdx + 1);
+                          return (
+                            <li key={idx} className="flex items-start gap-2 text-left">
+                              <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-aovet-primary)] mt-1.5 flex-shrink-0"></div>
+                              <span className="leading-relaxed text-left text-gray-700">
+                                <strong className="font-semibold text-[var(--color-aovet-dark)]">{label}:</strong>
+                                {val}
+                              </span>
+                            </li>
+                          );
+                        }
+                        return (
+                          <li key={idx} className="flex items-start gap-2 text-left">
+                            <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-aovet-primary)] mt-1.5 flex-shrink-0"></div>
+                            <span className="leading-relaxed text-left text-gray-700">{dosis}</span>
+                          </li>
+                        );
+                      })}
                     </ul>
                   ) : (
-                    <p className="text-sm text-gray-700 leading-relaxed text-justify [text-align-last:left] [hyphens:auto]">{productData.dosificacion}</p>
+                    <p className="text-sm text-gray-700 leading-relaxed text-left">{productData.dosificacion}</p>
                   )}
                 </div>
               )}
@@ -182,9 +230,9 @@ const ProductDetails = () => {
                 </h3>
                 <ul className="text-sm text-orange-700 space-y-2">
                   {productData.advertencias.map((adv, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
+                    <li key={idx} className="flex items-start gap-2 text-left">
                       <span className="font-bold flex-shrink-0">-</span> 
-                      <span className="text-justify [text-align-last:left] [hyphens:auto] w-full leading-normal">{adv}</span>
+                      <span className="text-left leading-normal">{adv}</span>
                     </li>
                   ))}
                 </ul>
