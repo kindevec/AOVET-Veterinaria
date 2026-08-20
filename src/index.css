@@ -38,11 +38,32 @@
   }
 }
 
+@font-face {
+  font-family: 'Coconut Island';
+  src: url('/fonts/CoconutIsland.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@keyframes heroGlow {
+  0%, 100% {
+    filter: drop-shadow(0 4px 14px rgba(0,0,0,0.65)) drop-shadow(0 0 12px rgba(244,185,66,0.25));
+  }
+  50% {
+    filter: drop-shadow(0 6px 20px rgba(0,0,0,0.75)) drop-shadow(0 0 28px rgba(255,204,0,0.6));
+  }
+}
+
+.slogan-animated {
+  animation: heroGlow 3.5s ease-in-out infinite;
+}
+
 @theme {
   --font-heading: "Bricolage Grotesque", sans-serif;
   --font-body: "Instrument Sans", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
-  --font-display: "Unbounded", "Syne", "Outfit", sans-serif;
+  --font-slogan: "Coconut Island", cursive, sans-serif;
 }
 
 @layer base {
