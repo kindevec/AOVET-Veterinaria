@@ -276,18 +276,18 @@ const Inicio = () => {
       </section>
 
       {/* SECCIÓN 3: PRODUCTOS RECOMENDADOS (CARRUSEL 3D COVERFLOW) */}
-      <section className="py-6 sm:py-12 px-2 sm:px-6 lg:px-8 max-w-[1400px] mx-auto overflow-hidden sm:overflow-visible">
+      <section className="min-h-[92vh] md:min-h-screen flex flex-col justify-center py-12 sm:py-20 lg:py-24 px-2 sm:px-6 lg:px-8 max-w-[1500px] mx-auto overflow-hidden sm:overflow-visible">
         <motion.div 
           initial={{ opacity: 0, width: "0%" }} whileInView={{ opacity: 1, width: "100%" }} transition={{ duration: 1 }} viewport={{ once: true }}
-          className="flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8 px-4 sm:px-0"
+          className="flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-10 px-4 sm:px-0"
         >
-          <div className="h-px bg-gray-300 flex-grow max-w-[60px] sm:max-w-[100px]"></div>
-          <Sparkles className="text-[var(--color-aovet-accent)]" size={18} />
-          <h2 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-[var(--color-aovet-dark)] font-serif uppercase tracking-widest text-center px-2 sm:px-4">
+          <div className="h-px bg-gray-300 flex-grow max-w-[60px] sm:max-w-[120px]"></div>
+          <Sparkles className="text-[var(--color-aovet-accent)]" size={20} />
+          <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-aovet-dark)] font-serif uppercase tracking-widest text-center px-2 sm:px-4">
             PRODUCTOS RECOMENDADOS
           </h2>
-          <Sparkles className="text-[var(--color-aovet-accent)]" size={18} />
-          <div className="h-px bg-gray-300 flex-grow max-w-[60px] sm:max-w-[100px]"></div>
+          <Sparkles className="text-[var(--color-aovet-accent)]" size={20} />
+          <div className="h-px bg-gray-300 flex-grow max-w-[60px] sm:max-w-[120px]"></div>
         </motion.div>
 
         <motion.div
@@ -295,6 +295,7 @@ const Inicio = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
+          className="w-full flex-grow flex flex-col justify-center"
         >
           <CarruselRecomendados />
         </motion.div>
