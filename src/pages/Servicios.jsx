@@ -202,22 +202,17 @@ const Servicios = () => {
                       </span>
                     </div>
 
+                    {/* Título visible inicialmente (sin descripción) */}
                     <div className="absolute bottom-5 left-5 right-5 z-10 pointer-events-none transition-opacity duration-300 group-hover:opacity-0">
-                      <h3 className="text-xl font-bold text-white mb-1.5 leading-tight">
+                      <h3 className="text-xl font-bold text-white leading-tight">
                         {slide.title}
                       </h3>
-                      <p className="text-gray-200 text-xs sm:text-sm line-clamp-2 leading-relaxed">
-                        {slide.description}
-                      </p>
                     </div>
                   </CardHoverRevealMain>
 
-                  {/* Contenido revelado en hover con efecto backdrop blur */}
-                  <CardHoverRevealContent className="space-y-1.5 rounded-2xl bg-[var(--color-aovet-dark)]/95 backdrop-blur-2xl p-5 border border-emerald-500/20 shadow-2xl text-white">
-                    <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
-                      {slide.title}
-                    </h3>
-                    <p className="text-gray-200 text-xs sm:text-sm leading-relaxed">
+                  {/* Al pasar el mouse se revela la descripción */}
+                  <CardHoverRevealContent className="rounded-2xl bg-[var(--color-aovet-dark)]/95 backdrop-blur-2xl p-4 sm:p-5 border border-emerald-500/20 shadow-2xl text-white">
+                    <p className="text-gray-200 text-xs sm:text-sm leading-relaxed font-medium">
                       {slide.description}
                     </p>
                   </CardHoverRevealContent>
