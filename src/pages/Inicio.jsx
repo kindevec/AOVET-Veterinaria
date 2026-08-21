@@ -381,23 +381,25 @@ const Inicio = () => {
           </motion.div>
 
           {/* PARTE 3 */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch pt-4">
-            <motion.div variants={fadeInUp} className="lg:col-span-2 h-[260px] sm:h-[350px] lg:h-auto rounded-none sm:rounded-3xl overflow-hidden shadow-md relative group">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch pt-4">
+            <motion.div variants={fadeInUp} className="lg:col-span-2 min-h-[280px] sm:min-h-[360px] lg:h-auto rounded-3xl overflow-hidden shadow-md relative group">
               <img src={secFarmAction} alt="Veterinario en campo Ecuador" width="800" height="400" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-5 sm:p-8 text-white">
-                <span className="text-[var(--color-aovet-accent)] font-bold text-[11px] sm:text-xs uppercase tracking-widest mb-1">Acompañamiento Técnico</span>
-                <h4 className="text-xl sm:text-2xl font-bold">Asistencia Directa en Finca</h4>
-                <p className="text-xs sm:text-sm text-gray-200 max-w-lg mt-1">Nuestros profesionales visitan tus instalaciones para realizar diagnósticos certeros y planes de tratamiento a medida.</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white">
+                <span className="text-amber-500 font-extrabold text-[11px] sm:text-xs uppercase tracking-wider mb-1.5">Acompañamiento Técnico</span>
+                <h4 className="text-2xl sm:text-3xl font-extrabold font-serif">Asistencia Directa en Finca</h4>
+                <p className="text-xs sm:text-sm text-gray-200 max-w-lg mt-1.5 leading-relaxed">Nuestros profesionales visitan tus instalaciones para realizar diagnósticos certeros y planes de tratamiento a medida.</p>
               </div>
             </motion.div>
-            <motion.div variants={fadeInUp} className="bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-sm border border-white/60 relative overflow-hidden">
+            <motion.div variants={fadeInUp} className="bg-white rounded-3xl p-6 sm:p-8 md:p-9 flex flex-col justify-between shadow-md border border-gray-100 relative overflow-hidden">
               <div>
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[var(--color-aovet-primary)] text-white flex items-center justify-center mb-4 sm:mb-6 shadow-sm"><HeartHandshake size={20} className="sm:w-6 sm:h-6" /></div>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#2C382E] font-serif mb-3 sm:mb-4">Consejos & Asesoría</h3>
+                <div className="w-12 h-12 rounded-full bg-[var(--color-aovet-primary)] text-white flex items-center justify-center mb-6 shadow-sm">
+                  <HeartHandshake size={22} />
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#2C382E] font-serif mb-4">Consejos & Asesoría</h3>
                 <p className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-6">¿Dudas sobre dosis o tratamientos? Contáctate directamente con nuestros especialistas de campo.</p>
               </div>
-              <button onClick={() => window.open('https://wa.me/593985401224', '_blank')} className="w-full bg-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-dark)] text-white font-bold py-3 sm:py-3.5 px-6 rounded-full transition-colors flex items-center justify-center gap-2 shadow-sm text-xs sm:text-sm cursor-pointer">
-                Consultar un especialista <ArrowRight size={15} />
+              <button onClick={() => window.open('https://wa.me/593985401224', '_blank')} className="w-full bg-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-dark)] text-white font-bold py-3.5 sm:py-4 px-6 rounded-full transition-colors flex items-center justify-center gap-2 shadow-md text-xs sm:text-sm cursor-pointer">
+                <span>Consultar un especialista</span> <ArrowRight size={16} />
               </button>
             </motion.div>
           </motion.div>
