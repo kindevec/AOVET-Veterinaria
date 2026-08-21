@@ -381,20 +381,20 @@ const Inicio = () => {
             </motion.div>
           </motion.div>
 
-          {/* PARTE 3: CONTENEDOR UNIFICADO DE MARGEN A MARGEN */}
+          {/* PARTE 3: CONTENEDOR UNIFICADO EXPANDIDO DE MARGEN A MARGEN */}
           <motion.div 
             initial="hidden" 
             whileInView="visible" 
             viewport={{ once: true }} 
             variants={staggerContainer} 
-            className="w-full pt-4"
+            className="-mx-6 sm:-mx-10 md:-mx-12 lg:-mx-16 -mb-6 sm:-mb-10 md:-mb-12 lg:-mb-16 pt-4"
           >
             <motion.div 
               variants={fadeInUp} 
-              className="w-full rounded-2xl sm:rounded-[2.5rem] overflow-hidden bg-white shadow-xl border border-gray-100 flex flex-col lg:flex-row items-stretch"
+              className="w-full rounded-b-none sm:rounded-b-[2.5rem] rounded-t-2xl sm:rounded-t-[2.5rem] overflow-hidden bg-white shadow-xl border border-gray-100 flex flex-col lg:flex-row items-stretch"
             >
-              {/* Lado Izquierdo: Imagen Panorámica con Overlay y Badges */}
-              <div className="lg:w-[54%] xl:w-[56%] relative min-h-[340px] sm:min-h-[420px] lg:min-h-[460px] overflow-hidden group flex flex-col justify-between p-6 sm:p-10">
+              {/* Lado Izquierdo: Imagen Panorámica con Overlay */}
+              <div className="lg:w-[54%] xl:w-[56%] relative min-h-[300px] sm:min-h-[380px] lg:min-h-[440px] overflow-hidden group flex flex-col justify-between p-6 sm:p-10">
                 <img 
                   src={secFarmAction} 
                   alt="Asistencia veterinaria directa en finca Ecuador" 
@@ -415,31 +415,25 @@ const Inicio = () => {
                   </span>
                 </div>
 
-                {/* Contenido Inferior de la Imagen */}
-                <div className="relative z-10 space-y-2.5 pt-12">
+                {/* Contenido Inferior de la Imagen (Solo Título) */}
+                <div className="relative z-10 pt-12">
                   <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-serif leading-tight drop-shadow-md">
                     Asistencia Directa en Finca
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-200 leading-relaxed max-w-xl">
-                    Nuestros médicos veterinarios visitan tus instalaciones para realizar diagnósticos certeros, auditorías bioseguras y planes de tratamiento a la medida de tu producción.
-                  </p>
                 </div>
               </div>
 
-              {/* Lado Derecho: Asesoría, Títulos con Iconos Limpios (sin rectángulos ni descripciones) y Botón CTA */}
+              {/* Lado Derecho: Asesoría, Títulos con Iconos Limpios y Botón CTA */}
               <div className="lg:w-[46%] xl:w-[44%] p-6 sm:p-8 md:p-10 flex flex-col justify-between bg-gradient-to-br from-white via-[#FAFBF8] to-[#F1F6EE] border-t lg:border-t-0 lg:border-l border-gray-100">
                 <div className="space-y-6">
                   {/* Encabezado */}
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-2xl bg-[var(--color-aovet-primary)] text-white flex items-center justify-center shadow-md flex-shrink-0">
                       <HeartHandshake size={24} className="text-[var(--color-aovet-accent)]" />
                     </div>
-                    <div>
-                      <h3 className="text-xl sm:text-2xl font-extrabold text-[#2C382E] font-serif leading-snug">
-                        Consejos & Asesoría
-                      </h3>
-                      <p className="text-xs text-gray-500 font-medium">Orientación veterinaria directa y personalizada</p>
-                    </div>
+                    <h3 className="text-xl sm:text-2xl font-extrabold text-[#2C382E] font-serif leading-snug">
+                      Consejos & Asesoría
+                    </h3>
                   </div>
 
                   <p className="text-xs sm:text-sm text-gray-700 leading-relaxed text-justify">
