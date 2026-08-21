@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
-import { MapPin, Phone, Mail, Clock, Plus, ArrowRight, ShieldCheck, Zap, PackageCheck, Award, HeartHandshake, Sparkles, CheckCircle, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Plus, ArrowRight, ShieldCheck, Zap, PackageCheck, Award, HeartHandshake, Sparkles, CheckCircle, MessageCircle, Stethoscope, Headphones, CheckCircle2, Truck } from 'lucide-react';
 import BotonCTA from '../components/ui/BotonCTA';
 import SeparadorGrieta from '../components/ui/SeparadorGrieta';
 import CarruselRecomendados from '../components/ui/CarruselRecomendados';
@@ -18,7 +18,7 @@ import secIndustrial from '../assets/images/sec_industrial.webp';
 import secArchCow from '../assets/images/aovet_ganado_campo.webp';
 import secArchVet from '../assets/images/aovet_ternero_salud.webp';
 import secVetProducts from '../assets/images/aovet_ganado_campo.webp';
-import secFarmAction from '../assets/images/sec_farm_action_1785907355629.webp';
+import secFarmAction from '../assets/images/aovet_veterinario_campo.webp';
 import imgGanaderiaPrecision from '../assets/images/aovet_ganado_atardecer.webp';
 
 // Variantes de animación reutilizables
@@ -381,27 +381,129 @@ const Inicio = () => {
             </motion.div>
           </motion.div>
 
-          {/* PARTE 3 */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch pt-4">
-            <motion.div variants={fadeInUp} className="lg:col-span-2 min-h-[280px] sm:min-h-[360px] lg:h-auto rounded-3xl overflow-hidden shadow-md relative group">
-              <img src={secFarmAction} alt="Veterinario en campo Ecuador" width="800" height="400" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white">
-                <span className="text-amber-500 font-extrabold text-[11px] sm:text-xs uppercase tracking-wider mb-1.5">Acompañamiento Técnico</span>
-                <h4 className="text-2xl sm:text-3xl font-extrabold font-serif">Asistencia Directa en Finca</h4>
-                <p className="text-xs sm:text-sm text-gray-200 max-w-lg mt-1.5 leading-relaxed">Nuestros profesionales visitan tus instalaciones para realizar diagnósticos certeros y planes de tratamiento a medida.</p>
-              </div>
-            </motion.div>
-            <motion.div variants={fadeInUp} className="bg-white rounded-3xl p-6 sm:p-8 md:p-9 flex flex-col justify-between shadow-md border border-gray-100 relative overflow-hidden">
-              <div>
-                <div className="w-12 h-12 rounded-full bg-[var(--color-aovet-primary)] text-white flex items-center justify-center mb-6 shadow-sm">
-                  <HeartHandshake size={22} />
+          {/* PARTE 3: CONTENEDOR UNIFICADO DE MARGEN A MARGEN */}
+          <motion.div 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true }} 
+            variants={staggerContainer} 
+            className="w-full pt-4"
+          >
+            <motion.div 
+              variants={fadeInUp} 
+              className="w-full rounded-2xl sm:rounded-[2.5rem] overflow-hidden bg-white shadow-xl border border-gray-100 flex flex-col lg:flex-row items-stretch"
+            >
+              {/* Lado Izquierdo: Imagen Panorámica con Overlay y Badges */}
+              <div className="lg:w-[54%] xl:w-[56%] relative min-h-[340px] sm:min-h-[420px] lg:min-h-[460px] overflow-hidden group flex flex-col justify-between p-6 sm:p-10">
+                <img 
+                  src={secFarmAction} 
+                  alt="Asistencia veterinaria directa en finca Ecuador" 
+                  width="900" 
+                  height="500" 
+                  loading="lazy" 
+                  decoding="async" 
+                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 pointer-events-none" 
+                />
+                {/* Degradado para máxima legibilidad */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/20 pointer-events-none"></div>
+
+                {/* Badge Superior */}
+                <div className="relative z-10">
+                  <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-black uppercase tracking-widest bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)] px-3.5 py-1.5 rounded-full shadow-lg">
+                    <span className="w-2 h-2 rounded-full bg-[var(--color-aovet-dark)] animate-pulse"></span>
+                    Acompañamiento Técnico en Campo
+                  </span>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#2C382E] font-serif mb-4">Consejos & Asesoría</h3>
-                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-6">¿Dudas sobre dosis o tratamientos? Contáctate directamente con nuestros especialistas de campo.</p>
+
+                {/* Contenido Inferior de la Imagen */}
+                <div className="relative z-10 space-y-3 pt-12">
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-serif leading-tight drop-shadow-md">
+                    Asistencia Directa en Finca
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-200 leading-relaxed max-w-xl">
+                    Nuestros médicos veterinarios visitan tus instalaciones para realizar diagnósticos certeros, auditorías bioseguras y planes de tratamiento a la medida de tu producción.
+                  </p>
+                  
+                  {/* Badges de características con iconos acordes a la paleta */}
+                  <div className="pt-2 flex flex-wrap gap-2 sm:gap-2.5">
+                    <span className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md text-white text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-xl border border-white/30">
+                      <Stethoscope size={14} className="text-[var(--color-aovet-accent)]" /> Diagnóstico in situ
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md text-white text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-xl border border-white/30">
+                      <CheckCircle2 size={14} className="text-[var(--color-aovet-accent)]" /> Planes Sanitarios
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md text-white text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-xl border border-white/30">
+                      <Truck size={14} className="text-[var(--color-aovet-accent)]" /> Cobertura Nacional
+                    </span>
+                  </div>
+                </div>
               </div>
-              <button onClick={() => window.open('https://wa.me/593985401224', '_blank')} className="w-full bg-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-dark)] text-white font-bold py-3.5 sm:py-4 px-6 rounded-full transition-colors flex items-center justify-center gap-2 shadow-md text-xs sm:text-sm cursor-pointer">
-                <span>Consultar un especialista</span> <ArrowRight size={16} />
-              </button>
+
+              {/* Lado Derecho: Asesoría, Beneficios con Iconos Profesionales y Botón CTA */}
+              <div className="lg:w-[46%] xl:w-[44%] p-6 sm:p-8 md:p-10 flex flex-col justify-between bg-gradient-to-br from-white via-[#FAFBF8] to-[#F1F6EE] border-t lg:border-t-0 lg:border-l border-gray-100">
+                <div className="space-y-5">
+                  {/* Encabezado */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-2xl bg-[var(--color-aovet-primary)] text-white flex items-center justify-center shadow-md flex-shrink-0">
+                      <HeartHandshake size={24} className="text-[var(--color-aovet-accent)]" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-[#2C382E] font-serif leading-snug">
+                        Consejos & Asesoría
+                      </h3>
+                      <p className="text-xs text-gray-500 font-medium">Orientación veterinaria directa y personalizada</p>
+                    </div>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-gray-700 leading-relaxed text-justify">
+                    ¿Dudas sobre dosis, vías de administración o protocolos terapéuticos? Nuestro equipo técnico te brinda soporte inmediato para garantizar la máxima eficacia y rentabilidad en cada tratamiento.
+                  </p>
+
+                  {/* Bloques de Beneficios con Iconos Profesionales */}
+                  <div className="space-y-3 pt-1">
+                    <div className="flex items-start gap-3 bg-white p-3 sm:p-3.5 rounded-2xl border border-gray-100 shadow-sm">
+                      <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[var(--color-aovet-primary)] flex items-center justify-center flex-shrink-0 border border-emerald-100">
+                        <Headphones size={17} />
+                      </div>
+                      <div>
+                        <h4 className="text-xs sm:text-sm font-bold text-[#2C382E]">Respuesta Rápida 24/7</h4>
+                        <p className="text-[11px] sm:text-xs text-gray-600 leading-normal">Atención oportuna vía WhatsApp y canal telefónico directo con especialistas.</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 bg-white p-3 sm:p-3.5 rounded-2xl border border-gray-100 shadow-sm">
+                      <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center flex-shrink-0 border border-amber-100">
+                        <Sparkles size={17} />
+                      </div>
+                      <div>
+                        <h4 className="text-xs sm:text-sm font-bold text-[#2C382E]">Precisión Farmacológica</h4>
+                        <p className="text-[11px] sm:text-xs text-gray-600 leading-normal">Dosificación exacta según etapa productiva, peso y estado fisiológico.</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 bg-white p-3 sm:p-3.5 rounded-2xl border border-gray-100 shadow-sm">
+                      <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[var(--color-aovet-primary)] flex items-center justify-center flex-shrink-0 border border-emerald-100">
+                        <ShieldCheck size={17} />
+                      </div>
+                      <div>
+                        <h4 className="text-xs sm:text-sm font-bold text-[#2C382E]">Seguimiento de Resultados</h4>
+                        <p className="text-[11px] sm:text-xs text-gray-600 leading-normal">Acompañamos el ciclo completo de recuperación y rendimiento en granja.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Botón de Acción */}
+                <div className="pt-6">
+                  <button 
+                    onClick={() => window.open('https://wa.me/593985401224?text=Hola,%20deseo%20consultar%20con%20un%20especialista%20de%20AOVET%20acerca%20de%20asesoria%20tecnica', '_blank')} 
+                    className="w-full bg-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-dark)] text-white font-bold py-3.5 sm:py-4 px-6 rounded-full transition-all flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg active:scale-95 text-xs sm:text-sm cursor-pointer"
+                  >
+                    <span>Consultar un especialista</span>
+                    <ArrowRight size={16} />
+                  </button>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         </motion.div>
