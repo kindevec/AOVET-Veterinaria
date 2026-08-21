@@ -18,7 +18,7 @@ import secIndustrial from '../assets/images/sec_industrial.webp';
 import secArchCow from '../assets/images/aovet_ganado_campo.webp';
 import secArchVet from '../assets/images/aovet_ternero_salud.webp';
 import secVetProducts from '../assets/images/aovet_ganado_campo.webp';
-import secFarmAction from '../assets/images/sec_farm_action_1785907355629.webp';
+import secFarmAction from '../assets/images/aovet_ganado_atardecer.webp';
 
 // Variantes de animación reutilizables
 const fadeInUp = {
