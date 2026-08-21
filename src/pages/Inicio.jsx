@@ -18,7 +18,8 @@ import secIndustrial from '../assets/images/sec_industrial.webp';
 import secArchCow from '../assets/images/aovet_ganado_campo.webp';
 import secArchVet from '../assets/images/aovet_ternero_salud.webp';
 import secVetProducts from '../assets/images/aovet_ganado_campo.webp';
-import secFarmAction from '../assets/images/aovet_ganado_atardecer.webp';
+import secFarmAction from '../assets/images/sec_farm_action_1785907355629.webp';
+import imgGanaderiaPrecision from '../assets/images/aovet_ganado_atardecer.webp';
 
 // Variantes de animación reutilizables
 const fadeInUp = {
@@ -373,7 +374,7 @@ const Inicio = () => {
             <motion.div variants={scaleIn} className="flex justify-center">
               <div className="w-56 sm:w-60 h-64 sm:h-72 rounded-t-[6rem] sm:rounded-t-[7rem] rounded-b-3xl bg-[#AEC2AA] p-3 shadow-lg flex flex-col items-center justify-between text-center text-[#2C382E]">
                 <div className="w-full h-36 sm:h-44 rounded-t-[5.5rem] sm:rounded-t-[6.5rem] rounded-b-2xl overflow-hidden bg-white">
-                  <img src={catGanado} alt="Ganadería de precisión" width="240" height="176" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                  <img src={imgGanaderiaPrecision} alt="Ganadería de precisión" width="240" height="176" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 </div>
                 <div className="py-2"><span className="font-bold text-xs sm:text-sm block">Ganadería de Precisión</span><span className="text-[10px] sm:text-[11px] text-gray-700">Mayor producción de leche y carne.</span></div>
               </div>
