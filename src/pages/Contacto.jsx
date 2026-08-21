@@ -206,15 +206,49 @@ const Contacto = () => {
               </form>
             </motion.div>
 
-            {/* Columna Derecha: Mapa + Bloque con Borde Gradiente Ambiental (Estilo de Referencia) */}
+            {/* Columna Derecha: Barra de Dirección + Mapa + Información con Animaciones e Iconos Iluminados */}
             <motion.div 
               initial={{ opacity: 0, x: 30 }} 
               whileInView={{ opacity: 1, x: 0 }} 
               viewport={{ once: true, amount: 0.2 }} 
               transition={{ duration: 0.6, delay: 0.4 }} 
-              className="flex flex-col space-y-6"
+              className="flex flex-col space-y-5"
             >
-              {/* Contenedor del Mapa Interactivo */}
+              {/* Barra Independiente de Dirección y GPS Encima del Mapa */}
+              <motion.div 
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="w-full bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-5 shadow-sm border border-gray-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+              >
+                <div className="flex items-center gap-3.5">
+                  <div className="w-10 h-10 rounded-full bg-[var(--color-aovet-primary)] text-white flex items-center justify-center flex-shrink-0 shadow-md">
+                    <MapPin size={20} className="text-[var(--color-aovet-accent)]" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[var(--color-aovet-dark)] text-sm sm:text-base leading-tight">
+                      AOVET Veterinaria
+                    </h3>
+                    <p className="text-xs text-gray-600 leading-snug mt-0.5">
+                      San Juanpamba - Vía a Jadán, Cuenca
+                    </p>
+                  </div>
+                </div>
+
+                <a 
+                  href="https://www.google.com/maps/dir/?api=1&destination=San+Juanpamba,+Jad%C3%A1n,+Azuay,+Ecuador" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-dark)] text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all active:scale-95 flex-shrink-0 cursor-pointer"
+                >
+                  <Navigation size={14} />
+                  <span>Cómo llegar en GPS</span>
+                  <ExternalLink size={12} />
+                </a>
+              </motion.div>
+
+              {/* Contenedor del Mapa Interactivo (Limpio) */}
               <div className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 p-2 sm:p-3 relative group">
                 <div className="relative w-full h-64 sm:h-72 md:h-80 rounded-2xl overflow-hidden shadow-inner">
                   <iframe 
@@ -228,55 +262,91 @@ const Contacto = () => {
                     title="Ubicación Exacta AOVET San Juanpamba" 
                     className="w-full h-full"
                   ></iframe>
-
-                  {/* Badge Flotante con Botón 'Cómo Llegar' */}
-                  <div className="absolute top-3 left-3 right-3 sm:right-auto sm:max-w-xs z-10">
-                    <div className="bg-white/95 backdrop-blur-md p-3 rounded-2xl border border-gray-200 shadow-xl flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-full bg-[var(--color-aovet-primary)] text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
-                        <MapPin size={16} />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="font-bold text-[var(--color-aovet-dark)] text-xs sm:text-sm leading-tight">AOVET Veterinaria</p>
-                        <p className="text-[11px] text-gray-600 leading-snug mt-0.5">San Juanpamba - Vía a Jadán, Cuenca</p>
-                        <a 
-                          href="https://www.google.com/maps/dir/?api=1&destination=San+Juanpamba,+Jad%C3%A1n,+Azuay,+Ecuador" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[var(--color-aovet-primary)] hover:underline mt-1"
-                        >
-                          <Navigation size={12} /> Cómo llegar en GPS <ExternalLink size={10} />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
 
-              {/* Información de Contacto Sin Contenedores - Iconos Limpios Estilo Lucide */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 pt-2">
+              {/* Información de Contacto - Animaciones de Acercamiento e Iconos con Iluminación */}
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+                }}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-2"
+              >
                 {/* Sede Principal */}
-                <div className="flex items-start gap-4">
-                  <Building2 size={26} strokeWidth={2.2} className="text-[var(--color-aovet-primary)] flex-shrink-0 mt-0.5" />
+                <motion.div 
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.88, y: 20 },
+                    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+                  }}
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 20 }}
+                  className="flex items-start gap-4 p-3 rounded-2xl hover:bg-white/60 transition-colors group cursor-default"
+                >
+                  <div className="relative flex-shrink-0 mt-0.5">
+                    {/* Efecto de Iluminación Ambiental / Glow */}
+                    <div className="absolute inset-0 rounded-full bg-emerald-500/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150 pointer-events-none"></div>
+                    <Building2 
+                      size={28} 
+                      strokeWidth={2.2} 
+                      className="text-[var(--color-aovet-primary)] relative z-10 filter drop-shadow-[0_0_6px_rgba(13,61,32,0.3)] group-hover:drop-shadow-[0_0_14px_rgba(72,213,151,0.9)] transition-all duration-300 group-hover:scale-110" 
+                    />
+                  </div>
                   <div>
                     <h4 className="text-sm font-bold text-[var(--color-aovet-dark)] mb-0.5">Sede Principal</h4>
                     <p className="text-xs text-[var(--color-aovet-primary)] font-semibold mb-0.5">Mgs. Mvz. Jonatan Arichabala</p>
                     <p className="text-xs text-gray-600 leading-relaxed">San Juanpamba - Vía a Jadán<br />Cuenca, Ecuador.</p>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Horario de Atención */}
-                <div className="flex items-start gap-4">
-                  <Clock size={26} strokeWidth={2.2} className="text-amber-500 flex-shrink-0 mt-0.5" />
+                <motion.div 
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.88, y: 20 },
+                    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+                  }}
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 20 }}
+                  className="flex items-start gap-4 p-3 rounded-2xl hover:bg-white/60 transition-colors group cursor-default"
+                >
+                  <div className="relative flex-shrink-0 mt-0.5">
+                    {/* Efecto de Iluminación Ambiental / Glow */}
+                    <div className="absolute inset-0 rounded-full bg-amber-500/25 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150 pointer-events-none"></div>
+                    <Clock 
+                      size={28} 
+                      strokeWidth={2.2} 
+                      className="text-amber-500 relative z-10 filter drop-shadow-[0_0_6px_rgba(245,158,11,0.35)] group-hover:drop-shadow-[0_0_14px_rgba(245,158,11,0.9)] transition-all duration-300 group-hover:scale-110" 
+                    />
+                  </div>
                   <div>
                     <h4 className="text-sm font-bold text-[var(--color-aovet-dark)] mb-0.5">Horario de Atención</h4>
                     <p className="text-xs text-gray-700 font-medium leading-relaxed">Lunes a Viernes: 8:00 - 18:00</p>
                     <p className="text-[11px] text-gray-500 mt-0.5">Sábados: 8:00 - 13:00</p>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Teléfono Directo */}
-                <div className="flex items-start gap-4">
-                  <Phone size={26} strokeWidth={2.2} className="text-[var(--color-aovet-primary)] flex-shrink-0 mt-0.5" />
+                <motion.div 
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.88, y: 20 },
+                    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+                  }}
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 20 }}
+                  className="flex items-start gap-4 p-3 rounded-2xl hover:bg-white/60 transition-colors group cursor-default"
+                >
+                  <div className="relative flex-shrink-0 mt-0.5">
+                    {/* Efecto de Iluminación Ambiental / Glow */}
+                    <div className="absolute inset-0 rounded-full bg-emerald-500/25 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150 pointer-events-none"></div>
+                    <Phone 
+                      size={28} 
+                      strokeWidth={2.2} 
+                      className="text-[var(--color-aovet-primary)] relative z-10 filter drop-shadow-[0_0_6px_rgba(16,185,129,0.35)] group-hover:drop-shadow-[0_0_14px_rgba(72,213,151,0.9)] transition-all duration-300 group-hover:scale-110" 
+                    />
+                  </div>
                   <div>
                     <h4 className="text-sm font-bold text-[var(--color-aovet-dark)] mb-0.5">Teléfono Directo</h4>
                     <a href="tel:+593985401224" className="text-sm font-bold text-[var(--color-aovet-dark)] hover:text-[var(--color-aovet-primary)] transition-colors block">
@@ -284,19 +354,35 @@ const Contacto = () => {
                     </a>
                     <p className="text-[11px] text-gray-500">+593 98 540 1224</p>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Correo Electrónico */}
-                <div className="flex items-start gap-4">
-                  <Mail size={26} strokeWidth={2.2} className="text-sky-600 flex-shrink-0 mt-0.5" />
+                <motion.div 
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.88, y: 20 },
+                    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+                  }}
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 20 }}
+                  className="flex items-start gap-4 p-3 rounded-2xl hover:bg-white/60 transition-colors group cursor-default"
+                >
+                  <div className="relative flex-shrink-0 mt-0.5">
+                    {/* Efecto de Iluminación Ambiental / Glow */}
+                    <div className="absolute inset-0 rounded-full bg-sky-500/25 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150 pointer-events-none"></div>
+                    <Mail 
+                      size={28} 
+                      strokeWidth={2.2} 
+                      className="text-sky-500 relative z-10 filter drop-shadow-[0_0_6px_rgba(14,165,233,0.35)] group-hover:drop-shadow-[0_0_14px_rgba(56,189,248,0.9)] transition-all duration-300 group-hover:scale-110" 
+                    />
+                  </div>
                   <div>
                     <h4 className="text-sm font-bold text-[var(--color-aovet-dark)] mb-0.5">Correo Electrónico</h4>
                     <a href="mailto:jonatanarichabala_89@hotmail.com" className="text-xs text-gray-600 hover:text-[var(--color-aovet-primary)] transition-colors break-all font-medium">
                       jonatanarichabala_89@hotmail.com
                     </a>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
             </motion.div>
           </div>
