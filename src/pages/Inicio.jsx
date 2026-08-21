@@ -64,7 +64,7 @@ const Inicio = () => {
             </motion.svg>
           </div>
 
-          <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 1.5 } } }} className="max-w-3xl text-center lg:text-left">
+          <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 1.5 } } }} className="w-full">
             <motion.h1 
               variants={{ 
                 hidden: { opacity: 0, y: 35, scale: 0.95 }, 
@@ -89,7 +89,7 @@ const Inicio = () => {
                 }
               }}
               whileHover={{ scale: 1.02 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-white text-center leading-[1.15] tracking-tight mb-6 sm:mb-8 antialiased hero-stroke [text-shadow:0_6px_16px_rgba(0,0,0,0.7),0_12px_28px_rgba(13,61,32,0.6)] cursor-default select-none"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-white text-center leading-[1.15] tracking-tight mb-8 sm:mb-10 antialiased hero-stroke [text-shadow:0_6px_16px_rgba(0,0,0,0.7),0_12px_28px_rgba(13,61,32,0.6)] cursor-default select-none mx-auto max-w-5xl"
             >
               <motion.span 
                 className="inline-block"
@@ -97,7 +97,7 @@ const Inicio = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.15 }}
               >
-                Importamos confianza.
+                Importamos confianza
               </motion.span> 
               <br/>
               <motion.span 
@@ -106,7 +106,7 @@ const Inicio = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.35 }}
               >
-                Distribuimos salud animal.
+                Distribuimos salud animal
               </motion.span>
             </motion.h1>
             
