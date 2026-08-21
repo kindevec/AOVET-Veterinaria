@@ -214,21 +214,21 @@ const Contacto = () => {
               transition={{ duration: 0.6, delay: 0.4 }} 
               className="flex flex-col space-y-5"
             >
-              {/* Información de Ubicación Encima del Mapa (Sin contenedor y con icono Lucide iluminado) */}
+              {/* Barra Independiente de Ubicación Encima del Mapa */}
               <motion.div 
                 initial={{ opacity: 0, y: -10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.4 }}
-                className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 px-1 py-1 group"
+                className="w-full bg-white rounded-2xl sm:rounded-full px-5 sm:px-6 py-3.5 sm:py-4 shadow-sm border border-gray-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 group"
               >
-                <div className="flex items-start gap-4">
-                  <div className="relative flex-shrink-0 mt-0.5">
+                <div className="flex items-center gap-3.5">
+                  <div className="relative flex-shrink-0">
                     {/* Efecto de Iluminación Ambiental / Glow */}
                     <div className="absolute inset-0 rounded-full bg-emerald-500/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150 pointer-events-none"></div>
                     <MapPin 
-                      size={28} 
+                      size={26} 
                       strokeWidth={2.2} 
                       className="text-[var(--color-aovet-primary)] relative z-10 filter drop-shadow-[0_0_6px_rgba(13,61,32,0.3)] group-hover:drop-shadow-[0_0_14px_rgba(72,213,151,0.9)] transition-all duration-300 group-hover:scale-110" 
                     />
