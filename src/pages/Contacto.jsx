@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { 
   MapPin, Phone, Mail, Clock, Navigation, ExternalLink, 
-  MessageCircle, Building2, User, Layers, Send, MessageSquare 
+  Building2, User, Layers, Send, MessageSquare 
 } from 'lucide-react';
 
 const sanitizeInput = (text) => {
@@ -84,7 +84,7 @@ const Contacto = () => {
 
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
             
-            {/* Columna Izquierda: Formulario Estilo Píldora Moderno (Sin Contenedor Cuadrado) */}
+            {/* Columna Izquierda: Formulario Estilo Píldora Moderno */}
             <motion.div 
               initial={{ opacity: 0, x: -30 }} 
               whileInView={{ opacity: 1, x: 0 }} 
@@ -204,48 +204,9 @@ const Contacto = () => {
                   <Send size={15} />
                 </button>
               </form>
-
-              {/* Canales Directos Rápidos (Estilo Redondo de la Referencia) */}
-              <div className="mt-8 pt-6 border-t border-gray-200/70 text-center">
-                <p className="text-xs text-gray-500 font-medium mb-3">O comunícate por nuestros canales directos</p>
-                <div className="flex items-center justify-center gap-3.5">
-                  <a 
-                    href="https://wa.me/593985401224" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="w-11 h-11 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-primary)] hover:text-white hover:border-[var(--color-aovet-primary)] transition-all hover:scale-105"
-                    title="WhatsApp"
-                  >
-                    <MessageCircle size={18} />
-                  </a>
-                  <a 
-                    href="tel:+593985401224" 
-                    className="w-11 h-11 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-primary)] hover:text-white hover:border-[var(--color-aovet-primary)] transition-all hover:scale-105"
-                    title="Llamar"
-                  >
-                    <Phone size={18} />
-                  </a>
-                  <a 
-                    href="mailto:jonatanarichabala_89@hotmail.com" 
-                    className="w-11 h-11 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-primary)] hover:text-white hover:border-[var(--color-aovet-primary)] transition-all hover:scale-105"
-                    title="Email"
-                  >
-                    <Mail size={18} />
-                  </a>
-                  <a 
-                    href="https://www.google.com/maps/dir/?api=1&destination=San+Juanpamba,+Jad%C3%A1n,+Azuay,+Ecuador" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-11 h-11 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-primary)] hover:text-white hover:border-[var(--color-aovet-primary)] transition-all hover:scale-105"
-                    title="GPS / Ubicación"
-                  >
-                    <Navigation size={18} />
-                  </a>
-                </div>
-              </div>
             </motion.div>
 
-            {/* Columna Derecha: Mapa + Información de Contacto (Sin Contenedor Cuadrado en la Info) */}
+            {/* Columna Derecha: Mapa + Bloque con Borde Gradiente Ambiental (Estilo de Referencia) */}
             <motion.div 
               initial={{ opacity: 0, x: 30 }} 
               whileInView={{ opacity: 1, x: 0 }} 
@@ -291,52 +252,64 @@ const Contacto = () => {
                 </div>
               </div>
 
-              {/* Grilla de Datos de Contacto Limpia (Sin contenedor cuadrado pesado) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
-                <div className="flex items-start gap-3 bg-white/70 backdrop-blur-sm p-4 rounded-2xl border border-gray-200/70 shadow-sm">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[var(--color-aovet-primary)] flex items-center justify-center flex-shrink-0 mt-0.5 border border-emerald-100">
-                    <Building2 size={19} />
-                  </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-[var(--color-aovet-dark)] mb-0.5">Sede Principal</h4>
-                    <p className="text-[11px] text-[var(--color-aovet-primary)] font-semibold mb-0.5">Mgs. Mvz. Jonatan Arichabala</p>
-                    <p className="text-[11px] text-gray-600 leading-relaxed">San Juanpamba - Vía a Jadán<br/>Cuenca, Ecuador.</p>
-                  </div>
-                </div>
+              {/* Contenedor de Información con Bordes y Resplandor Gradiente (Estilo Referencia) */}
+              <div className="relative p-[1.5px] rounded-3xl bg-gradient-to-br from-[var(--color-aovet-accent)]/80 via-emerald-600/30 to-[var(--color-aovet-primary)]/70 shadow-xl overflow-hidden group">
+                <div className="relative rounded-[calc(1.5rem-1.5px)] bg-[#12281B]/95 backdrop-blur-xl p-5 sm:p-7 text-white overflow-hidden">
+                  {/* Resplandor ambiental de color en la esquina superior izquierda */}
+                  <div className="absolute -top-12 -left-12 w-36 h-36 bg-[var(--color-aovet-accent)]/25 rounded-full blur-2xl pointer-events-none"></div>
+                  <div className="absolute -bottom-12 -right-12 w-36 h-36 bg-[var(--color-aovet-primary)]/30 rounded-full blur-2xl pointer-events-none"></div>
 
-                <div className="flex items-start gap-3 bg-white/70 backdrop-blur-sm p-4 rounded-2xl border border-gray-200/70 shadow-sm">
-                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5 border border-amber-100">
-                    <Clock size={19} />
-                  </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-[var(--color-aovet-dark)] mb-0.5">Horario de Atención</h4>
-                    <p className="text-[11px] text-gray-600 leading-relaxed">Lunes a Viernes: 8:00 - 18:00</p>
-                    <p className="text-[10px] text-gray-500 mt-0.5">Sábados: 8:00 - 13:00</p>
-                  </div>
-                </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
+                    {/* Sede Principal */}
+                    <div className="flex items-start gap-3.5">
+                      <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center flex-shrink-0 text-[var(--color-aovet-accent)] mt-0.5 shadow-inner">
+                        <Building2 size={18} />
+                      </div>
+                      <div>
+                        <h4 className="text-[11px] uppercase tracking-wider text-gray-300 font-bold mb-1">Sede Principal</h4>
+                        <p className="text-xs text-[var(--color-aovet-accent)] font-semibold mb-0.5">Mgs. Mvz. Jonatan Arichabala</p>
+                        <p className="text-xs text-gray-300 leading-relaxed">San Juanpamba - Vía a Jadán<br />Cuenca, Ecuador.</p>
+                      </div>
+                    </div>
 
-                <div className="flex items-start gap-3 bg-white/70 backdrop-blur-sm p-4 rounded-2xl border border-gray-200/70 shadow-sm">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[var(--color-aovet-primary)] flex items-center justify-center flex-shrink-0 mt-0.5 border border-emerald-100">
-                    <Phone size={19} />
-                  </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-[var(--color-aovet-dark)] mb-0.5">Teléfono Directo</h4>
-                    <a href="tel:+593985401224" className="text-[var(--color-aovet-primary)] font-bold text-xs sm:text-sm hover:underline block">
-                      0985401224
-                    </a>
-                    <p className="text-[10px] text-gray-500">+593 98 540 1224</p>
-                  </div>
-                </div>
+                    {/* Horario de Atención */}
+                    <div className="flex items-start gap-3.5">
+                      <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center flex-shrink-0 text-amber-400 mt-0.5 shadow-inner">
+                        <Clock size={18} />
+                      </div>
+                      <div>
+                        <h4 className="text-[11px] uppercase tracking-wider text-gray-300 font-bold mb-1">Horario de Atención</h4>
+                        <p className="text-xs text-white font-medium leading-relaxed">Lunes a Viernes: 8:00 - 18:00</p>
+                        <p className="text-[11px] text-gray-400 mt-0.5">Sábados: 8:00 - 13:00</p>
+                      </div>
+                    </div>
 
-                <div className="flex items-start gap-3 bg-white/70 backdrop-blur-sm p-4 rounded-2xl border border-gray-200/70 shadow-sm">
-                  <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center flex-shrink-0 mt-0.5 border border-sky-100">
-                    <Mail size={19} />
-                  </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-[var(--color-aovet-dark)] mb-0.5">Correo Electrónico</h4>
-                    <a href="mailto:jonatanarichabala_89@hotmail.com" className="text-[11px] text-gray-600 hover:text-[var(--color-aovet-primary)] transition-colors break-all font-medium">
-                      jonatanarichabala_89@hotmail.com
-                    </a>
+                    {/* Teléfono Directo */}
+                    <div className="flex items-start gap-3.5">
+                      <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center flex-shrink-0 text-[var(--color-aovet-accent)] mt-0.5 shadow-inner">
+                        <Phone size={18} />
+                      </div>
+                      <div>
+                        <h4 className="text-[11px] uppercase tracking-wider text-gray-300 font-bold mb-1">Teléfono Directo</h4>
+                        <a href="tel:+593985401224" className="text-sm font-bold text-white hover:text-[var(--color-aovet-accent)] transition-colors block">
+                          0985401224
+                        </a>
+                        <p className="text-[11px] text-gray-400">+593 98 540 1224</p>
+                      </div>
+                    </div>
+
+                    {/* Correo Electrónico */}
+                    <div className="flex items-start gap-3.5">
+                      <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center flex-shrink-0 text-sky-400 mt-0.5 shadow-inner">
+                        <Mail size={18} />
+                      </div>
+                      <div>
+                        <h4 className="text-[11px] uppercase tracking-wider text-gray-300 font-bold mb-1">Correo Electrónico</h4>
+                        <a href="mailto:jonatanarichabala_89@hotmail.com" className="text-xs text-gray-300 hover:text-[var(--color-aovet-accent)] transition-colors break-all font-medium">
+                          jonatanarichabala_89@hotmail.com
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
