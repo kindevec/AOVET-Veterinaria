@@ -416,32 +416,19 @@ const Inicio = () => {
                 </div>
 
                 {/* Contenido Inferior de la Imagen */}
-                <div className="relative z-10 space-y-3 pt-12">
+                <div className="relative z-10 space-y-2.5 pt-12">
                   <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-serif leading-tight drop-shadow-md">
                     Asistencia Directa en Finca
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-200 leading-relaxed max-w-xl">
                     Nuestros médicos veterinarios visitan tus instalaciones para realizar diagnósticos certeros, auditorías bioseguras y planes de tratamiento a la medida de tu producción.
                   </p>
-                  
-                  {/* Badges de características con iconos acordes a la paleta */}
-                  <div className="pt-2 flex flex-wrap gap-2 sm:gap-2.5">
-                    <span className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md text-white text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-xl border border-white/30">
-                      <Stethoscope size={14} className="text-[var(--color-aovet-accent)]" /> Diagnóstico in situ
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md text-white text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-xl border border-white/30">
-                      <CheckCircle2 size={14} className="text-[var(--color-aovet-accent)]" /> Planes Sanitarios
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md text-white text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-xl border border-white/30">
-                      <Truck size={14} className="text-[var(--color-aovet-accent)]" /> Cobertura Nacional
-                    </span>
-                  </div>
                 </div>
               </div>
 
-              {/* Lado Derecho: Asesoría, Beneficios con Iconos Profesionales y Botón CTA */}
+              {/* Lado Derecho: Asesoría, Títulos con Iconos Limpios (sin rectángulos ni descripciones) y Botón CTA */}
               <div className="lg:w-[46%] xl:w-[44%] p-6 sm:p-8 md:p-10 flex flex-col justify-between bg-gradient-to-br from-white via-[#FAFBF8] to-[#F1F6EE] border-t lg:border-t-0 lg:border-l border-gray-100">
-                <div className="space-y-5">
+                <div className="space-y-6">
                   {/* Encabezado */}
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-2xl bg-[var(--color-aovet-primary)] text-white flex items-center justify-center shadow-md flex-shrink-0">
@@ -459,36 +446,21 @@ const Inicio = () => {
                     ¿Dudas sobre dosis, vías de administración o protocolos terapéuticos? Nuestro equipo técnico te brinda soporte inmediato para garantizar la máxima eficacia y rentabilidad en cada tratamiento.
                   </p>
 
-                  {/* Bloques de Beneficios con Iconos Profesionales */}
-                  <div className="space-y-3 pt-1">
-                    <div className="flex items-start gap-3 bg-white p-3 sm:p-3.5 rounded-2xl border border-gray-100 shadow-sm">
-                      <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[var(--color-aovet-primary)] flex items-center justify-center flex-shrink-0 border border-emerald-100">
-                        <Headphones size={17} />
-                      </div>
-                      <div>
-                        <h4 className="text-xs sm:text-sm font-bold text-[#2C382E]">Respuesta Rápida 24/7</h4>
-                        <p className="text-[11px] sm:text-xs text-gray-600 leading-normal">Atención oportuna vía WhatsApp y canal telefónico directo con especialistas.</p>
-                      </div>
+                  {/* Lista de Beneficios con Iconos sin cajas rectangulares ni descripciones */}
+                  <div className="space-y-3.5 pt-2">
+                    <div className="flex items-center gap-3 text-[var(--color-aovet-dark)]">
+                      <Headphones size={20} className="text-[var(--color-aovet-primary)] flex-shrink-0" />
+                      <span className="text-xs sm:text-sm font-bold">Respuesta Rápida 24/7</span>
                     </div>
 
-                    <div className="flex items-start gap-3 bg-white p-3 sm:p-3.5 rounded-2xl border border-gray-100 shadow-sm">
-                      <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center flex-shrink-0 border border-amber-100">
-                        <Sparkles size={17} />
-                      </div>
-                      <div>
-                        <h4 className="text-xs sm:text-sm font-bold text-[#2C382E]">Precisión Farmacológica</h4>
-                        <p className="text-[11px] sm:text-xs text-gray-600 leading-normal">Dosificación exacta según etapa productiva, peso y estado fisiológico.</p>
-                      </div>
+                    <div className="flex items-center gap-3 text-[var(--color-aovet-dark)]">
+                      <Sparkles size={20} className="text-amber-500 flex-shrink-0" />
+                      <span className="text-xs sm:text-sm font-bold">Precisión Farmacológica</span>
                     </div>
 
-                    <div className="flex items-start gap-3 bg-white p-3 sm:p-3.5 rounded-2xl border border-gray-100 shadow-sm">
-                      <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[var(--color-aovet-primary)] flex items-center justify-center flex-shrink-0 border border-emerald-100">
-                        <ShieldCheck size={17} />
-                      </div>
-                      <div>
-                        <h4 className="text-xs sm:text-sm font-bold text-[#2C382E]">Seguimiento de Resultados</h4>
-                        <p className="text-[11px] sm:text-xs text-gray-600 leading-normal">Acompañamos el ciclo completo de recuperación y rendimiento en granja.</p>
-                      </div>
+                    <div className="flex items-center gap-3 text-[var(--color-aovet-dark)]">
+                      <ShieldCheck size={20} className="text-[var(--color-aovet-primary)] flex-shrink-0" />
+                      <span className="text-xs sm:text-sm font-bold">Seguimiento de Resultados</span>
                     </div>
                   </div>
                 </div>
