@@ -56,8 +56,8 @@ const Inicio = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-sky-400/80 via-sky-300/40 to-transparent"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center pt-12 pb-24">
-          <div className="mb-6 flex justify-center w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center pt-6 sm:pt-8 pb-24 sm:pb-28">
+          <div className="mb-3 sm:mb-4 flex justify-center w-full">
             <motion.svg width="80" height="100" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" initial="hidden" animate="visible">
               <motion.path d="M40 90 C 15 90 5 65 5 50 C 5 20 20 5 40 5 C 60 5 75 20 75 50 C 75 65 65 90 40 90 Z" stroke="var(--color-aovet-accent)" strokeWidth="3" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1.5, ease: "easeInOut" } } }} />
               <motion.path d="M20 40 L 40 50 L 30 65 L 50 75 L 45 90" stroke="var(--color-aovet-accent)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1, delay: 1.2, ease: "easeOut" } } }} />
@@ -89,7 +89,7 @@ const Inicio = () => {
                 }
               }}
               whileHover={{ scale: 1.02 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-white text-center leading-[1.15] tracking-tight mb-8 sm:mb-10 antialiased hero-stroke [text-shadow:0_6px_16px_rgba(0,0,0,0.7),0_12px_28px_rgba(13,61,32,0.6)] cursor-default select-none mx-auto max-w-5xl"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-white text-center leading-[1.15] tracking-tight mb-8 sm:mb-10 antialiased hero-stroke [text-shadow:0_6px_16px_rgba(0,0,0,0.7),0_12px_28px_rgba(13,61,32,0.6)] cursor-default select-none mx-auto max-w-5xl -mt-2 sm:-mt-3"
             >
               <motion.span 
                 className="inline-block"
