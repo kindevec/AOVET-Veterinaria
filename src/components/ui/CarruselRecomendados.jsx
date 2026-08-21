@@ -71,7 +71,7 @@ const CarruselRecomendados = () => {
 
   return (
     <div 
-      className="relative w-full max-w-[1400px] mx-auto py-4 sm:py-8 select-none overflow-hidden sm:overflow-visible group/carousel"
+      className="relative w-full max-w-[1550px] mx-auto py-4 sm:py-8 select-none overflow-visible group/carousel"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -226,9 +226,9 @@ const CarruselRecomendados = () => {
                 prevSlide();
               }}
               aria-label="Producto anterior"
-              className="absolute -left-2 sm:-left-6 md:-left-8 lg:-left-12 xl:-left-16 top-1/2 -translate-y-1/2 z-40 w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white/95 hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white backdrop-blur-md border border-gray-200 flex items-center justify-center cursor-pointer transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95 opacity-0 group-hover/carousel:opacity-100 pointer-events-none group-hover/carousel:pointer-events-auto group/btn focus:opacity-100"
+              className="absolute -left-4 sm:-left-8 md:-left-12 lg:-left-16 xl:-left-24 2xl:-left-28 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full bg-white/95 hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white backdrop-blur-md border border-gray-200 flex items-center justify-center cursor-pointer transition-all duration-300 shadow-2xl hover:scale-115 active:scale-95 opacity-0 group-hover/carousel:opacity-100 pointer-events-none group-hover/carousel:pointer-events-auto group/btn focus:opacity-100"
             >
-              <ChevronLeft className="w-5 h-5 sm:w-7 sm:h-7 group-hover/btn:-translate-x-0.5 transition-transform" />
+              <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 group-hover/btn:-translate-x-0.5 transition-transform" />
             </button>
 
             <button
@@ -237,9 +237,9 @@ const CarruselRecomendados = () => {
                 nextSlide();
               }}
               aria-label="Producto siguiente"
-              className="absolute -right-2 sm:-right-6 md:-right-8 lg:-right-12 xl:-right-16 top-1/2 -translate-y-1/2 z-40 w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white/95 hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white backdrop-blur-md border border-gray-200 flex items-center justify-center cursor-pointer transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95 opacity-0 group-hover/carousel:opacity-100 pointer-events-none group-hover/carousel:pointer-events-auto group/btn focus:opacity-100"
+              className="absolute -right-4 sm:-right-8 md:-right-12 lg:-right-16 xl:-right-24 2xl:-right-28 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full bg-white/95 hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white backdrop-blur-md border border-gray-200 flex items-center justify-center cursor-pointer transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95 opacity-0 group-hover/carousel:opacity-100 pointer-events-none group-hover/carousel:pointer-events-auto group/btn focus:opacity-100"
             >
-              <ChevronRight className="w-5 h-5 sm:w-7 sm:h-7 group-hover/btn:translate-x-0.5 transition-transform" />
+              <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 group-hover/btn:translate-x-0.5 transition-transform" />
             </button>
           </>
         )}
