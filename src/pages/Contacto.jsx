@@ -3,21 +3,55 @@ import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, Clock, Navigation, ExternalLink, MessageCircle, Building2, CheckCircle2 } from 'lucide-react';
 import BotonCTA from '../components/ui/BotonCTA';
 
+const sanitizeInput = (text) => {
+  if (typeof text !== 'string') return '';
+  return text
+    .replace(/[<>]/g, '') // Eliminar tags HTML
+    .replace(/javascript:/gi, '')
+    .trim();
+};
+
 const Contacto = () => {
   const [formData, setFormData] = useState({
     nombre: '',
     telefono: '',
     categoria: 'aves',
-    mensaje: ''
+    mensaje: '',
+    honeypot: '' // Campo trampa anti-spam
   });
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    if (errorMsg) setErrorMsg('');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const textoMsg = `Hola AOVET, mi nombre es ${formData.nombre}. Mi número es ${formData.telefono}. Me interesa la línea: ${formData.categoria}. Consulta: ${formData.mensaje}`;
+    
+    // Verificación de trampa Honeypot (si un bot lo rellena, abortamos silenciosamente)
+    if (formData.honeypot) {
+      console.warn('Bot detectado vía honeypot.');
+      return;
+    }
+
+    const cleanNombre = sanitizeInput(formData.nombre);
+    const cleanTelefono = sanitizeInput(formData.telefono);
+    const cleanMensaje = sanitizeInput(formData.mensaje);
+
+    // Validación básica de seguridad
+    if (cleanNombre.length < 3) {
+      setErrorMsg('Por favor, ingresa un nombre válido (mínimo 3 caracteres).');
+      return;
+    }
+
+    const phoneRegex = /^[0-9+-\s()]{7,15}$/;
+    if (!phoneRegex.test(cleanTelefono)) {
+      setErrorMsg('Por favor, ingresa un número de teléfono válido.');
+      return;
+    }
+
+    const textoMsg = `Hola AOVET, mi nombre es ${cleanNombre}. Mi número es ${cleanTelefono}. Me interesa la línea: ${formData.categoria}. Consulta: ${cleanMensaje}`;
     const urlWa = `https://wa.me/593985401224?text=${encodeURIComponent(textoMsg)}`;
     window.open(urlWa, '_blank');
   };
@@ -48,14 +82,34 @@ const Contacto = () => {
               <h2 className="text-2xl font-bold text-[var(--color-aovet-dark)] font-serif mb-2">Envíanos un mensaje</h2>
               <p className="text-xs sm:text-sm text-gray-500 mb-6">Completa el formulario y te contactaremos de inmediato.</p>
 
+              {errorMsg && (
+                <div className="mb-5 p-3.5 bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm rounded-xl font-medium">
+                  {errorMsg}
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                {/* Campo Trampa Honeypot oculto a usuarios humanos */}
+                <div className="hidden" aria-hidden="true">
+                  <label htmlFor="honeypot">Website</label>
+                  <input
+                    type="text"
+                    id="honeypot"
+                    name="honeypot"
+                    value={formData.honeypot}
+                    onChange={handleChange}
+                    tabIndex="-1"
+                    autoComplete="off"
+                  />
+                </div>
+
                 <div>
                   <label htmlFor="nombre" className="block text-xs sm:text-sm font-bold text-[var(--color-aovet-dark)] mb-1.5">Nombre completo *</label>
-                  <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} required className="w-full px-4 py-3 text-sm rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-aovet-primary)] focus:border-transparent transition-all bg-gray-50/50" placeholder="Ej. Ing. Juan Pérez" />
+                  <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} required maxLength={100} className="w-full px-4 py-3 text-sm rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-aovet-primary)] focus:border-transparent transition-all bg-gray-50/50" placeholder="Ej. Ing. Juan Pérez" />
                 </div>
                 <div>
                   <label htmlFor="telefono" className="block text-xs sm:text-sm font-bold text-[var(--color-aovet-dark)] mb-1.5">Teléfono / WhatsApp *</label>
-                  <input type="tel" id="telefono" name="telefono" value={formData.telefono} onChange={handleChange} required className="w-full px-4 py-3 text-sm rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-aovet-primary)] focus:border-transparent transition-all bg-gray-50/50" placeholder="Ej. 0985401224" />
+                  <input type="tel" id="telefono" name="telefono" value={formData.telefono} onChange={handleChange} required maxLength={20} className="w-full px-4 py-3 text-sm rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-aovet-primary)] focus:border-transparent transition-all bg-gray-50/50" placeholder="Ej. 0985401224" />
                 </div>
                 <div>
                   <label htmlFor="categoria" className="block text-xs sm:text-sm font-bold text-[var(--color-aovet-dark)] mb-1.5">Línea productiva de interés</label>
@@ -68,7 +122,7 @@ const Contacto = () => {
                 </div>
                 <div>
                   <label htmlFor="mensaje" className="block text-xs sm:text-sm font-bold text-[var(--color-aovet-dark)] mb-1.5">Mensaje o consulta técnica *</label>
-                  <textarea id="mensaje" name="mensaje" value={formData.mensaje} onChange={handleChange} required rows="4" className="w-full px-4 py-3 text-sm rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-aovet-primary)] focus:border-transparent transition-all resize-none bg-gray-50/50" placeholder="¿En qué podemos asesorarte?"></textarea>
+                  <textarea id="mensaje" name="mensaje" value={formData.mensaje} onChange={handleChange} required maxLength={1000} rows="4" className="w-full px-4 py-3 text-sm rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-aovet-primary)] focus:border-transparent transition-all resize-none bg-gray-50/50" placeholder="¿En qué podemos asesorarte?"></textarea>
                 </div>
                 <button type="submit" className="w-full bg-[var(--color-aovet-primary)] text-white font-bold py-4 rounded-xl hover:bg-[var(--color-aovet-dark)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)] active:scale-[0.98] shadow-md flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer">
                   Enviar Mensaje
