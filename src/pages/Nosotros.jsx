@@ -1,14 +1,19 @@
 import { motion } from 'motion/react';
-import { Users, Leaf, ShieldCheck, Milestone, Award, CheckCircle2, HeartHandshake, Sparkles, Building2, Truck, Target, Compass, Check } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Users, Leaf, ShieldCheck, Milestone, Award, CheckCircle2, HeartHandshake, Sparkles, Building2, Truck, Target, Compass, Check, MessageCircle, PackageCheck, Recycle, Zap, Snowflake } from 'lucide-react';
 import SeparadorGrieta from '../components/ui/SeparadorGrieta';
+import BotonCTA from '../components/ui/BotonCTA';
+import Timeline3D from '../components/ui/Timeline3D';
 
 // Imágenes
 import nosMainVet from '../assets/images/nos_main_vet_1785908284799.webp';
 import nosTeamDir from '../assets/images/nos_team_dir_1785908292981.webp';
-import nosTeamTech from '../assets/images/aovet_ternero_salud.webp';
+import nosTeamTech from '../assets/images/aovet_veterinario_campo.webp';
 import nosotrosBg from '../assets/images/nosotros-bg.webp';
 import secFarmAction from '../assets/images/sec_farm_action_1785907355629.webp';
 import catGanado from '../assets/images/aovet_ganado_campo.webp';
+import catAves from '../assets/images/cat_aves_1785906732448.webp';
+import paisajeCampo from '../assets/images/aovet_paisaje_campo.webp';
 
 const valores = [
   "Calidad certificada",
@@ -17,65 +22,160 @@ const valores = [
   "Marcas internacionales"
 ];
 
+const hitosHistoria = [
+  { 
+    id: "hito-2010",
+    year: "2010", 
+    title: "Fundación AOVET", 
+    text: "Inicios enfocados en la importación de biológicos avícolas de alta calidad y asesoría sanitaria integral para el sector productivo.",
+    category: "Avicultura",
+    image: catAves,
+    highlight: "Pioneros en biológicos avícolas"
+  },
+  { 
+    id: "hito-2015",
+    year: "2015", 
+    title: "Expansión Ganadera", 
+    text: "Ampliación de portafolio para ganado de leche y carne con formulaciones farmacológicas y nutricionales de vanguardia.",
+    category: "Ganadería",
+    image: catGanado,
+    highlight: "Nutrición y sanidad bovina"
+  },
+  { 
+    id: "hito-2020",
+    year: "2020", 
+    title: "Alianzas Globales", 
+    text: "Representación exclusiva de laboratorios internacionales y rigurosa certificación de Buenas Prácticas de Almacenamiento.",
+    category: "Alianzas",
+    image: nosMainVet,
+    highlight: "Calidad farmacéutica certificada"
+  },
+  { 
+    id: "hito-actualidad",
+    year: "Actualidad", 
+    title: "Cobertura 24/7", 
+    text: "Red logística que abastece a todo el país con cadena de frío garantizada y acompañamiento técnico directo en finca.",
+    category: "Cadena de Frío",
+    image: nosTeamTech,
+    highlight: "Monitoreo térmico permanente"
+  }
+];
+
 const Nosotros = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="pt-24 min-h-screen bg-[var(--color-aovet-bg)] font-sans">
+    <div className="min-h-screen bg-[var(--color-aovet-bg)] font-sans">
       
-      {/* SECCIÓN 1: INTRODUCCIÓN PRINCIPAL CON IMAGEN ELEGANTE */}
-      <section className="py-12 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            
-            {/* Texto de presentación */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.6 }}
+      {/* 1. HERO BANNER DE NOSOTROS */}
+      <section className="relative flex flex-col justify-center bg-gray-900 pt-20 pb-24 md:pb-36 overflow-hidden min-h-[580px] md:min-h-[660px] lg:min-h-[720px]">
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${nosotrosBg})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-transparent to-black/40"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center pt-12 pb-24">
+          <div className="mb-4 sm:mb-6 flex justify-center w-full -translate-y-4 sm:-translate-y-6 md:-translate-y-8">
+            <motion.svg width="80" height="100" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" initial="hidden" animate="visible">
+              <motion.path d="M40 90 C 15 90 5 65 5 50 C 5 20 20 5 40 5 C 60 5 75 20 75 50 C 75 65 65 90 40 90 Z" stroke="var(--color-aovet-accent)" strokeWidth="3" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1.5, ease: "easeInOut" } } }} />
+              <motion.path d="M20 40 L 40 50 L 30 65 L 50 75 L 45 90" stroke="var(--color-aovet-accent)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1, delay: 1.2, ease: "easeOut" } } }} />
+            </motion.svg>
+          </div>
+
+          <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } } }} className="w-full">
+            <motion.h1 
+              variants={{ 
+                hidden: { opacity: 0, y: 35, scale: 0.95 }, 
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1, 
+                  transition: { type: "spring", stiffness: 110, damping: 12, duration: 0.8 } 
+                } 
+              }} 
+              animate={{
+                y: [0, -6, 0],
+                transition: { repeat: Infinity, duration: 4.5, ease: "easeInOut" }
+              }}
+              whileHover={{ scale: 1.02 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center leading-[1.12] tracking-tight mb-8 sm:mb-12 antialiased cursor-default select-none mx-auto max-w-5xl -translate-y-4 sm:-translate-y-6 md:-translate-y-8"
             >
-              <span className="text-[var(--color-aovet-primary)] font-bold text-xs uppercase tracking-widest mb-2 block">
-                Acerca de AOVET
-              </span>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--color-aovet-dark)] font-serif mb-6 leading-tight">
-                Comprometidos con la salud y productividad animal
-              </h1>
-              <p className="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
-                En <strong className="text-[var(--color-aovet-primary)]">AOVET</strong> nos especializamos en la importación y distribución de productos veterinarios, seleccionando cuidadosamente productos de fabricantes confiables que cumplan con altos estándares de calidad y seguridad.
-              </p>
-              <p className="text-base text-gray-600 leading-relaxed mb-8 text-justify">
-                Nuestro compromiso no se limita a entregar un producto. Buscamos brindar asesoría técnica, atención personalizada y soluciones adaptadas a las necesidades de cada cliente, contribuyendo a mejorar el rendimiento, bienestar y productividad de los animales.
-              </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <motion.span className="text-[var(--color-aovet-accent)] inline-block drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+                Sobre Nosotros
+              </motion.span>
+            </motion.h1>
+
+            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", damping: 12, stiffness: 100 } } }} className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto mx-auto -translate-y-2 sm:-translate-y-4">
+              <BotonCTA 
+                text="Contáctanos" 
+                onClick={() => navigate('/contacto')} 
+                variant="primary" 
+                icon={MessageCircle} 
+              />
+              <BotonCTA 
+                text="Ver Servicios" 
+                onClick={() => navigate('/servicios')} 
+                variant="secondary" 
+                icon={PackageCheck}
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECCIÓN 1: COMPROMETIDOS CON LA SALUD Y PRODUCTIVIDAD ANIMAL */}
+      <section className="py-12 sm:py-16 relative overflow-hidden bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+            className="bg-[#E7ECE4] rounded-3xl lg:rounded-[2.5rem] overflow-hidden shadow-xl border border-white/60 grid grid-cols-1 lg:grid-cols-2"
+          >
+            {/* Columna Izquierda: Información Original */}
+            <div className="p-8 sm:p-10 md:p-12 lg:p-14 flex flex-col justify-between">
+              <div>
+                <span className="text-[var(--color-aovet-primary)] font-bold text-xs uppercase tracking-widest mb-2 block">
+                  Acerca de AOVET
+                </span>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-aovet-dark)] font-serif mb-6 leading-tight">
+                  Comprometidos con la salud y productividad animal
+                </h2>
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-8 text-justify">
+                  En <strong className="text-[var(--color-aovet-primary)]">AOVET</strong> nos especializamos en la importación y distribución estratégica de productos veterinarios certificados con los más rigurosos estándares de bioseguridad. Acompañamos a cada productor con asesoría técnica especializada y soluciones de vanguardia orientadas a optimizar la salud, el bienestar y el rendimiento productivo en granjas de todo el país.
+                </p>
+              </div>
+
+              {/* 4 Valores Originales */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-4">
                 {valores.map((valor, idx) => (
-                  <div key={idx} className="flex items-center gap-3 bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[var(--color-aovet-accent)]"></div>
+                  <div key={idx} className="flex items-center gap-3 bg-white/80 backdrop-blur-sm p-3.5 sm:p-4 rounded-2xl shadow-sm border border-white/70">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[var(--color-aovet-accent)] flex-shrink-0"></div>
                     <span className="font-bold text-[var(--color-aovet-dark)] text-sm">{valor}</span>
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
-            {/* Imagen Principal de Laboratorio / Instalaciones */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="relative h-[480px] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white"
-            >
+            {/* Columna Derecha: Imagen de Laboratorio / Instalaciones con Sello de Garantía */}
+            <div className="relative h-full min-h-[360px] sm:min-h-[440px] lg:min-h-full">
               <img 
                 src={nosMainVet} 
                 alt="Instalaciones y centro de distribución AOVET" 
-                width="600"
-                height="480"
+                width="700"
+                height="500"
                 decoding="async"
-                className="w-full h-full object-cover" 
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-aovet-dark)]/70 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-aovet-dark)]/60 via-transparent to-transparent"></div>
               
               {/* Sello flotante de garantía */}
               <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-white/40 shadow-lg flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-[var(--color-aovet-primary)] text-white flex items-center justify-center flex-shrink-0">
+                <div className="bg-white/95 backdrop-blur-md p-5 rounded-2xl border border-white/60 shadow-lg flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-[var(--color-aovet-primary)] text-white flex items-center justify-center flex-shrink-0 shadow-md">
                     <Award size={24} />
                   </div>
                   <div>
@@ -84,9 +184,8 @@ const Nosotros = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
-
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -206,45 +305,19 @@ const Nosotros = () => {
         </div>
       </section>
 
-      {/* SECCIÓN 3: NUESTRA HISTORIA (Timeline Elegante) */}
-      <section className="py-20 bg-[var(--color-aovet-bg)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-[var(--color-aovet-primary)] font-bold text-xs uppercase tracking-widest mb-1 block">Trayectoria</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--color-aovet-dark)] font-serif mb-4">Nuestra Historia</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Un crecimiento sostenido enfocado en la innovación y respaldo al productor.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
-            {[
-              { year: "2010", title: "Fundación AOVET", text: "Inicios enfocados en la importación de biológicos avícolas." },
-              { year: "2015", title: "Expansión Ganadera", text: "Ampliación de portafolio para ganado de leche y carne." },
-              { year: "2020", title: "Alianzas Globales", text: "Representación exclusiva de laboratorios internacionales." },
-              { year: "Actualidad", title: "Cobertura 24/7", text: "Red logística que abastece a todo el país con cadena de frío." }
-            ].map((hito, idx) => (
-              <motion.div 
-                key={idx} 
-                initial={{ opacity: 0, y: 20 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                viewport={{ once: true }} 
-                transition={{ delay: idx * 0.1 }} 
-                className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between items-center text-center relative group hover:shadow-md transition-shadow"
-              >
-                <div className="w-14 h-14 bg-[var(--color-aovet-primary)] text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-sm mx-auto group-hover:scale-105 transition-transform">
-                  {hito.year}
-                </div>
-                <div className="text-center w-full">
-                  <h3 className="font-bold text-[var(--color-aovet-dark)] text-lg mb-2 text-center">{hito.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed text-center">{hito.text}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* SECCIÓN 3: NUESTRA HISTORIA (Timeline 3D Interactivo) */}
+      <div id="historia-seccion">
+        <Timeline3D 
+          events={hitosHistoria} 
+          badge="Trayectoria"
+          title="Nuestra Historia"
+          subtitle="Un crecimiento sostenido enfocado en la innovación y respaldo al productor."
+          className="bg-[var(--color-aovet-bg)]"
+        />
+      </div>
 
       {/* SECCIÓN 4: NUESTRO EQUIPO (Con Fotos Profesionales) */}
-      <section className="py-20 bg-white">
+      <section className="pt-16 sm:pt-20 pb-8 sm:pb-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-[var(--color-aovet-primary)] font-bold text-xs uppercase tracking-widest mb-1 block">Talento Humano</span>
@@ -254,19 +327,37 @@ const Nosotros = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {[
-              { role: "Dirección General", desc: "Visión estratégica, desarrollo de alianzas internacionales y liderazgo comercial.", img: nosTeamDir },
-              { role: "Dirección Técnica Veterinaria", desc: "Médicos veterinarios dedicados al diagnóstico y seguimiento sanitario en finca.", img: nosTeamTech }
+              { 
+                role: "Dirección General", 
+                desc: "Visión estratégica, desarrollo de alianzas internacionales y liderazgo comercial.", 
+                img: nosTeamDir,
+                pos: "object-top"
+              },
+              { 
+                role: "Dirección Técnica Veterinaria", 
+                desc: "Médicos veterinarios dedicados al diagnóstico y seguimiento sanitario en finca.", 
+                img: nosTeamTech,
+                pos: "object-center"
+              }
             ].map((team, idx) => (
               <motion.div 
                 key={idx} 
                 initial={{ opacity: 0, scale: 0.95 }} 
                 whileInView={{ opacity: 1, scale: 1 }} 
                 viewport={{ once: true }} 
-                className="bg-[var(--color-aovet-bg)] rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col"
+                className="bg-[var(--color-aovet-bg)] rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col group"
               >
-                <div className="h-64 sm:h-72 w-full overflow-hidden relative">
-                  <img src={team.img} alt={team.role} width="360" height="288" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-aovet-dark)]/70 via-transparent to-transparent"></div>
+                <div className="h-72 sm:h-80 w-full overflow-hidden relative bg-gray-100">
+                  <img 
+                    src={team.img} 
+                    alt={team.role} 
+                    width="500" 
+                    height="400" 
+                    loading="lazy" 
+                    decoding="async" 
+                    className={`w-full h-full object-cover ${team.pos} group-hover:scale-105 transition-transform duration-500`} 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-aovet-dark)]/80 via-[var(--color-aovet-dark)]/20 to-transparent"></div>
                   <div className="absolute bottom-4 left-0 right-0 text-center text-white font-bold text-lg sm:text-xl px-4">
                     {team.role}
                   </div>
@@ -283,22 +374,54 @@ const Nosotros = () => {
         </div>
       </section>
 
+      {/* Separador Orgánico igual a Inicio */}
+      <div className="-my-3">
+        <SeparadorGrieta />
+      </div>
+
       {/* SECCIÓN 5: SOSTENIBILIDAD Y COMPROMISO AMBIENTAL */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-12">
-        <div className="bg-[var(--color-aovet-dark)] rounded-3xl sm:rounded-[2.5rem] p-6 sm:p-10 md:p-16 text-white relative overflow-hidden shadow-2xl grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-          <div className="relative z-10">
-            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[var(--color-aovet-primary)] rounded-full flex items-center justify-center mb-6 shadow-md border border-white/10">
-              <Leaf size={28} className="text-[var(--color-aovet-accent)]" />
+      <section className="pt-2 sm:pt-4 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-8">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, margin: "-50px" }}
+          className="bg-[var(--color-aovet-dark)] rounded-3xl sm:rounded-[2.5rem] text-white relative overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-2 items-stretch"
+        >
+          {/* Columna Izquierda: Texto con espaciado interior */}
+          <div className="relative z-10 flex flex-col justify-center p-8 sm:p-12 lg:p-16">
+            <div className="flex items-start gap-4 sm:gap-5 mb-5 sm:mb-6">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[var(--color-aovet-primary)] rounded-2xl flex items-center justify-center shadow-md border border-white/10 flex-shrink-0 mt-1">
+                <Leaf size={26} className="text-[var(--color-aovet-accent)]" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-serif leading-tight text-white">
+                Compromiso con la Sostenibilidad y el Entorno
+              </h2>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-serif mb-4 sm:mb-6 leading-tight">
-              Compromiso con la Sostenibilidad y el Entorno
-            </h2>
-            <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed font-normal">
+            
+            <p className="text-sm sm:text-base md:text-[1.02rem] text-gray-300 leading-relaxed font-normal text-justify mb-6 sm:mb-8">
               Entendemos que el desarrollo pecuario depende directamente del equilibrio con la naturaleza. En AOVET promovemos el uso responsable de productos sanitarios, reciclaje de materiales de empaque y asesoría enfocada en buenas prácticas pecuarias sostenibles.
             </p>
+
+            {/* Iconos y pilares temáticos del texto */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-5 border-t border-white/10">
+              <div className="flex items-center gap-2.5 bg-white/5 rounded-xl px-3 py-2.5 border border-white/10">
+                <ShieldCheck size={18} className="text-[var(--color-aovet-accent)] flex-shrink-0" />
+                <span className="text-xs font-semibold text-gray-200">Uso Responsable</span>
+              </div>
+              <div className="flex items-center gap-2.5 bg-white/5 rounded-xl px-3 py-2.5 border border-white/10">
+                <Recycle size={18} className="text-[var(--color-aovet-accent)] flex-shrink-0" />
+                <span className="text-xs font-semibold text-gray-200">Reciclaje de Empaque</span>
+              </div>
+              <div className="flex items-center gap-2.5 bg-white/5 rounded-xl px-3 py-2.5 border border-white/10">
+                <CheckCircle2 size={18} className="text-[var(--color-aovet-accent)] flex-shrink-0" />
+                <span className="text-xs font-semibold text-gray-200">Prácticas Sostenibles</span>
+              </div>
+            </div>
           </div>
 
-          <div className="h-64 sm:h-80 lg:h-full min-h-[260px] sm:min-h-[340px] rounded-2xl sm:rounded-3xl overflow-hidden relative shadow-xl border border-white/15 group">
+          {/* Columna Derecha: Imagen que ocupa todo el espacio vertical del contenedor */}
+          <div className="relative w-full h-full min-h-[300px] sm:min-h-[360px] lg:min-h-full overflow-hidden group">
             <img 
               src={catGanado} 
               alt="Ganadería sostenible AOVET" 
@@ -306,11 +429,13 @@ const Nosotros = () => {
               height="400"
               loading="lazy"
               decoding="async"
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 absolute inset-0" 
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+            {/* Sombra y degradado para integración visual perfecta */}
+            <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[var(--color-aovet-dark)]/40 via-transparent to-transparent pointer-events-none"></div>
           </div>
-        </div>
+
+        </motion.div>
       </section>
 
     </div>

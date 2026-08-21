@@ -76,19 +76,22 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-white/10 text-center text-gray-400 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>&copy; {new Date().getFullYear()} AOVET. Todos los derechos reservados.</p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-center md:text-left">
+            <p>&copy; {new Date().getFullYear()} AOVET. Todos los derechos reservados.</p>
+            <div className="flex gap-4 text-xs sm:text-sm">
+              <a href="#" className="hover:text-white transition-colors">Política de Privacidad</a>
+              <a href="#" className="hover:text-white transition-colors">Términos de Servicio</a>
+            </div>
+          </div>
+          
           <a 
             href="https://kindevx.web.app/" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="hover:text-white transition-colors text-sm"
+            className="hover:text-white transition-colors text-sm md:text-right"
           >
             Desarrollado por <strong className="text-[var(--color-aovet-accent)] font-bold hover:underline">KINDEV</strong>
           </a>
-          <div className="flex gap-4">
-            <a href="#" className="hover:text-white transition-colors">Política de Privacidad</a>
-            <a href="#" className="hover:text-white transition-colors">Términos de Servicio</a>
-          </div>
         </div>
       </div>
     </footer>

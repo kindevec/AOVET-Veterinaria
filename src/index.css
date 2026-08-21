@@ -21,22 +21,6 @@
   }
 }
 
-.hero-stroke {
-  -webkit-text-stroke: 1.5px #0D3D20;
-  paint-order: stroke fill;
-}
-
-@media (min-width: 640px) {
-  .hero-stroke {
-    -webkit-text-stroke: 2.2px #0D3D20;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-stroke {
-    -webkit-text-stroke: 2.8px #0D3D20;
-  }
-}
 
 @font-face {
   font-family: 'Myolin';

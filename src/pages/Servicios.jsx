@@ -1,29 +1,69 @@
 import { motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
-import { Stethoscope, Truck, ShieldCheck, Headset, MapPin, CheckCircle2, ArrowRight, MessageCircle } from 'lucide-react';
+import { Stethoscope, Truck, ShieldCheck, Headset, MapPin, CheckCircle2, ArrowRight, MessageCircle, Sparkles, PackageCheck } from 'lucide-react';
 import SeparadorGrieta from '../components/ui/SeparadorGrieta';
 import BotonCTA from '../components/ui/BotonCTA';
+import MapaEcuadorLogistica from '../components/ui/MapaEcuadorLogistica';
+import {
+  CardHoverReveal,
+  CardHoverRevealContent,
+  CardHoverRevealMain
+} from '../components/ui/reveal-on-hover';
+import { Badge } from '../components/ui/badge';
+
+import heroBgServicios from '../assets/images/aovet_servicios_banner.jpg';
+import imgPaso1 from '../assets/images/nos_main_vet_1785908284799.webp';
+import imgPaso2 from '../assets/images/aovet_ternero_salud.webp';
+import imgPaso3 from '../assets/images/sec_vet_products_1785907348242.webp';
+import imgPaso4 from '../assets/images/sec_farm_action_1785907355629.webp';
+
+const PASOS_TRABAJO = [
+  {
+    id: 'paso-1',
+    num: '01',
+    title: 'Contacto Inicial',
+    description: 'Nos cuentas tu requerimiento por WhatsApp o formulario.',
+    imageUrl: imgPaso1,
+  },
+  {
+    id: 'paso-2',
+    num: '02',
+    title: 'Asesoría y Cotización',
+    description: 'Un veterinario analiza tu caso y te envía la proforma.',
+    imageUrl: imgPaso2,
+  },
+  {
+    id: 'paso-3',
+    num: '03',
+    title: 'Despacho Rápido',
+    description: 'Preparamos el pedido con cadena de frío si se requiere.',
+    imageUrl: imgPaso3,
+  },
+  {
+    id: 'paso-4',
+    num: '04',
+    title: 'Seguimiento',
+    description: 'Confirmamos la llegada y evaluamos los resultados.',
+    imageUrl: imgPaso4,
+  },
+];
 
 const servicios = [
   {
     icon: Stethoscope,
-    title: "Asesoría técnica veterinaria",
-    desc: "Profesionales expertos listos para guiar tu plan sanitario y productivo."
+    title: "Asesoría técnica veterinaria"
   },
   {
     icon: ShieldCheck,
-    title: "Importación certificada",
-    desc: "Traemos marcas internacionales de primera línea cumpliendo toda normativa."
+    title: "Importación certificada"
   },
   {
     icon: Truck,
-    title: "Distribución nacional",
-    desc: "Entregas seguras y rápidas a cualquier rincón del país, cuidando la cadena de frío."
+    title: "Distribución nacional"
   },
   {
     icon: Headset,
-    title: "Soporte post-venta",
-    desc: "Acompañamiento continuo para asegurar la eficacia de nuestros productos en tu granja."
+    title: "Soporte post-venta"
   }
 ];
 
@@ -31,78 +71,157 @@ const Servicios = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="pt-24 min-h-screen bg-[var(--color-aovet-bg)]">
+    <div className="min-h-screen bg-[var(--color-aovet-bg)] font-sans">
       
-      {/* 1. Header Introductorio */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="text-center max-w-3xl mx-auto" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6 }}>
-            <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-aovet-dark)] mb-4">Nuestros Servicios</h1>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              Nuestro compromiso no se limita a entregar un producto. Buscamos brindar asesoría técnica, atención personalizada y soluciones adaptadas a las necesidades de cada cliente, contribuyendo a mejorar el rendimiento, bienestar y productividad de los animales.
-            </p>
+      {/* 1. HERO BANNER DE SERVICIOS */}
+      <section className="relative flex flex-col justify-center bg-gray-900 pt-20 pb-24 md:pb-36 overflow-hidden min-h-[580px] md:min-h-[660px] lg:min-h-[720px]">
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroBgServicios})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-transparent to-black/40"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center pt-12 pb-24">
+          <div className="mb-4 sm:mb-6 flex justify-center w-full -translate-y-4 sm:-translate-y-6 md:-translate-y-8">
+            <motion.svg width="80" height="100" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" initial="hidden" animate="visible">
+              <motion.path d="M40 90 C 15 90 5 65 5 50 C 5 20 20 5 40 5 C 60 5 75 20 75 50 C 75 65 65 90 40 90 Z" stroke="var(--color-aovet-accent)" strokeWidth="3" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1.5, ease: "easeInOut" } } }} />
+              <motion.path d="M20 40 L 40 50 L 30 65 L 50 75 L 45 90" stroke="var(--color-aovet-accent)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1, delay: 1.2, ease: "easeOut" } } }} />
+            </motion.svg>
+          </div>
+
+          <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } } }} className="w-full">
+            <motion.h1 
+              variants={{ 
+                hidden: { opacity: 0, y: 35, scale: 0.95 }, 
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1, 
+                  transition: { type: "spring", stiffness: 110, damping: 12, duration: 0.8 } 
+                } 
+              }} 
+              animate={{
+                y: [0, -6, 0],
+                transition: { repeat: Infinity, duration: 4.5, ease: "easeInOut" }
+              }}
+              whileHover={{ scale: 1.02 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center leading-[1.12] tracking-tight mb-8 sm:mb-12 antialiased cursor-default select-none mx-auto max-w-5xl -translate-y-4 sm:-translate-y-6 md:-translate-y-8"
+            >
+              <motion.span className="text-[#38BDF8] inline-block drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+                Nuestros Servicios
+              </motion.span>
+            </motion.h1>
+
+            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", damping: 12, stiffness: 100 } } }} className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto mx-auto -translate-y-2 sm:-translate-y-4">
+              <BotonCTA 
+                text="Asesoría Técnica" 
+                href="https://wa.me/593985401224" 
+                variant="primary" 
+                icon={MessageCircle} 
+              />
+              <BotonCTA 
+                text="Ver Catálogo" 
+                onClick={() => navigate('/productos')} 
+                variant="secondary" 
+                icon={PackageCheck}
+              />
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* 2. Grilla de 4 Servicios Principales */}
-      <section className="py-12">
+      <section className="pt-16 sm:pt-20 pb-12 sm:pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8" 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true, amount: 0.1 }} 
+            variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
+          >
             {servicios.map((s, idx) => {
               const Icon = s.icon;
               return (
-                <motion.div key={idx} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }} whileHover={{ scale: 1.03, y: -5 }} className="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex flex-col items-center text-center transition-shadow hover:shadow-xl">
+                <motion.div 
+                  key={idx} 
+                  variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }} 
+                  whileHover={{ scale: 1.03, y: -5 }} 
+                  className="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex flex-col items-center text-center transition-shadow hover:shadow-xl"
+                >
                   <div className="w-16 h-16 bg-[var(--color-aovet-bg)] text-[var(--color-aovet-primary)] rounded-full flex items-center justify-center mb-6">
                     <Icon size={32} strokeWidth={2} />
                   </div>
-                  <h3 className="text-xl font-bold text-[var(--color-aovet-dark)] mb-3">{s.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{s.desc}</p>
+                  <h3 className="text-xl font-bold text-[var(--color-aovet-dark)]">{s.title}</h3>
                 </motion.div>
               )
             })}
-          </motion.div>
-
-          {/* Botón de WhatsApp debajo de la grilla */}
-          <motion.div 
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="mt-12 flex justify-center"
-          >
-            <BotonCTA 
-              text="Contactar un Asesor por WhatsApp" 
-              href="https://wa.me/593985401224" 
-              variant="secondary" 
-              icon={MessageCircle} 
-            />
           </motion.div>
         </div>
       </section>
 
       {/* 3. Nuestro Proceso de Trabajo */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-[var(--color-aovet-dark)] mb-4">¿Cómo trabajamos contigo?</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Un proceso simple, ágil y centrado en solucionar tus necesidades al instante.</p>
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-aovet-dark)] mb-4">
+              ¿Cómo trabajamos contigo?
+            </h2>
+            <p className="text-gray-600 text-base md:text-lg">
+              Un proceso simple, ágil y centrado en solucionar tus necesidades al instante.
+            </p>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-6 relative justify-between">
-            <div className="hidden md:block absolute top-1/2 left-10 right-10 h-0.5 bg-gray-200 -translate-y-1/2 z-0"></div>
-            {[
-              { num: "01", title: "Contacto Inicial", desc: "Nos cuentas tu requerimiento por WhatsApp o formulario." },
-              { num: "02", title: "Asesoría y Cotización", desc: "Un veterinario analiza tu caso y te envía la proforma." },
-              { num: "03", title: "Despacho Rápido", desc: "Preparamos el pedido con cadena de frío si se requiere." },
-              { num: "04", title: "Seguimiento", desc: "Confirmamos la llegada y evaluamos los resultados." }
-            ].map((paso, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.15 }} className="flex-1 bg-[var(--color-aovet-bg)] md:bg-white rounded-3xl p-6 relative z-10 text-center border md:border-none border-gray-100 shadow-sm md:shadow-none">
-                <div className="w-14 h-14 mx-auto bg-white md:bg-[var(--color-aovet-bg)] border-2 border-[var(--color-aovet-primary)] rounded-full flex items-center justify-center font-black text-[var(--color-aovet-primary)] text-xl mb-6 shadow-sm">
-                  {paso.num}
-                </div>
-                <h3 className="font-bold text-[var(--color-aovet-dark)] text-lg mb-2">{paso.title}</h3>
-                <p className="text-gray-600 text-sm">{paso.desc}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {PASOS_TRABAJO.map((slide, idx) => (
+              <motion.div
+                key={slide.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.5, delay: idx * 0.12 }}
+              >
+                <CardHoverReveal className="aspect-[3/4] shadow-md hover:shadow-2xl border border-gray-100 rounded-3xl relative overflow-hidden bg-[var(--color-aovet-dark)] transition-all duration-300">
+                  <CardHoverRevealMain>
+                    <img
+                      alt={slide.title}
+                      src={slide.imageUrl}
+                      width="600"
+                      height="800"
+                      loading="lazy"
+                      className="size-full object-cover brightness-95"
+                    />
+                    {/* Gradiente permanente para legibilidad base */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-aovet-dark)]/95 via-[var(--color-aovet-dark)]/40 to-transparent pointer-events-none" />
+                    
+                    {/* Número de paso visible antes del hover */}
+                    <div className="absolute top-5 left-5 z-10">
+                      <span className="w-11 h-11 rounded-2xl bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)] font-black text-base flex items-center justify-center shadow-md">
+                        {slide.num}
+                      </span>
+                    </div>
+
+                    <div className="absolute bottom-5 left-5 right-5 z-10 pointer-events-none transition-opacity duration-300 group-hover:opacity-0">
+                      <h3 className="text-xl font-bold text-white mb-1.5 leading-tight">
+                        {slide.title}
+                      </h3>
+                      <p className="text-gray-200 text-xs sm:text-sm line-clamp-2 leading-relaxed">
+                        {slide.description}
+                      </p>
+                    </div>
+                  </CardHoverRevealMain>
+
+                  {/* Contenido revelado en hover con efecto backdrop blur */}
+                  <CardHoverRevealContent className="space-y-1.5 rounded-2xl bg-[var(--color-aovet-dark)]/95 backdrop-blur-2xl p-5 border border-emerald-500/20 shadow-2xl text-white">
+                    <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
+                      {slide.title}
+                    </h3>
+                    <p className="text-gray-200 text-xs sm:text-sm leading-relaxed">
+                      {slide.description}
+                    </p>
+                  </CardHoverRevealContent>
+                </CardHoverReveal>
               </motion.div>
             ))}
           </div>
@@ -112,39 +231,42 @@ const Servicios = () => {
       {/* 4. Cobertura Nacional */}
       <section className="py-20 bg-[var(--color-aovet-bg)] border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:col-span-5 flex flex-col justify-center">
               <div className="flex items-center gap-3 text-[var(--color-aovet-primary)] mb-4">
-                <MapPin size={32} />
-                <h3 className="text-xl font-bold uppercase tracking-wider">Logística Integrada</h3>
+                <MapPin size={36} strokeWidth={2.4} />
+                <h3 className="text-xl sm:text-2xl font-black uppercase tracking-wider">Logística Integrada</h3>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-aovet-dark)] mb-6">Llegamos a todas las provincias del Ecuador</h2>
-              <p className="text-gray-700 text-lg mb-8 leading-relaxed">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--color-aovet-dark)] mb-6 leading-tight">
+                Llegamos a todas las provincias del Ecuador
+              </h2>
+              <p className="text-gray-700 text-lg sm:text-xl md:text-2xl mb-8 leading-relaxed font-normal text-justify">
                 Nuestra red de distribución está diseñada para llegar a tiempo, ya sea a una tienda veterinaria en el centro de la ciudad o a una hacienda en el sector rural más alejado.
               </p>
-              <ul className="grid grid-cols-2 gap-4">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   "Envíos 24h a capitales",
                   "Entregas en finca",
                   "Rastreo de envíos",
                   "Manejo de frío"
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-2 font-medium text-[var(--color-aovet-dark)]">
-                    <CheckCircle2 className="text-[var(--color-aovet-accent)]" size={20} />
-                    {item}
+                  <li key={idx} className="flex items-center gap-3 text-base sm:text-lg font-bold text-[var(--color-aovet-dark)]">
+                    <CheckCircle2 className="text-[var(--color-aovet-accent)] flex-shrink-0" size={24} strokeWidth={2.5} />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </motion.div>
             
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="bg-[var(--color-aovet-dark)] text-white rounded-3xl p-10 shadow-xl flex flex-col justify-center min-h-[300px] relative overflow-hidden">
-               <div className="absolute top-0 right-0 p-8 opacity-5 text-[var(--color-aovet-accent)]">
-                 <MapPin size={150} />
-               </div>
-               <h3 className="text-2xl font-bold text-[var(--color-aovet-accent)] mb-2 relative z-10">+24</h3>
-               <p className="text-xl font-medium mb-6 relative z-10">Provincias cubiertas</p>
-               <h3 className="text-2xl font-bold text-[var(--color-aovet-accent)] mb-2 relative z-10">100%</h3>
-               <p className="text-xl font-medium relative z-10">Compromiso de entrega</p>
+            {/* Mapa Interactivo de Cobertura Ecuador (Fondo Transparente en Gran Formato) */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.94, x: 20 }} 
+              whileInView={{ opacity: 1, scale: 1, x: 0 }} 
+              viewport={{ once: true, amount: 0.2 }} 
+              transition={{ duration: 0.6 }} 
+              className="lg:col-span-7 w-full h-full flex items-center justify-center bg-transparent"
+            >
+              <MapaEcuadorLogistica />
             </motion.div>
           </div>
         </div>
@@ -166,9 +288,10 @@ const Servicios = () => {
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6 relative z-10">
               <button 
                 onClick={() => window.open('https://wa.me/593985401224', '_blank')}
-                className="inline-flex items-center gap-2 bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)] font-bold px-8 py-4 rounded-full text-lg hover:bg-white transition-all transform hover:scale-105 active:scale-95 shadow-lg"
+                className="inline-flex items-center gap-2 bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)] font-bold px-8 py-4 rounded-full text-lg hover:bg-white transition-all transform hover:scale-105 active:scale-95 shadow-lg cursor-pointer"
               >
-                Agenda una visita técnica <ArrowRight size={20} />
+                <MessageCircle size={20} className="flex-shrink-0" />
+                <span>Agenda una visita técnica</span>
               </button>
               <button 
                 onClick={() => navigate('/contacto')}

@@ -14,11 +14,10 @@ const navLinks = [
 const Navbar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const location = useLocation();
-  const isHome = location.pathname === '/';
+  const hasHero = !location.pathname.startsWith('/producto/');
 
   useEffect(() => {
     const handleScroll = () => {
-      // Progresión suave de opacidad entre 0px y 220px de scroll
       const currentScroll = window.scrollY;
       const progress = Math.min(1, Math.max(0, currentScroll / 220));
       setScrollProgress(progress);
@@ -27,15 +26,11 @@ const Navbar = () => {
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
-  // En Inicio la opacidad, sombra y desenfoque aumentan suavemente conforme el usuario baja
-  const bgOpacity = isHome ? scrollProgress * 0.95 : 0.95;
-  const shadowOpacity = isHome ? scrollProgress * 0.1 : 0.08;
-  const blurAmount = isHome ? scrollProgress * 12 : 12;
-
-  // Transición progresiva del color del texto
-  const isNavDark = isHome && scrollProgress < 0.5;
+  const bgOpacity = hasHero ? scrollProgress * 0.95 : 0.95;
+  const shadowOpacity = hasHero ? scrollProgress * 0.1 : 0.08;
+  const blurAmount = hasHero ? scrollProgress * 12 : 12;
 
   return (
     <header 
@@ -45,12 +40,12 @@ const Navbar = () => {
         boxShadow: `0 4px 20px rgba(0, 0, 0, ${shadowOpacity})`,
       }}
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ease-out ${
-        scrollProgress > 0.3 || !isHome ? 'py-2.5' : 'py-5'
+        scrollProgress > 0.3 || !hasHero ? 'py-2.5' : 'py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Logo */}
+          {/* Logo Original */}
           <Link 
             to="/" 
             className="flex items-center gap-2 z-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)]"
@@ -61,34 +56,39 @@ const Navbar = () => {
               width="180"
               height="68"
               decoding="async"
-              className="h-[68px] w-auto transition-all duration-500 drop-shadow-[0_0_2px_rgba(255,255,255,0.8)]" 
+              className="h-[64px] sm:h-[72px] w-auto transition-all duration-500"
             />
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className={`font-medium transition-colors duration-500 hover:text-[var(--color-aovet-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)] ${
-                  location.pathname === link.href ? 'text-[var(--color-aovet-primary)] font-bold' :
-                  isNavDark ? 'text-white drop-shadow-md' : 'text-[var(--color-aovet-text)]'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+          {/* Desktop Nav con efecto botón interactivo */}
+          <nav className="hidden md:flex items-center gap-2 lg:gap-3">
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.href;
+              return (
+                <motion.div
+                  key={link.name}
+                  whileHover={{ scale: 1.05, y: -1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link
+                    to={link.href}
+                    className={`px-4 py-2 rounded-full font-bold text-sm lg:text-base transition-all duration-300 flex items-center justify-center border ${
+                      isActive
+                        ? 'bg-[var(--color-aovet-primary)] text-white shadow-md shadow-[var(--color-aovet-primary)]/20 border-[var(--color-aovet-primary)]'
+                        : 'text-[var(--color-aovet-dark)] border-transparent hover:bg-white/90 hover:text-[var(--color-aovet-primary)] hover:border-white/80 hover:shadow-md backdrop-blur-sm'
+                    } focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)]`}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              );
+            })}
             <motion.a
               href="https://wa.me/593985401224"
               target="_blank"
               rel="noopener noreferrer"
-              className={`px-5 py-2.5 rounded-full font-bold transition-all duration-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)] ${
-                isNavDark 
-                  ? 'bg-white text-[var(--color-aovet-primary)] hover:bg-gray-100 shadow-md'
-                  : 'bg-[var(--color-aovet-primary)] text-white hover:bg-[var(--color-aovet-dark)] shadow-sm' 
-              }`}
-              whileHover={{ scale: 1.05 }}
+              className="ml-2 px-5 py-2 rounded-full font-bold text-sm lg:text-base transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)] bg-[var(--color-aovet-primary)] text-white hover:bg-[var(--color-aovet-dark)] shadow-sm"
+              whileHover={{ scale: 1.06, y: -1 }}
               whileTap={{ scale: 0.95 }}
             >
               WhatsApp

@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { 
   MapPin, Phone, Mail, Clock, Navigation, ExternalLink, 
-  Building2, User, Layers, Send, MessageSquare 
+  Building2, User, Layers, Send, MessageSquare, Headphones, MessageCircle 
 } from 'lucide-react';
+import BotonCTA from '../components/ui/BotonCTA';
+import heroBgContacto from '../assets/images/aovet_contacto_banner.jpg';
 
 const sanitizeInput = (text) => {
   if (typeof text !== 'string') return '';
@@ -59,28 +61,69 @@ const Contacto = () => {
   };
 
   return (
-    <div className="pt-24 min-h-screen bg-[var(--color-aovet-bg)] font-sans pb-16">
-      <section className="py-8 sm:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Encabezado */}
-          <motion.div 
-            className="text-center mb-10 sm:mb-14" 
-            initial={{ opacity: 0, y: 24 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            viewport={{ once: true, amount: 0.2 }} 
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-[var(--color-aovet-primary)] font-bold text-xs uppercase tracking-widest mb-1.5 block">
-              Atención Personalizada
-            </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-aovet-dark)] font-serif mb-3">
-              Ponte en Contacto
-            </h1>
-            <p className="text-gray-700 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-              Estamos listos para atender tus requerimientos técnicos y comerciales en cualquier parte del país.
-            </p>
+    <div className="min-h-screen bg-[var(--color-aovet-bg)] font-sans pb-16">
+      
+      {/* HERO BANNER DE CONTACTO */}
+      <section className="relative flex flex-col justify-center bg-gray-900 pt-20 pb-24 md:pb-36 overflow-hidden min-h-[580px] md:min-h-[660px] lg:min-h-[720px]">
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroBgContacto})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-transparent to-black/40"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center pt-12 pb-24">
+          <div className="mb-4 sm:mb-6 flex justify-center w-full -translate-y-4 sm:-translate-y-6 md:-translate-y-8">
+            <motion.svg width="80" height="100" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" initial="hidden" animate="visible">
+              <motion.path d="M40 90 C 15 90 5 65 5 50 C 5 20 20 5 40 5 C 60 5 75 20 75 50 C 75 65 65 90 40 90 Z" stroke="var(--color-aovet-accent)" strokeWidth="3" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1.5, ease: "easeInOut" } } }} />
+              <motion.path d="M20 40 L 40 50 L 30 65 L 50 75 L 45 90" stroke="var(--color-aovet-accent)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1, delay: 1.2, ease: "easeOut" } } }} />
+            </motion.svg>
+          </div>
+
+          <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } } }} className="w-full">
+            <motion.h1 
+              variants={{ 
+                hidden: { opacity: 0, y: 35, scale: 0.95 }, 
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1, 
+                  transition: { type: "spring", stiffness: 110, damping: 12, duration: 0.8 } 
+                } 
+              }} 
+              animate={{
+                y: [0, -6, 0],
+                transition: { repeat: Infinity, duration: 4.5, ease: "easeInOut" }
+              }}
+              whileHover={{ scale: 1.02 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center leading-[1.12] tracking-tight mb-8 sm:mb-12 antialiased cursor-default select-none mx-auto max-w-5xl -translate-y-4 sm:-translate-y-6 md:-translate-y-8"
+            >
+              <motion.span className="text-[#FB923C] inline-block drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+                Ponte en Contacto
+              </motion.span>
+            </motion.h1>
+
+            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", damping: 12, stiffness: 100 } } }} className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto mx-auto -translate-y-2 sm:-translate-y-4">
+              <BotonCTA 
+                text="WhatsApp" 
+                href="https://wa.me/593985401224" 
+                variant="primary" 
+                icon={MessageCircle} 
+              />
+              <BotonCTA 
+                text="Llamar a Asesor" 
+                href="tel:+593985401224" 
+                variant="secondary" 
+                icon={Phone} 
+              />
+            </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* SECCIÓN PRINCIPAL DE FORMULARIO Y DATOS DE CONTACTO */}
+      <section className="py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
             
@@ -214,19 +257,19 @@ const Contacto = () => {
               transition={{ duration: 0.6, delay: 0.4 }} 
               className="flex flex-col space-y-5"
             >
-              {/* Barra Independiente de Ubicación Encima del Mapa */}
+              {/* Barra Independiente de Ubicación Encima del Mapa con Animación */}
               <motion.div 
-                initial={{ opacity: 0, y: -10 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: -20, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.01 }}
-                transition={{ duration: 0.4 }}
-                className="w-full bg-white rounded-2xl sm:rounded-full px-5 sm:px-6 py-3.5 sm:py-4 shadow-sm border border-gray-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 group"
+                whileHover={{ scale: 1.02, y: -2, boxShadow: "0 12px 30px -8px rgba(13,61,32,0.12)" }}
+                transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                className="w-full bg-white rounded-2xl sm:rounded-full px-5 sm:px-6 py-3.5 sm:py-4 shadow-sm border border-gray-200/80 hover:border-[var(--color-aovet-primary)]/40 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 group cursor-default"
               >
                 <div className="flex items-center gap-3.5">
                   <div className="relative flex-shrink-0">
-                    {/* Efecto de Iluminación Ambiental / Glow */}
-                    <div className="absolute inset-0 rounded-full bg-emerald-500/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150 pointer-events-none"></div>
+                    {/* Efecto de Iluminación Ambiental y Pulso Suave */}
+                    <div className="absolute inset-0 rounded-full bg-emerald-500/25 blur-md opacity-40 group-hover:opacity-100 transition-opacity duration-500 scale-150 pointer-events-none"></div>
                     <MapPin 
                       size={26} 
                       strokeWidth={2.2} 
@@ -234,7 +277,7 @@ const Contacto = () => {
                     />
                   </div>
                   <div>
-                    <h3 className="font-bold text-[var(--color-aovet-dark)] text-sm sm:text-base leading-tight">
+                    <h3 className="font-bold text-[var(--color-aovet-dark)] text-sm sm:text-base leading-tight group-hover:text-[var(--color-aovet-primary)] transition-colors">
                       AOVET Veterinaria
                     </h3>
                     <p className="text-xs text-gray-600 leading-snug mt-0.5">
@@ -247,11 +290,11 @@ const Contacto = () => {
                   href="https://www.google.com/maps/dir/?api=1&destination=San+Juanpamba,+Jad%C3%A1n,+Azuay,+Ecuador" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[var(--color-aovet-primary)] hover:text-[var(--color-aovet-dark)] hover:underline transition-colors mt-1 sm:mt-0"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[var(--color-aovet-primary)] hover:text-[var(--color-aovet-dark)] transition-all mt-1 sm:mt-0 group/link"
                 >
-                  <Navigation size={14} className="text-[var(--color-aovet-primary)]" />
-                  <span>Cómo llegar en GPS</span>
-                  <ExternalLink size={12} />
+                  <Navigation size={14} className="text-[var(--color-aovet-primary)] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-200" />
+                  <span className="group-hover/link:underline">Cómo llegar en GPS</span>
+                  <ExternalLink size={12} className="group-hover/link:opacity-80 transition-opacity" />
                 </a>
               </motion.div>
 
@@ -272,7 +315,7 @@ const Contacto = () => {
                 </div>
               </div>
 
-              {/* Información de Contacto - Animaciones de Acercamiento e Iconos con Iluminación */}
+              {/* Información de Contacto - Animaciones de Acercamiento e Iconos con Iluminación en Paleta AOVET */}
               <motion.div 
                 initial="hidden"
                 whileInView="visible"
@@ -294,12 +337,12 @@ const Contacto = () => {
                   className="flex items-start gap-4 p-3 rounded-2xl hover:bg-white/60 transition-colors group cursor-default"
                 >
                   <div className="relative flex-shrink-0 mt-0.5">
-                    {/* Efecto de Iluminación Ambiental / Glow */}
-                    <div className="absolute inset-0 rounded-full bg-emerald-500/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150 pointer-events-none"></div>
+                    {/* Efecto de Iluminación Ambiental Verde AOVET */}
+                    <div className="absolute inset-0 rounded-full bg-[var(--color-aovet-primary)]/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150 pointer-events-none"></div>
                     <Building2 
                       size={28} 
                       strokeWidth={2.2} 
-                      className="text-[var(--color-aovet-primary)] relative z-10 filter drop-shadow-[0_0_6px_rgba(13,61,32,0.3)] group-hover:drop-shadow-[0_0_14px_rgba(72,213,151,0.9)] transition-all duration-300 group-hover:scale-110" 
+                      className="text-[var(--color-aovet-primary)] relative z-10 filter drop-shadow-[0_0_6px_rgba(26,107,56,0.3)] group-hover:drop-shadow-[0_0_14px_rgba(26,107,56,0.85)] transition-all duration-300 group-hover:scale-110" 
                     />
                   </div>
                   <div>
@@ -320,12 +363,12 @@ const Contacto = () => {
                   className="flex items-start gap-4 p-3 rounded-2xl hover:bg-white/60 transition-colors group cursor-default"
                 >
                   <div className="relative flex-shrink-0 mt-0.5">
-                    {/* Efecto de Iluminación Ambiental / Glow */}
-                    <div className="absolute inset-0 rounded-full bg-amber-500/25 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150 pointer-events-none"></div>
+                    {/* Efecto de Iluminación Ambiental AOVET Accent */}
+                    <div className="absolute inset-0 rounded-full bg-[var(--color-aovet-accent)]/25 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150 pointer-events-none"></div>
                     <Clock 
                       size={28} 
                       strokeWidth={2.2} 
-                      className="text-amber-500 relative z-10 filter drop-shadow-[0_0_6px_rgba(245,158,11,0.35)] group-hover:drop-shadow-[0_0_14px_rgba(245,158,11,0.9)] transition-all duration-300 group-hover:scale-110" 
+                      className="text-[var(--color-aovet-accent)] relative z-10 filter drop-shadow-[0_0_6px_rgba(244,185,66,0.35)] group-hover:drop-shadow-[0_0_14px_rgba(244,185,66,0.9)] transition-all duration-300 group-hover:scale-110" 
                     />
                   </div>
                   <div>
@@ -346,12 +389,12 @@ const Contacto = () => {
                   className="flex items-start gap-4 p-3 rounded-2xl hover:bg-white/60 transition-colors group cursor-default"
                 >
                   <div className="relative flex-shrink-0 mt-0.5">
-                    {/* Efecto de Iluminación Ambiental / Glow */}
-                    <div className="absolute inset-0 rounded-full bg-emerald-500/25 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150 pointer-events-none"></div>
+                    {/* Efecto de Iluminación Ambiental Verde AOVET */}
+                    <div className="absolute inset-0 rounded-full bg-[var(--color-aovet-primary)]/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150 pointer-events-none"></div>
                     <Phone 
                       size={28} 
                       strokeWidth={2.2} 
-                      className="text-[var(--color-aovet-primary)] relative z-10 filter drop-shadow-[0_0_6px_rgba(16,185,129,0.35)] group-hover:drop-shadow-[0_0_14px_rgba(72,213,151,0.9)] transition-all duration-300 group-hover:scale-110" 
+                      className="text-[var(--color-aovet-primary)] relative z-10 filter drop-shadow-[0_0_6px_rgba(26,107,56,0.3)] group-hover:drop-shadow-[0_0_14px_rgba(26,107,56,0.85)] transition-all duration-300 group-hover:scale-110" 
                     />
                   </div>
                   <div>
@@ -374,12 +417,12 @@ const Contacto = () => {
                   className="flex items-start gap-4 p-3 rounded-2xl hover:bg-white/60 transition-colors group cursor-default"
                 >
                   <div className="relative flex-shrink-0 mt-0.5">
-                    {/* Efecto de Iluminación Ambiental / Glow */}
-                    <div className="absolute inset-0 rounded-full bg-sky-500/25 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150 pointer-events-none"></div>
+                    {/* Efecto de Iluminación Ambiental Verde AOVET */}
+                    <div className="absolute inset-0 rounded-full bg-[var(--color-aovet-primary)]/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150 pointer-events-none"></div>
                     <Mail 
                       size={28} 
                       strokeWidth={2.2} 
-                      className="text-sky-500 relative z-10 filter drop-shadow-[0_0_6px_rgba(14,165,233,0.35)] group-hover:drop-shadow-[0_0_14px_rgba(56,189,248,0.9)] transition-all duration-300 group-hover:scale-110" 
+                      className="text-[var(--color-aovet-primary)] relative z-10 filter drop-shadow-[0_0_6px_rgba(26,107,56,0.3)] group-hover:drop-shadow-[0_0_14px_rgba(26,107,56,0.85)] transition-all duration-300 group-hover:scale-110" 
                     />
                   </div>
                   <div>

@@ -71,32 +71,18 @@ const CarruselRecomendados = () => {
 
   return (
     <div 
-      className="relative w-full max-w-[1600px] mx-auto py-6 sm:py-10 select-none overflow-visible flex flex-col items-center"
+      className="group/carousel relative w-full max-w-[1600px] mx-auto pt-0 pb-1 sm:pb-2 select-none overflow-visible flex flex-col items-center"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Contenedor del Carrusel 3D Cards */}
       <div 
-        className="relative w-full h-[530px] sm:h-[610px] md:h-[660px] lg:h-[700px] flex items-center justify-center touch-pan-y overflow-visible"
+        className="relative w-full h-[580px] sm:h-[660px] md:h-[720px] lg:h-[780px] flex items-center justify-center touch-pan-y overflow-visible"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
       >
-        {/* Flecha Izquierda al lado del contenedor, aparece solo cuando se pasa el mouse sobre ella */}
-        {len > 1 && (
-          <div className="absolute -left-6 sm:-left-12 md:-left-18 lg:-left-24 xl:-left-32 top-0 bottom-0 w-20 sm:w-28 flex items-center justify-center z-40 group/arrow-left">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                prevSlide();
-              }}
-              aria-label="Producto anterior"
-              className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/95 hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white backdrop-blur-md border border-gray-200 flex items-center justify-center cursor-pointer opacity-0 group-hover/arrow-left:opacity-100 transition-all duration-300 shadow-2xl hover:scale-115 active:scale-95 group/btn"
-            >
-              <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 group-hover/btn:-translate-x-0.5 transition-transform" />
-            </button>
-          </div>
-        )}
+
 
         {/* Tarjetas del Carrusel 3D */}
         {productosRecomendados.map((prod, idx) => {
@@ -113,19 +99,19 @@ const CarruselRecomendados = () => {
           } else if (idx === (currentSlide - 1 + len) % len) {
             position = 'left';
             transform = isMobile 
-              ? 'translateX(-45%) scale(0.76)' 
+              ? 'translateX(-48%) scale(0.76)' 
               : isTablet 
-                ? 'translateX(-56%) scale(0.82)' 
-                : 'translateX(-62%) scale(0.85)';
+                ? 'translateX(-58%) scale(0.82)' 
+                : 'translateX(-65%) scale(0.86)';
             zIndex = 10;
             opacity = 0.88;
           } else if (idx === (currentSlide + 1) % len) {
             position = 'right';
             transform = isMobile 
-              ? 'translateX(45%) scale(0.76)' 
+              ? 'translateX(48%) scale(0.76)' 
               : isTablet 
-                ? 'translateX(56%) scale(0.82)' 
-                : 'translateX(62%) scale(0.85)';
+                ? 'translateX(58%) scale(0.82)' 
+                : 'translateX(65%) scale(0.86)';
             zIndex = 10;
             opacity = 0.88;
           } else {
@@ -138,7 +124,7 @@ const CarruselRecomendados = () => {
           return (
             <div
               key={prod.slug || idx}
-              className="absolute w-[72vw] max-w-[270px] sm:w-[80vw] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[460px] h-[94%] sm:h-[92%] transition-all duration-700 ease-out cursor-pointer group"
+              className="absolute w-[78vw] max-w-[310px] sm:w-[82vw] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[530px] h-[95%] sm:h-[94%] transition-all duration-700 ease-out cursor-pointer group"
               style={{ transform, zIndex, opacity }}
               onClick={() => {
                 if (position === 'left') prevSlide();
@@ -178,11 +164,11 @@ const CarruselRecomendados = () => {
                     <img 
                       src={prod.imagen.replace('.webp', '.png')} 
                       alt={prod.nombre} 
-                      width="260"
-                      height="260"
-                      loading="lazy"
-                      decoding="async"
-                      className="h-40 sm:h-56 md:h-64 lg:h-72 w-auto max-w-full object-contain mix-blend-multiply drop-shadow-xl group-hover:scale-105 transition-transform duration-500"
+                      width="260" 
+                      height="260" 
+                      loading="lazy" 
+                      decoding="async" 
+                      className="h-44 sm:h-60 md:h-72 lg:h-80 w-auto max-w-full object-contain mix-blend-multiply drop-shadow-xl group-hover:scale-105 transition-transform duration-500"
                     />
                   </picture>
                 </div>
@@ -234,26 +220,38 @@ const CarruselRecomendados = () => {
           );
         })}
 
-        {/* Flecha Derecha al lado del contenedor, aparece solo cuando se pasa el mouse sobre ella */}
+        {/* Flecha Izquierda al borde del contenedor */}
         {len > 1 && (
-          <div className="absolute -right-6 sm:-right-12 md:-right-18 lg:-right-24 xl:-right-32 top-0 bottom-0 w-20 sm:w-28 flex items-center justify-center z-40 group/arrow-right">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                nextSlide();
-              }}
-              aria-label="Producto siguiente"
-              className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/95 hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white backdrop-blur-md border border-gray-200 flex items-center justify-center cursor-pointer opacity-0 group-hover/arrow-right:opacity-100 transition-all duration-300 shadow-2xl hover:scale-115 active:scale-95 group/btn"
-            >
-              <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 group-hover/btn:translate-x-0.5 transition-transform" />
-            </button>
-          </div>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              prevSlide();
+            }}
+            aria-label="Producto anterior"
+            className="absolute left-0 sm:left-2 md:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white border border-gray-200 shadow-xl flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-all duration-300 group/btn"
+          >
+            <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 group-hover/btn:-translate-x-0.5 transition-transform" />
+          </button>
+        )}
+
+        {/* Flecha Derecha al borde del contenedor */}
+        {len > 1 && (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              nextSlide();
+            }}
+            aria-label="Producto siguiente"
+            className="absolute right-0 sm:right-2 md:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white border border-gray-200 shadow-xl flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-all duration-300 group/btn"
+          >
+            <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 group-hover/btn:translate-x-0.5 transition-transform" />
+          </button>
         )}
       </div>
 
       {/* Indicadores de Puntos Inferiores Estilo Tuntun */}
       {len > 1 && (
-        <div className="flex items-center justify-center mt-3 sm:mt-6">
+        <div className="flex items-center justify-center mt-2 sm:mt-3">
           <div className="flex items-center gap-2.5 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full border border-gray-200 shadow-md">
             {productosRecomendados.map((_, index) => (
               <button

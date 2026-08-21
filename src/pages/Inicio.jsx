@@ -49,12 +49,12 @@ const Inicio = () => {
     <div className="flex flex-col min-h-screen bg-[var(--color-aovet-bg)] font-sans">
       
       {/* SECCIÓN 1: HERO CON BLOQUES BENTO SUPERPUESTOS */}
-      <section className="relative flex flex-col bg-gray-900 pt-20 pb-24 md:pb-36 overflow-hidden">
+      <section className="relative flex flex-col justify-center bg-gray-900 pt-20 pb-24 md:pb-36 overflow-hidden min-h-[580px] md:min-h-[660px] lg:min-h-[720px]">
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroBg})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-sky-400/80 via-sky-300/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-transparent to-black/40"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center pt-12 pb-24">
@@ -90,10 +90,10 @@ const Inicio = () => {
                 }
               }}
               whileHover={{ scale: 1.02 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-white text-center leading-[1.15] tracking-tight mb-12 sm:mb-14 md:mb-16 antialiased hero-stroke [text-shadow:0_6px_16px_rgba(0,0,0,0.7),0_12px_28px_rgba(13,61,32,0.6)] cursor-default select-none mx-auto max-w-5xl -translate-y-4 sm:-translate-y-6 md:-translate-y-8"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center leading-[1.12] tracking-tight mb-12 sm:mb-14 md:mb-16 antialiased cursor-default select-none mx-auto max-w-5xl -translate-y-4 sm:-translate-y-6 md:-translate-y-8 drop-shadow-lg"
             >
               <motion.span 
-                className="inline-block"
+                className="text-white inline-block"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.15 }}
@@ -102,7 +102,7 @@ const Inicio = () => {
               </motion.span> 
               <br/>
               <motion.span 
-                className="text-[#2EE59D] inline-block drop-shadow-[0_0_20px_rgba(46,229,157,0.75)]"
+                className="text-[var(--color-aovet-accent)] inline-block font-serif mt-2"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.35 }}
@@ -111,7 +111,7 @@ const Inicio = () => {
               </motion.span>
             </motion.h1>
             
-            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", damping: 12, stiffness: 100 } } }} className="grid grid-cols-2 sm:flex sm:flex-row gap-2.5 sm:gap-4 justify-center lg:justify-start w-full sm:w-auto max-w-sm sm:max-w-none mx-auto lg:mx-0">
+            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", damping: 12, stiffness: 100 } } }} className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto mx-auto">
               <BotonCTA text="Catálogo" onClick={() => navigate('/productos')} variant="primary" icon={PackageCheck} />
               <BotonCTA text="WhatsApp" href="https://wa.me/593985401224" variant="secondary" icon={MessageCircle} />
             </motion.div>
@@ -208,12 +208,12 @@ const Inicio = () => {
         </motion.div>
       </div>
       
-      <div className="mt-12 sm:mt-16">
+      <div className="-my-3">
         <SeparadorGrieta />
       </div>
       
       {/* SECCIÓN 2: LÍNEAS DE PRODUCCIÓN */}
-      <section className="py-6 sm:py-12 px-0 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+      <section className="pt-1 sm:pt-2 pb-6 sm:pb-10 px-0 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }} 
           whileInView={{ opacity: 1, scale: 1 }} 
@@ -277,10 +277,10 @@ const Inicio = () => {
       </section>
 
       {/* SECCIÓN 3: PRODUCTOS RECOMENDADOS (CARRUSEL 3D COVERFLOW) */}
-      <section className="min-h-screen flex flex-col justify-center py-16 sm:py-24 md:py-32 px-4 sm:px-12 md:px-20 lg:px-32 max-w-[1850px] mx-auto overflow-visible relative">
+      <section className="flex flex-col justify-center pt-6 sm:pt-8 pb-2 sm:pb-3 px-4 sm:px-10 md:px-14 lg:px-16 max-w-7xl mx-auto overflow-visible relative">
         <motion.div 
           initial={{ opacity: 0, width: "0%" }} whileInView={{ opacity: 1, width: "100%" }} transition={{ duration: 1 }} viewport={{ once: true }}
-          className="flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-10 px-4 sm:px-0"
+          className="flex items-center justify-center gap-3 sm:gap-4 mb-1 sm:mb-2 px-4 sm:px-0"
         >
           <div className="h-px bg-gray-300 flex-grow max-w-[60px] sm:max-w-[120px]"></div>
           <Sparkles className="text-[var(--color-aovet-accent)]" size={20} />
@@ -303,7 +303,7 @@ const Inicio = () => {
       </section>
 
       {/* SECCIÓN EDITORIAL UNIFICADA */}
-      <section className="py-6 sm:py-12 px-0 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+      <section className="pt-1 sm:pt-2 pb-8 sm:pb-12 px-0 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
         <motion.div 
           initial={{ opacity: 0, y: 50 }} 
           whileInView={{ opacity: 1, y: 0 }} 
@@ -387,11 +387,11 @@ const Inicio = () => {
             whileInView="visible" 
             viewport={{ once: true }} 
             variants={staggerContainer} 
-            className="-mx-6 sm:-mx-10 md:-mx-12 lg:-mx-16 -mb-6 sm:-mb-10 md:-mb-12 lg:-mb-16 pt-4"
+            className="-mx-6 sm:-mx-10 md:-mx-12 lg:-mx-16 -mb-6 sm:-mb-10 md:-mb-12 lg:-mb-16 pt-0"
           >
             <motion.div 
               variants={fadeInUp} 
-              className="w-full rounded-b-none sm:rounded-b-[2.5rem] rounded-t-2xl sm:rounded-t-[2.5rem] overflow-hidden bg-white shadow-xl border border-gray-100 flex flex-col lg:flex-row items-stretch"
+              className="w-full rounded-b-none sm:rounded-b-[2.5rem] rounded-t-none overflow-hidden bg-white shadow-xl border-t border-gray-100 flex flex-col lg:flex-row items-stretch"
             >
               {/* Lado Izquierdo: Imagen Panorámica con Overlay */}
               <div className="lg:w-[54%] xl:w-[56%] relative min-h-[300px] sm:min-h-[380px] lg:min-h-[440px] overflow-hidden group flex flex-col justify-between p-6 sm:p-10">
@@ -465,8 +465,8 @@ const Inicio = () => {
                     onClick={() => window.open('https://wa.me/593985401224?text=Hola,%20deseo%20consultar%20con%20un%20especialista%20de%20AOVET%20acerca%20de%20asesoria%20tecnica', '_blank')} 
                     className="w-full bg-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-dark)] text-white font-bold py-3.5 sm:py-4 px-6 rounded-full transition-all flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg active:scale-95 text-xs sm:text-sm cursor-pointer"
                   >
+                    <MessageCircle size={18} className="flex-shrink-0" />
                     <span>Consultar un especialista</span>
-                    <ArrowRight size={16} />
                   </button>
                 </div>
               </div>
@@ -504,38 +504,6 @@ const Inicio = () => {
           <div className="w-full h-[280px] sm:h-[350px] lg:h-auto lg:w-[45%] z-0">
             <div className="w-full h-full relative overflow-hidden lg:imagen-curva-referencia">
               <img src={nosotrosBg} alt="Campo ganadero y producción agropecuaria AOVET Ecuador" width="600" height="450" loading="lazy" decoding="async" className="w-full h-full object-cover" />
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* SECCIÓN 5: PRE-FOOTER */}
-      <section className="py-4 sm:py-8 px-0 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-6 sm:mb-12 overflow-hidden">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}
-          className="bg-white rounded-none sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-md border-y sm:border border-gray-100 flex flex-col md:flex-row justify-between gap-8 md:gap-12"
-        >
-          <div className="flex gap-4 sm:gap-6 items-start">
-            <div className="w-16 h-16 sm:w-24 sm:h-24 hidden sm:flex flex-col justify-center items-center text-[var(--color-aovet-primary)]/20 flex-shrink-0">
-              <ShieldCheck size={48} className="sm:w-16 sm:h-16" strokeWidth={1} />
-            </div>
-            <div>
-              <h3 className="font-bold text-[var(--color-aovet-dark)] text-lg sm:text-xl mb-1">¡Te esperamos!</h3>
-              <p className="text-xs text-[var(--color-aovet-primary)] font-bold mb-3 sm:mb-4">Mgs. Mvz. Franklin Jonatan Arichabala Yanza</p>
-              <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm text-gray-600">
-                <li className="flex items-center gap-2.5 sm:gap-3"><MapPin size={16} className="text-[var(--color-aovet-primary)] flex-shrink-0" /><span>San Juanpamba - vía a Jadan Cuenca - Ecuador</span></li>
-                <li className="flex items-center gap-2.5 sm:gap-3"><Phone size={16} className="text-[var(--color-aovet-primary)] flex-shrink-0" /><span className="font-bold">0985401224</span></li>
-                <li className="flex items-center gap-2.5 sm:gap-3"><Mail size={16} className="text-[var(--color-aovet-primary)] flex-shrink-0" /><span className="break-all font-medium">jonatanarichabala_89@hotmail.com</span></li>
-              </ul>
-            </div>
-          </div>
-          <div className="flex-grow flex flex-col md:flex-row items-stretch md:items-start gap-6 md:gap-8 md:justify-end">
-            <div className="w-full max-w-md">
-              <h3 className="font-bold text-[var(--color-aovet-dark)] text-lg sm:text-xl mb-3 sm:mb-4">Suscríbete a novedades<br className="hidden sm:inline" />y promociones</h3>
-              <div className="flex flex-col sm:flex-row gap-2 sm:gap-0 border border-gray-300 rounded-2xl sm:rounded-full p-1.5 focus-within:border-[var(--color-aovet-primary)] focus-within:ring-1 focus-within:ring-[var(--color-aovet-primary)] transition-all bg-gray-50">
-                <input type="email" placeholder="Tu e-mail" className="bg-transparent border-none outline-none px-3 sm:px-4 py-2 sm:py-0 flex-grow text-xs sm:text-sm text-gray-700" />
-                <button className="bg-[var(--color-aovet-accent)] hover:bg-[var(--color-aovet-dark)] text-white px-5 sm:px-6 py-2.5 rounded-xl sm:rounded-full text-xs sm:text-sm font-bold transition-colors cursor-pointer">Suscribirse</button>
-              </div>
             </div>
           </div>
         </motion.div>

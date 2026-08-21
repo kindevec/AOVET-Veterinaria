@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Snowflake, PackageCheck, ChevronLeft, ChevronRight, Sparkles, Tag, ArrowRight } from 'lucide-react';
+import { Snowflake, PackageCheck, ChevronLeft, ChevronRight, Sparkles, Tag, ArrowRight, MessageCircle, Thermometer } from 'lucide-react';
+import { cn } from '../lib/utils';
 import { productos } from '../data/productos';
 import ProductoCard from '../components/ui/ProductoCard';
 import BotonCTA from '../components/ui/BotonCTA';
-import CatalogosSection from '../components/secciones/CatalogosSection';
 
-// Imágenes para las 3 publicidades del Slider Hero
-import heroBg from '../assets/images/hero-bg.webp';
-import secFarmAction from '../assets/images/sec_farm_action_1785907355629.webp';
-import nosMainVet from '../assets/images/aovet_paisaje_campo.webp';
+// Imagen de fondo para el banner estático
+import heroBgProductos from '../assets/images/aovet_productos_banner.jpg';
 
 const categorias = [
   { id: 'todos', label: 'Todos' },
@@ -19,60 +17,8 @@ const categorias = [
   { id: 'mascotas', label: 'Mascotas (Próximamente) 🐕' }
 ];
 
-const slidesPublicidad = [
-  {
-    id: 1,
-    tag: "LÍNEA AVÍCOLA DE ALTA EFICACIA",
-    titulo: "Salud Integral para Aves",
-    subtitulo: "Las mejores soluciones en salud y nutrición avícola con trazabilidad térmica garantizada.",
-    ctaText: "Ver Línea Avícola",
-    categoriaFiltro: "avicultura",
-    bgImage: heroBg,
-    colorBadge: "bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)]"
-  },
-  {
-    id: 2,
-    tag: "PROMOCIÓN DESTACADA BOVINOS",
-    titulo: "Salud y Bienestar Ganadero",
-    subtitulo: "Maximiza la ganancia de peso y producción lechera con Act Antiflam y tratamientos especializados.",
-    ctaText: "Ver Productos Ganaderos",
-    categoriaFiltro: "ganaderia",
-    bgImage: secFarmAction,
-    colorBadge: "bg-[var(--color-aovet-primary)] text-white"
-  },
-  {
-    id: 3,
-    tag: "EXCELENCIA INDUSTRIAL",
-    titulo: "Soluciones para Granjas Industriales",
-    subtitulo: "Promotores de crecimiento y tratamientos para maximizar el rendimiento productivo.",
-    ctaText: "Ver Portafolio Completo",
-    categoriaFiltro: "industrial",
-    bgImage: nosMainVet,
-    colorBadge: "bg-amber-500 text-white"
-  }
-];
-
 const Productos = () => {
   const [filtroActivo, setFiltroActivo] = useState('todos');
-  
-  // Estado del Slider
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  // Auto-play del Slider cada 6 segundos
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slidesPublicidad.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slidesPublicidad.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? slidesPublicidad.length - 1 : prev - 1));
-  };
 
   const productosFiltrados = filtroActivo === 'todos' 
     ? productos 
@@ -81,101 +27,66 @@ const Productos = () => {
   const destacados = productos.slice(0, 3);
 
   return (
-    <div className="pt-20 min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-white font-sans">
       
-      {/* 1. HERO SLIDER DE PUBLICIDAD (Gran imagen de fondo + Carousel 3 promos) */}
-      <section className="relative min-h-[580px] md:min-h-[640px] flex items-center justify-center bg-gray-900 overflow-hidden">
-        <AnimatePresence>
-          <motion.div
-            key={currentSlide}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${slidesPublicidad[currentSlide].bgImage})` }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-950/90 via-gray-950/75 to-transparent"></div>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Contenido del Slide Activo */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="max-w-2xl text-white"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 shadow-md bg-white/10 backdrop-blur-md border border-white/20">
-                <Tag size={14} className="text-[var(--color-aovet-accent)]" />
-                <span>{slidesPublicidad[currentSlide].tag}</span>
-              </div>
-
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-serif leading-tight mb-6 text-white drop-shadow-md">
-                {slidesPublicidad[currentSlide].titulo}
-              </h1>
-
-              <p className="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed drop-shadow-sm">
-                {slidesPublicidad[currentSlide].subtitulo}
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4">
-                <button
-                  onClick={() => {
-                    setFiltroActivo(slidesPublicidad[currentSlide].categoriaFiltro);
-                    const el = document.getElementById('catalogo-seccion');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="bg-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-dark)] text-white font-bold py-4 px-8 rounded-full transition-all transform hover:scale-105 shadow-xl flex items-center gap-2"
-                >
-                  {slidesPublicidad[currentSlide].ctaText} <ArrowRight size={18} />
-                </button>
-                <a
-                  href="https://wa.me/593985401224"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="bg-white/20 hover:bg-white hover:text-[var(--color-aovet-dark)] text-white font-bold py-4 px-8 rounded-full backdrop-blur-md transition-all border border-white/30"
-                >
-                  Cotizar por WhatsApp
-                </a>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+      {/* 1. HERO BANNER ESTÁTICO DE PRODUCTOS */}
+      <section className="relative flex flex-col justify-center bg-gray-900 pt-20 pb-24 md:pb-36 overflow-hidden min-h-[580px] md:min-h-[660px] lg:min-h-[720px]">
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroBgProductos})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-transparent to-black/40"></div>
         </div>
 
-        {/* Flechas de Navegación */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md text-white hover:bg-white hover:text-[var(--color-aovet-dark)] transition-all flex items-center justify-center border border-white/30"
-          aria-label="Slide anterior"
-        >
-          <ChevronLeft size={24} />
-        </button>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center pt-12 pb-24">
+          <div className="mb-4 sm:mb-6 flex justify-center w-full -translate-y-4 sm:-translate-y-6 md:-translate-y-8">
+            <motion.svg width="80" height="100" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" initial="hidden" animate="visible">
+              <motion.path d="M40 90 C 15 90 5 65 5 50 C 5 20 20 5 40 5 C 60 5 75 20 75 50 C 75 65 65 90 40 90 Z" stroke="var(--color-aovet-accent)" strokeWidth="3" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1.5, ease: "easeInOut" } } }} />
+              <motion.path d="M20 40 L 40 50 L 30 65 L 50 75 L 45 90" stroke="var(--color-aovet-accent)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1, delay: 1.2, ease: "easeOut" } } }} />
+            </motion.svg>
+          </div>
 
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md text-white hover:bg-white hover:text-[var(--color-aovet-dark)] transition-all flex items-center justify-center border border-white/30"
-          aria-label="Siguiente slide"
-        >
-          <ChevronRight size={24} />
-        </button>
+          <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } } }} className="w-full">
+            <motion.h1 
+              variants={{ 
+                hidden: { opacity: 0, y: 35, scale: 0.95 }, 
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1, 
+                  transition: { type: "spring", stiffness: 110, damping: 12, duration: 0.8 } 
+                } 
+              }} 
+              animate={{
+                y: [0, -6, 0],
+                transition: { repeat: Infinity, duration: 4.5, ease: "easeInOut" }
+              }}
+              whileHover={{ scale: 1.02 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center leading-[1.12] tracking-tight mb-8 sm:mb-12 antialiased cursor-default select-none mx-auto max-w-5xl -translate-y-4 sm:-translate-y-6 md:-translate-y-8"
+            >
+              <motion.span className="text-[#2EE59D] inline-block drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+                Catálogo de Productos
+              </motion.span>
+            </motion.h1>
 
-        {/* Indicadores de Dots del Slider */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 bg-black/30 backdrop-blur-md px-6 py-2 rounded-full border border-white/10">
-          {slidesPublicidad.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentSlide(idx)}
-              className={`h-2.5 rounded-full transition-all ${
-                currentSlide === idx ? 'w-8 bg-[var(--color-aovet-accent)]' : 'w-2.5 bg-white/50 hover:bg-white'
-              }`}
-              aria-label={`Ir al slide ${idx + 1}`}
-            />
-          ))}
+            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", damping: 12, stiffness: 100 } } }} className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto mx-auto -translate-y-2 sm:-translate-y-4">
+              <BotonCTA 
+                text="Explorar Catálogo" 
+                onClick={() => {
+                  const el = document.getElementById('catalogo-seccion');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }} 
+                variant="primary" 
+                icon={PackageCheck} 
+              />
+              <BotonCTA 
+                text="Cotizar por WhatsApp" 
+                href="https://wa.me/593985401224" 
+                variant="secondary" 
+                icon={MessageCircle} 
+              />
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -190,10 +101,7 @@ const Productos = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {destacados.map(prod => (
               <div key={`dest-${prod.id}`} className="ring-2 ring-[var(--color-aovet-accent)] rounded-2xl relative shadow-md">
-                <div className="absolute -top-4 -right-4 bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)] font-bold px-4 py-1 rounded-full z-10 shadow-md text-xs uppercase tracking-wider">
-                  Más Vendido
-                </div>
-                <ProductoCard producto={prod} />
+                <ProductoCard producto={prod} isDestacado={true} />
               </div>
             ))}
           </div>
@@ -241,20 +149,22 @@ const Productos = () => {
         </div>
       </section>
 
-      {/* Sección de Catálogos */}
-      <CatalogosSection />
-
-      {/* 4. Garantía y Cadena de Frío */}
-      <section className="py-20 bg-[var(--color-aovet-dark)] text-white">
+      {/* 4. Garantía y Cadena de Frío - Sección Independiente con Fondo Cálido */}
+      <section className="py-20 bg-gradient-to-b from-[#F7F9F5] via-[#EFEBE4] to-[#E5DFD4] text-[var(--color-aovet-text)] overflow-hidden border-t border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="flex items-center gap-3 text-[var(--color-aovet-accent)] mb-4">
-                <Snowflake size={32} />
-                <h3 className="text-xl font-bold uppercase tracking-wider">Manejo Seguro</h3>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold font-serif mb-6">Garantía total de Cadena de Frío</h2>
-              <p className="text-gray-300 text-lg mb-6 leading-relaxed">
+            
+            {/* Columna Izquierda con animación de desplazamiento y acercamiento */}
+            <motion.div
+              initial={{ opacity: 0, x: -40, scale: 0.94 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold font-serif text-[var(--color-aovet-dark)] mb-6">
+                Garantía total de Cadena de Frío
+              </h2>
+              <p className="text-gray-700 text-lg mb-6 leading-relaxed">
                 Sabemos que la eficacia de los biológicos e insumos veterinarios depende estrictamente del control de temperatura. En AOVET implementamos rigurosos protocolos de almacenamiento y transporte refrigerado.
               </p>
               <ul className="space-y-4">
@@ -263,24 +173,117 @@ const Productos = () => {
                   "Embalaje térmico validado.",
                   "Trazabilidad de temperatura hasta tu granja."
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3">
-                    <PackageCheck className="text-[var(--color-aovet-primary)]" />
+                  <li key={idx} className="flex items-center gap-3 text-gray-800 font-medium">
+                    <div className="w-8 h-8 rounded-full bg-[var(--color-aovet-primary)]/10 flex items-center justify-center flex-shrink-0">
+                      <PackageCheck className="text-[var(--color-aovet-primary)]" size={18} />
+                    </div>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="bg-white/10 p-8 rounded-3xl backdrop-blur-sm border border-white/20 shadow-xl">
-              <div className="flex flex-col gap-6">
-                <div className="bg-white/20 p-6 rounded-2xl flex items-center justify-between">
-                  <span className="font-bold">Temperatura Ideal</span>
-                  <span className="text-2xl font-mono text-[var(--color-aovet-accent)] font-bold">2°C - 8°C</span>
+            </motion.div>
+
+            {/* Columna Derecha con animación de desplazamiento, zoom y escala óptima */}
+            <motion.div
+              initial={{ opacity: 0, x: 40, scale: 0.92 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="relative group cursor-default"
+            >
+              {/* Resplandor ambiental AOVET */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-[var(--color-aovet-primary)]/40 via-[var(--color-aovet-accent)]/30 to-[var(--color-aovet-primary)]/40 rounded-3xl sm:rounded-[2.5rem] blur-xl opacity-60 group-hover:opacity-90 transition duration-500"></div>
+
+              {/* Contenedor Unificado Translúcido con Borde Animado y Micro-animaciones */}
+              <div className="relative bg-gradient-to-br from-[#0D3D20]/80 via-[#1A6B38]/55 to-[#082815]/85 backdrop-blur-2xl text-white p-6 sm:p-8 md:p-9 rounded-3xl sm:rounded-[2.5rem] border border-[var(--color-aovet-accent)]/40 shadow-[0_25px_60px_rgba(13,61,32,0.35)] space-y-6 text-center overflow-hidden">
+                
+                {/* Esferas de luz difusa ambiental en movimiento dentro del cristal */}
+                <motion.div 
+                  animate={{ x: [0, 25, 0], y: [0, -15, 0], scale: [1, 1.2, 1] }} 
+                  transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }} 
+                  className="absolute -top-12 -right-12 w-48 h-48 bg-[var(--color-aovet-accent)]/20 rounded-full blur-2xl pointer-events-none" 
+                />
+                <motion.div 
+                  animate={{ x: [0, -20, 0], y: [0, 20, 0], scale: [1, 1.25, 1] }} 
+                  transition={{ repeat: Infinity, duration: 7, delay: 1, ease: "easeInOut" }} 
+                  className="absolute -bottom-12 -left-12 w-48 h-48 bg-emerald-400/25 rounded-full blur-2xl pointer-events-none" 
+                />
+
+                {/* Borde Animado con Rayo de Luz Viajero (Animated Border Beam) */}
+                <div
+                  className={cn(
+                    "-inset-px pointer-events-none absolute rounded-[inherit] border-2 border-transparent border-inset [mask-clip:padding-box,border-box]",
+                    "[mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]"
+                  )}
+                >
+                  <motion.div
+                    className="absolute aspect-square bg-gradient-to-r from-transparent via-[var(--color-aovet-accent)] to-[var(--color-aovet-accent)] drop-shadow-[0_0_18px_rgba(244,185,66,1)]"
+                    animate={{
+                      offsetDistance: ["0%", "100%"],
+                    }}
+                    style={{
+                      width: 100,
+                      offsetPath: `rect(0 auto auto 0 round 2.5rem)`,
+                    }}
+                    transition={{
+                      repeat: Number.POSITIVE_INFINITY,
+                      duration: 4.5,
+                      ease: "linear",
+                    }}
+                  />
                 </div>
-                <p className="text-sm text-gray-300 italic text-center">
+
+                {/* Fila Principal de Temperatura centrada y agrupada armónicamente */}
+                <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-7 md:gap-8 text-center">
+                  <div className="flex items-center justify-center gap-2 sm:gap-2.5">
+                    <motion.div
+                      animate={{ y: [0, -4, 0], scale: [1, 1.06, 1] }}
+                      transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                    >
+                      <Thermometer size={34} className="text-[var(--color-aovet-accent)] drop-shadow-[0_0_12px_rgba(244,185,66,0.75)] flex-shrink-0" />
+                    </motion.div>
+                    <span className="text-xl sm:text-2xl font-bold text-white font-serif tracking-tight text-center">
+                      Temperatura Ideal
+                    </span>
+                  </div>
+
+                  <motion.div 
+                    animate={{ 
+                      scale: [1, 1.03, 1],
+                      filter: [
+                        "drop-shadow(0 0 12px rgba(244,185,66,0.6))",
+                        "drop-shadow(0 0 25px rgba(244,185,66,0.95))",
+                        "drop-shadow(0 0 12px rgba(244,185,66,0.6))"
+                      ]
+                    }}
+                    transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                    className="grid grid-cols-[auto_auto] items-center text-left font-mono text-[var(--color-aovet-accent)] font-black tracking-tight leading-none gap-y-1"
+                  >
+                    <span className="text-2xl sm:text-3xl lg:text-4xl opacity-0 select-none mr-1.5">-</span>
+                    <span className="text-2xl sm:text-3xl lg:text-4xl">2°C</span>
+                    <span className="text-2xl sm:text-3xl lg:text-4xl mr-1.5">-</span>
+                    <span className="text-2xl sm:text-3xl lg:text-4xl">8°C</span>
+                  </motion.div>
+                </div>
+
+                {/* Línea divisoria elegante con destello viajero animado */}
+                <div className="relative z-10 h-[2px] bg-gradient-to-r from-transparent via-[var(--color-aovet-accent)]/40 to-transparent w-full overflow-hidden">
+                  <motion.div
+                    animate={{ x: ["-100%", "200%"] }}
+                    transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
+                    className="w-1/2 h-full bg-gradient-to-r from-transparent via-white/90 to-transparent"
+                  />
+                </div>
+
+                {/* Mensaje directo institucional centrado */}
+                <p className="relative z-10 text-xs sm:text-sm text-emerald-100/90 leading-relaxed text-center italic max-w-lg mx-auto font-medium">
                   Cualquier producto biológico que salga de nuestro almacén cumple estrictamente con estos parámetros térmicos.
                 </p>
+
               </div>
-            </div>
+            </motion.div>
+
           </div>
         </div>
       </section>
