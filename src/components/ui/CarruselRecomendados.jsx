@@ -90,7 +90,7 @@ const CarruselRecomendados = () => {
               prevSlide();
             }}
             aria-label="Producto anterior"
-            className="absolute -left-3 sm:-left-6 md:-left-10 lg:-left-14 xl:-left-18 top-1/2 -translate-y-1/2 z-40 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/95 hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white backdrop-blur-md border border-gray-200 flex items-center justify-center cursor-pointer opacity-0 hover:opacity-100 transition-all duration-300 shadow-2xl hover:scale-115 active:scale-95 group/btn focus:opacity-100"
+            className="absolute -left-5 sm:-left-10 md:-left-16 lg:-left-22 xl:-left-28 top-1/2 -translate-y-1/2 z-40 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/95 hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white backdrop-blur-md border border-gray-200 flex items-center justify-center cursor-pointer opacity-0 hover:opacity-100 transition-all duration-300 shadow-2xl hover:scale-115 active:scale-95 group/btn focus:opacity-100"
           >
             <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 group-hover/btn:-translate-x-0.5 transition-transform" />
           </button>
@@ -240,7 +240,7 @@ const CarruselRecomendados = () => {
               nextSlide();
             }}
             aria-label="Producto siguiente"
-            className="absolute -right-3 sm:-right-6 md:-right-10 lg:-right-14 xl:-right-18 top-1/2 -translate-y-1/2 z-40 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/95 hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white backdrop-blur-md border border-gray-200 flex items-center justify-center cursor-pointer opacity-0 hover:opacity-100 transition-all duration-300 shadow-2xl hover:scale-115 active:scale-95 group/btn focus:opacity-100"
+            className="absolute -right-5 sm:-right-10 md:-right-16 lg:-right-22 xl:-right-28 top-1/2 -translate-y-1/2 z-40 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/95 hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white backdrop-blur-md border border-gray-200 flex items-center justify-center cursor-pointer opacity-0 hover:opacity-100 transition-all duration-300 shadow-2xl hover:scale-115 active:scale-95 group/btn focus:opacity-100"
           >
             <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 group-hover/btn:translate-x-0.5 transition-transform" />
           </button>
