@@ -84,16 +84,18 @@ const CarruselRecomendados = () => {
       >
         {/* Flecha Izquierda al lado del contenedor, aparece solo cuando se pasa el mouse sobre ella */}
         {len > 1 && (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              prevSlide();
-            }}
-            aria-label="Producto anterior"
-            className="absolute -left-5 sm:-left-10 md:-left-16 lg:-left-22 xl:-left-28 top-1/2 -translate-y-1/2 z-40 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/95 hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white backdrop-blur-md border border-gray-200 flex items-center justify-center cursor-pointer opacity-0 hover:opacity-100 transition-all duration-300 shadow-2xl hover:scale-115 active:scale-95 group/btn focus:opacity-100"
-          >
-            <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 group-hover/btn:-translate-x-0.5 transition-transform" />
-          </button>
+          <div className="absolute -left-6 sm:-left-12 md:-left-18 lg:-left-24 xl:-left-32 top-0 bottom-0 w-20 sm:w-28 flex items-center justify-center z-40 group/arrow-left">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                prevSlide();
+              }}
+              aria-label="Producto anterior"
+              className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/95 hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white backdrop-blur-md border border-gray-200 flex items-center justify-center cursor-pointer opacity-0 group-hover/arrow-left:opacity-100 transition-all duration-300 shadow-2xl hover:scale-115 active:scale-95 group/btn"
+            >
+              <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 group-hover/btn:-translate-x-0.5 transition-transform" />
+            </button>
+          </div>
         )}
 
         {/* Tarjetas del Carrusel 3D */}
@@ -234,16 +236,18 @@ const CarruselRecomendados = () => {
 
         {/* Flecha Derecha al lado del contenedor, aparece solo cuando se pasa el mouse sobre ella */}
         {len > 1 && (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              nextSlide();
-            }}
-            aria-label="Producto siguiente"
-            className="absolute -right-5 sm:-right-10 md:-right-16 lg:-right-22 xl:-right-28 top-1/2 -translate-y-1/2 z-40 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/95 hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white backdrop-blur-md border border-gray-200 flex items-center justify-center cursor-pointer opacity-0 hover:opacity-100 transition-all duration-300 shadow-2xl hover:scale-115 active:scale-95 group/btn focus:opacity-100"
-          >
-            <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 group-hover/btn:translate-x-0.5 transition-transform" />
-          </button>
+          <div className="absolute -right-6 sm:-right-12 md:-right-18 lg:-right-24 xl:-right-32 top-0 bottom-0 w-20 sm:w-28 flex items-center justify-center z-40 group/arrow-right">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                nextSlide();
+              }}
+              aria-label="Producto siguiente"
+              className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/95 hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white backdrop-blur-md border border-gray-200 flex items-center justify-center cursor-pointer opacity-0 group-hover/arrow-right:opacity-100 transition-all duration-300 shadow-2xl hover:scale-115 active:scale-95 group/btn"
+            >
+              <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 group-hover/btn:translate-x-0.5 transition-transform" />
+            </button>
+          </div>
         )}
       </div>
 
