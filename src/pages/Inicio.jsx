@@ -89,8 +89,7 @@ const Inicio = () => {
                 }
               }}
               whileHover={{ scale: 1.02 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.15] tracking-tight mb-6 sm:mb-8 antialiased hero-stroke [text-shadow:0_6px_16px_rgba(0,0,0,0.7),0_12px_28px_rgba(13,61,32,0.6)] cursor-default select-none"
-              style={{ fontFamily: "var(--font-heading)" }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-white leading-[1.15] tracking-tight mb-6 sm:mb-8 antialiased hero-stroke [text-shadow:0_6px_16px_rgba(0,0,0,0.7),0_12px_28px_rgba(13,61,32,0.6)] cursor-default select-none"
             >
               <motion.span 
                 className="inline-block"
