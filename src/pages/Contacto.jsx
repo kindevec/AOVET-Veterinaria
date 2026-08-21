@@ -214,17 +214,24 @@ const Contacto = () => {
               transition={{ duration: 0.6, delay: 0.4 }} 
               className="flex flex-col space-y-5"
             >
-              {/* Barra Independiente de Dirección y GPS Encima del Mapa */}
+              {/* Información de Ubicación Encima del Mapa (Sin contenedor y con icono Lucide iluminado) */}
               <motion.div 
                 initial={{ opacity: 0, y: -10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="w-full bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-5 shadow-sm border border-gray-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+                className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 px-1 py-1 group"
               >
-                <div className="flex items-center gap-3.5">
-                  <div className="w-10 h-10 rounded-full bg-[var(--color-aovet-primary)] text-white flex items-center justify-center flex-shrink-0 shadow-md">
-                    <MapPin size={20} className="text-[var(--color-aovet-accent)]" />
+                <div className="flex items-start gap-4">
+                  <div className="relative flex-shrink-0 mt-0.5">
+                    {/* Efecto de Iluminación Ambiental / Glow */}
+                    <div className="absolute inset-0 rounded-full bg-emerald-500/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150 pointer-events-none"></div>
+                    <MapPin 
+                      size={28} 
+                      strokeWidth={2.2} 
+                      className="text-[var(--color-aovet-primary)] relative z-10 filter drop-shadow-[0_0_6px_rgba(13,61,32,0.3)] group-hover:drop-shadow-[0_0_14px_rgba(72,213,151,0.9)] transition-all duration-300 group-hover:scale-110" 
+                    />
                   </div>
                   <div>
                     <h3 className="font-bold text-[var(--color-aovet-dark)] text-sm sm:text-base leading-tight">
@@ -240,9 +247,9 @@ const Contacto = () => {
                   href="https://www.google.com/maps/dir/?api=1&destination=San+Juanpamba,+Jad%C3%A1n,+Azuay,+Ecuador" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-dark)] text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all active:scale-95 flex-shrink-0 cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[var(--color-aovet-primary)] hover:text-[var(--color-aovet-dark)] hover:underline transition-colors mt-1 sm:mt-0"
                 >
-                  <Navigation size={14} />
+                  <Navigation size={14} className="text-[var(--color-aovet-primary)]" />
                   <span>Cómo llegar en GPS</span>
                   <ExternalLink size={12} />
                 </a>
