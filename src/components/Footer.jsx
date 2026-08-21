@@ -27,9 +27,9 @@ const Footer = () => {
             <h4 className="text-xl font-bold mb-6 text-[var(--color-aovet-accent)]">Secciones</h4>
             <ul className="flex flex-col gap-3">
               <li><Link to="/" className="text-gray-300 hover:text-white transition-colors">Inicio</Link></li>
-              <li><Link to="/nosotros" className="text-gray-300 hover:text-white transition-colors">Nosotros</Link></li>
-              <li><Link to="/productos" className="text-gray-300 hover:text-white transition-colors">Catálogo</Link></li>
+              <li><Link to="/productos" className="text-gray-300 hover:text-white transition-colors">Productos</Link></li>
               <li><Link to="/servicios" className="text-gray-300 hover:text-white transition-colors">Servicios</Link></li>
+              <li><Link to="/nosotros" className="text-gray-300 hover:text-white transition-colors">Nosotros</Link></li>
               <li><Link to="/contacto" className="text-gray-300 hover:text-white transition-colors">Contacto</Link></li>
             </ul>
           </div>
@@ -77,6 +77,9 @@ const Footer = () => {
 
         <div className="pt-8 border-t border-white/10 text-center text-gray-400 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
           <p>&copy; {new Date().getFullYear()} AOVET. Todos los derechos reservados.</p>
+          <p className="text-xs text-gray-300">
+            Desarrollado por <strong className="text-[var(--color-aovet-accent)] font-bold">KINDEV</strong>
+          </p>
           <div className="flex gap-4">
             <a href="#" className="hover:text-white transition-colors">Política de Privacidad</a>
             <a href="#" className="hover:text-white transition-colors">Términos de Servicio</a>

@@ -5,9 +5,9 @@ import logoImg from '../assets/logo-aovet.webp';
 
 const navLinks = [
   { name: 'Inicio', href: '/' },
-  { name: 'Nosotros', href: '/nosotros' },
   { name: 'Productos', href: '/productos' },
   { name: 'Servicios', href: '/servicios' },
+  { name: 'Nosotros', href: '/nosotros' },
   { name: 'Contacto', href: '/contacto' },
 ];
 

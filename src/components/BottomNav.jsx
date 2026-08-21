@@ -4,9 +4,9 @@ import { Home, Users, Package, Briefcase, Phone } from 'lucide-react';
 
 const navItems = [
   { name: 'Inicio', href: '/', icon: Home },
-  { name: 'Nosotros', href: '/nosotros', icon: Users },
   { name: 'Productos', href: '/productos', icon: Package },
   { name: 'Servicios', href: '/servicios', icon: Briefcase },
+  { name: 'Nosotros', href: '/nosotros', icon: Users },
   { name: 'Contacto', href: '/contacto', icon: Phone },
 ];
 

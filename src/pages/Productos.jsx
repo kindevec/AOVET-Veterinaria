@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronDown, ChevronUp, Snowflake, Info, PackageCheck, ChevronLeft, ChevronRight, Sparkles, Tag, ArrowRight } from 'lucide-react';
+import { Snowflake, PackageCheck, ChevronLeft, ChevronRight, Sparkles, Tag, ArrowRight } from 'lucide-react';
 import { productos } from '../data/productos';
 import ProductoCard from '../components/ui/ProductoCard';
 import BotonCTA from '../components/ui/BotonCTA';
@@ -17,12 +17,6 @@ const categorias = [
   { id: 'ganaderia', label: 'Ganadería 🐄' },
   { id: 'industrial', label: 'Industrial 🏭' },
   { id: 'mascotas', label: 'Mascotas (Próximamente) 🐕' }
-];
-
-const faqs = [
-  { p: "¿Cómo solicito una cotización mayorista?", r: "Puedes usar el botón de WhatsApp en cada producto o enviarnos un formulario desde la página de Contacto detallando los volúmenes requeridos." },
-  { p: "¿Realizan despachos a nivel nacional?", r: "Sí, contamos con cobertura en las 24 provincias del Ecuador mediante nuestra flota y aliados logísticos certificados." },
-  { p: "¿Cómo garantizan la cadena de frío?", r: "Utilizamos hieleras especiales, geles refrigerantes de alta duración y termómetros dataloggers para monitorear la temperatura durante todo el trayecto." },
 ];
 
 const slidesPublicidad = [
@@ -60,7 +54,6 @@ const slidesPublicidad = [
 
 const Productos = () => {
   const [filtroActivo, setFiltroActivo] = useState('todos');
-  const [faqAbierta, setFaqAbierta] = useState(null);
   
   // Estado del Slider
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -288,55 +281,6 @@ const Productos = () => {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Preguntas Frecuentes (FAQ) */}
-      <section className="py-20 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-serif text-[var(--color-aovet-dark)] mb-4">Preguntas Frecuentes</h2>
-            <p className="text-gray-600">Todo lo que necesitas saber sobre pedidos y envíos.</p>
-          </div>
-          
-          <div className="flex flex-col gap-4">
-            {faqs.map((faq, idx) => (
-              <div key={idx} className="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
-                <button 
-                  className="w-full px-6 py-4 text-left font-bold text-[var(--color-aovet-dark)] bg-gray-50 flex justify-between items-center hover:bg-gray-100 transition-colors"
-                  onClick={() => setFaqAbierta(faqAbierta === idx ? null : idx)}
-                >
-                  {faq.p}
-                  {faqAbierta === idx ? <ChevronUp className="text-[var(--color-aovet-primary)]" /> : <ChevronDown className="text-gray-400" />}
-                </button>
-                <AnimatePresence>
-                  {faqAbierta === idx && (
-                    <motion.div 
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      className="px-6 bg-white overflow-hidden"
-                    >
-                      <div className="py-4 text-gray-600">
-                        {faq.r}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center bg-[var(--color-aovet-bg)] p-8 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm border border-gray-100">
-            <div className="flex items-center gap-4 text-left">
-              <Info className="text-[var(--color-aovet-primary)]" size={32} />
-              <div>
-                <p className="font-bold text-[var(--color-aovet-dark)]">¿No encuentras lo que buscas?</p>
-                <p className="text-sm text-gray-600">Habla directamente con nuestro equipo de soporte.</p>
-              </div>
-            </div>
-            <BotonCTA text="Chatear ahora" href="https://wa.me/593985401224" variant="primary" />
           </div>
         </div>
       </section>
