@@ -60,22 +60,25 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Desktop Nav con efecto botón interactivo */}
-          <nav className="hidden md:flex items-center gap-2 lg:gap-3">
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-1.5 lg:gap-2">
             {navLinks.map((link) => {
-              const isActive = location.pathname === link.href;
+              const isActive = link.href === '/' 
+                ? location.pathname === '/' 
+                : location.pathname.startsWith(link.href);
+
               return (
                 <motion.div
                   key={link.name}
-                  whileHover={{ scale: 1.05, y: -1 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.04, y: -1 }}
+                  whileTap={{ scale: 0.96 }}
                 >
                   <Link
                     to={link.href}
-                    className={`px-4 py-2 rounded-full font-bold text-sm lg:text-base transition-all duration-300 flex items-center justify-center border ${
+                    className={`px-4 py-2 rounded-full text-sm lg:text-base font-semibold transition-all duration-300 flex items-center justify-center ${
                       isActive
-                        ? 'bg-[var(--color-aovet-primary)] text-white shadow-md shadow-[var(--color-aovet-primary)]/20 border-[var(--color-aovet-primary)]'
-                        : 'text-[var(--color-aovet-dark)] border-transparent hover:bg-white/90 hover:text-[var(--color-aovet-primary)] hover:border-white/80 hover:shadow-md backdrop-blur-sm'
+                        ? 'bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)] shadow-md shadow-[var(--color-aovet-accent)]/30 font-bold'
+                        : 'text-[var(--color-aovet-dark)] hover:bg-[var(--color-aovet-accent)] hover:text-[var(--color-aovet-dark)] hover:shadow-md hover:shadow-[var(--color-aovet-accent)]/30'
                     } focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)]`}
                   >
                     {link.name}
@@ -87,9 +90,9 @@ const Navbar = () => {
               href="https://wa.me/593985401224"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-2 px-5 py-2 rounded-full font-bold text-sm lg:text-base transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)] bg-[var(--color-aovet-primary)] text-white hover:bg-[var(--color-aovet-dark)] shadow-sm"
-              whileHover={{ scale: 1.06, y: -1 }}
-              whileTap={{ scale: 0.95 }}
+              className="px-4 py-2 rounded-full text-sm lg:text-base font-semibold text-[var(--color-aovet-dark)] hover:bg-[var(--color-aovet-accent)] hover:text-[var(--color-aovet-dark)] hover:shadow-md hover:shadow-[var(--color-aovet-accent)]/30 transition-all duration-300 flex items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)]"
+              whileHover={{ scale: 1.04, y: -1 }}
+              whileTap={{ scale: 0.96 }}
             >
               WhatsApp
             </motion.a>

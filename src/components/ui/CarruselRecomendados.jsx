@@ -120,6 +120,8 @@ const CarruselRecomendados = () => {
           }
 
           const isCenter = position === 'center';
+          const isLeft = position === 'left';
+          const isRight = position === 'right';
 
           return (
             <div
@@ -220,32 +222,39 @@ const CarruselRecomendados = () => {
           );
         })}
 
-        {/* Flecha Izquierda al borde del contenedor */}
+        {/* Flechas de Navegación laterales: perfectamente ubicadas en los bordes de las tarjetas, sincronizadas y persistentes */}
         {len > 1 && (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              prevSlide();
-            }}
-            aria-label="Producto anterior"
-            className="absolute left-0 sm:left-2 md:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white border border-gray-200 shadow-xl flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-all duration-300 group/btn"
-          >
-            <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 group-hover/btn:-translate-x-0.5 transition-transform" />
-          </button>
-        )}
+          <>
+            {/* Flecha Izquierda: en el borde de la tarjeta izquierda */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                prevSlide();
+              }}
+              onMouseEnter={() => setIsHovered(true)}
+              aria-label="Producto anterior"
+              className={`absolute top-1/2 -translate-y-1/2 z-50 left-2 sm:left-[calc(50%-415px)] md:left-[calc(50%-518px)] lg:left-[calc(50%-572px)] -translate-x-1/2 w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-md hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white border border-gray-200/90 shadow-[0_10px_35px_rgba(0,0,0,0.25)] flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-all duration-300 group/btn focus-visible:outline-2 focus-visible:outline-[var(--color-aovet-primary)] ${
+                isHovered ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+              }`}
+            >
+              <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 group-hover/btn:-translate-x-0.5 transition-transform" />
+            </button>
 
-        {/* Flecha Derecha al borde del contenedor */}
-        {len > 1 && (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              nextSlide();
-            }}
-            aria-label="Producto siguiente"
-            className="absolute right-0 sm:right-2 md:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white border border-gray-200 shadow-xl flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-all duration-300 group/btn"
-          >
-            <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 group-hover/btn:translate-x-0.5 transition-transform" />
-          </button>
+            {/* Flecha Derecha: en el borde de la tarjeta derecha */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                nextSlide();
+              }}
+              onMouseEnter={() => setIsHovered(true)}
+              aria-label="Producto siguiente"
+              className={`absolute top-1/2 -translate-y-1/2 z-50 right-2 sm:right-[calc(50%-415px)] md:right-[calc(50%-518px)] lg:right-[calc(50%-572px)] translate-x-1/2 w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-md hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white border border-gray-200/90 shadow-[0_10px_35px_rgba(0,0,0,0.25)] flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-all duration-300 group/btn focus-visible:outline-2 focus-visible:outline-[var(--color-aovet-primary)] ${
+                isHovered ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+              }`}
+            >
+              <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 group-hover/btn:translate-x-0.5 transition-transform" />
+            </button>
+          </>
         )}
       </div>
 

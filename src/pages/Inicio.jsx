@@ -54,7 +54,7 @@ const Inicio = () => {
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroBg})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-transparent to-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/65"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center pt-12 pb-24">
@@ -90,10 +90,10 @@ const Inicio = () => {
                 }
               }}
               whileHover={{ scale: 1.02 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center leading-[1.12] tracking-tight mb-12 sm:mb-14 md:mb-16 antialiased cursor-default select-none mx-auto max-w-5xl -translate-y-4 sm:-translate-y-6 md:-translate-y-8 drop-shadow-lg"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center leading-[1.12] tracking-tight mb-12 sm:mb-14 md:mb-16 antialiased cursor-default select-none mx-auto max-w-5xl -translate-y-4 sm:-translate-y-6 md:-translate-y-8 drop-shadow-2xl"
             >
               <motion.span 
-                className="text-white inline-block"
+                className="text-white inline-block drop-shadow-[0_4px_14px_rgba(0,0,0,0.85)]"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.15 }}
@@ -102,7 +102,7 @@ const Inicio = () => {
               </motion.span> 
               <br/>
               <motion.span 
-                className="text-[var(--color-aovet-accent)] inline-block font-serif mt-2"
+                className="text-[#2EE59D] inline-block font-serif mt-2 drop-shadow-[0_4px_18px_rgba(0,0,0,0.9)]"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.35 }}
@@ -277,7 +277,7 @@ const Inicio = () => {
       </section>
 
       {/* SECCIÓN 3: PRODUCTOS RECOMENDADOS (CARRUSEL 3D COVERFLOW) */}
-      <section className="flex flex-col justify-center pt-6 sm:pt-8 pb-2 sm:pb-3 px-4 sm:px-10 md:px-14 lg:px-16 max-w-7xl mx-auto overflow-visible relative">
+      <section className="flex flex-col justify-center pt-6 sm:pt-8 pb-2 sm:pb-3 px-0 sm:px-2 md:px-4 max-w-7xl mx-auto overflow-visible relative">
         <motion.div 
           initial={{ opacity: 0, width: "0%" }} whileInView={{ opacity: 1, width: "100%" }} transition={{ duration: 1 }} viewport={{ once: true }}
           className="flex items-center justify-center gap-3 sm:gap-4 mb-1 sm:mb-2 px-4 sm:px-0"
