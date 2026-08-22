@@ -49,12 +49,12 @@ const Inicio = () => {
     <div className="flex flex-col min-h-screen bg-[var(--color-aovet-bg)] font-sans">
       
       {/* SECCIÓN 1: HERO CON BLOQUES BENTO SUPERPUESTOS */}
-      <section className="relative flex flex-col justify-center bg-gray-900 pt-20 pb-24 md:pb-36 overflow-hidden min-h-[580px] md:min-h-[660px] lg:min-h-[720px]">
+      <section className="relative flex flex-col justify-center bg-gray-900 pt-20 pb-24 md:pb-36 overflow-hidden h-[580px] sm:h-[660px] md:h-[720px] lg:h-[760px] min-h-[580px] md:min-h-[660px] lg:min-h-[760px]">
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroBg})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/65"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-transparent to-black/40"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center pt-12 pb-24">

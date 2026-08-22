@@ -12,9 +12,9 @@ import {
 import { Badge } from '../components/ui/badge';
 
 import heroBgServicios from '../assets/images/aovet_servicios_banner.jpg';
-import imgPaso1 from '../assets/images/nos_main_vet_1785908284799.webp';
+import imgPaso1 from '../assets/images/aovet_contacto_inicial.jpg';
 import imgPaso2 from '../assets/images/aovet_ternero_salud.webp';
-import imgPaso3 from '../assets/images/sec_vet_products_1785907348242.webp';
+import imgPaso3 from '../assets/images/aovet_despacho_rapido.jpg';
 import imgPaso4 from '../assets/images/sec_farm_action_1785907355629.webp';
 
 const PASOS_TRABAJO = [
@@ -74,7 +74,7 @@ const Servicios = () => {
     <div className="min-h-screen bg-[var(--color-aovet-bg)] font-sans">
       
       {/* 1. HERO BANNER DE SERVICIOS */}
-      <section className="relative flex flex-col justify-center bg-gray-900 pt-20 pb-24 md:pb-36 overflow-hidden min-h-[580px] md:min-h-[660px] lg:min-h-[720px]">
+      <section className="relative flex flex-col justify-center bg-gray-900 pt-20 pb-24 md:pb-36 overflow-hidden h-[580px] sm:h-[660px] md:h-[720px] lg:h-[760px] min-h-[580px] md:min-h-[660px] lg:min-h-[760px]">
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroBgServicios})` }}

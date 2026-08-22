@@ -9,7 +9,7 @@ import Timeline3D from '../components/ui/Timeline3D';
 import nosMainVet from '../assets/images/nos_main_vet_1785908284799.webp';
 import nosTeamDir from '../assets/images/nos_team_dir_1785908292981.webp';
 import nosTeamTech from '../assets/images/aovet_veterinario_campo.webp';
-import nosotrosBg from '../assets/images/nosotros-bg.webp';
+import nosotrosBg from '../assets/images/nosotros-bg.jpg';
 import secFarmAction from '../assets/images/sec_farm_action_1785907355629.webp';
 import catGanado from '../assets/images/aovet_ganado_campo.webp';
 import catAves from '../assets/images/cat_aves_1785906732448.webp';
@@ -68,7 +68,7 @@ const Nosotros = () => {
     <div className="min-h-screen bg-[var(--color-aovet-bg)] font-sans">
       
       {/* 1. HERO BANNER DE NOSOTROS */}
-      <section className="relative flex flex-col justify-center bg-gray-900 pt-20 pb-24 md:pb-36 overflow-hidden min-h-[580px] md:min-h-[660px] lg:min-h-[720px]">
+      <section className="relative flex flex-col justify-center bg-gray-900 pt-20 pb-24 md:pb-36 overflow-hidden h-[580px] sm:h-[660px] md:h-[720px] lg:h-[760px] min-h-[580px] md:min-h-[660px] lg:min-h-[760px]">
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${nosotrosBg})` }}
