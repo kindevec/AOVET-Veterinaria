@@ -13,7 +13,7 @@ import { Badge } from '../components/ui/badge';
 
 import heroBgServicios from '../assets/images/aovet_servicios_banner.jpg';
 import imgPaso1 from '../assets/images/aovet_contacto_inicial.jpg';
-import imgPaso2 from '../assets/images/aovet_ternero_salud.webp';
+import imgPaso2 from '../assets/images/aovet_asesoria_cotizacion.jpg';
 import imgPaso3 from '../assets/images/aovet_despacho_rapido.jpg';
 import imgPaso4 from '../assets/images/sec_farm_action_1785907355629.webp';
 
@@ -232,7 +232,7 @@ const Servicios = () => {
                 <MapPin size={36} strokeWidth={2.4} />
                 <h3 className="text-xl sm:text-2xl font-black uppercase tracking-wider">Logística Integrada</h3>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--color-aovet-dark)] mb-6 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--color-aovet-dark)] mb-6 leading-tight text-justify">
                 Llegamos a todas las provincias del Ecuador
               </h2>
               <p className="text-gray-700 text-lg sm:text-xl md:text-2xl mb-8 leading-relaxed font-normal text-justify">

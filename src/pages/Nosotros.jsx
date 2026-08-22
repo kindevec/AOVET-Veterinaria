@@ -6,11 +6,16 @@ import BotonCTA from '../components/ui/BotonCTA';
 import Timeline3D from '../components/ui/Timeline3D';
 
 // Imágenes
+import aovetComprometidos from '../assets/images/aovet_comprometidos_salud.jpg';
 import nosMainVet from '../assets/images/nos_main_vet_1785908284799.webp';
 import nosTeamDir from '../assets/images/nos_team_dir_1785908292981.webp';
+import imgDireccionTecnica from '../assets/images/aovet_direccion_tecnica.jpg';
 import nosTeamTech from '../assets/images/aovet_veterinario_campo.webp';
 import nosotrosBg from '../assets/images/nosotros-bg.jpg';
-import secFarmAction from '../assets/images/sec_farm_action_1785907355629.webp';
+import imgFundacionAves from '../assets/images/aovet_fundacion_aves.jpg';
+import imgExpansionGanadera from '../assets/images/aovet_expansion_ganadera.jpg';
+import imgCobertura247 from '../assets/images/aovet_cobertura_24_7.jpg';
+import imgSostenibilidad from '../assets/images/aovet_sostenibilidad_zootecnia.jpg';
 import catGanado from '../assets/images/aovet_ganado_campo.webp';
 import catAves from '../assets/images/cat_aves_1785906732448.webp';
 import paisajeCampo from '../assets/images/aovet_paisaje_campo.webp';
@@ -29,7 +34,7 @@ const hitosHistoria = [
     title: "Fundación AOVET", 
     text: "Inicios enfocados en la importación de biológicos avícolas de alta calidad y asesoría sanitaria integral para el sector productivo.",
     category: "Avicultura",
-    image: catAves,
+    image: imgFundacionAves,
     highlight: "Pioneros en biológicos avícolas"
   },
   { 
@@ -38,7 +43,8 @@ const hitosHistoria = [
     title: "Expansión Ganadera", 
     text: "Ampliación de portafolio para ganado de leche y carne con formulaciones farmacológicas y nutricionales de vanguardia.",
     category: "Ganadería",
-    image: catGanado,
+    image: imgExpansionGanadera,
+    imagePosition: "object-[center_70%]",
     highlight: "Nutrición y sanidad bovina"
   },
   { 
@@ -56,7 +62,7 @@ const hitosHistoria = [
     title: "Cobertura 24/7", 
     text: "Red logística que abastece a todo el país con cadena de frío garantizada y acompañamiento técnico directo en finca.",
     category: "Cadena de Frío",
-    image: nosTeamTech,
+    image: imgCobertura247,
     highlight: "Monitoreo térmico permanente"
   }
 ];
@@ -133,53 +139,50 @@ const Nosotros = () => {
             whileInView={{ opacity: 1, y: 0 }} 
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8 }}
-            className="bg-[#E7ECE4] rounded-3xl lg:rounded-[2.5rem] overflow-hidden shadow-xl border border-white/60 grid grid-cols-1 lg:grid-cols-2"
+            className="bg-[#E7ECE4] rounded-3xl lg:rounded-[2.5rem] overflow-hidden shadow-xl border border-white/60 grid grid-cols-1 lg:grid-cols-12"
           >
-            {/* Columna Izquierda: Información Original */}
-            <div className="p-8 sm:p-10 md:p-12 lg:p-14 flex flex-col justify-between">
+            {/* Columna Izquierda: Información (5 columnas en desktop) */}
+            <div className="lg:col-span-5 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between">
               <div>
-                <span className="text-[var(--color-aovet-primary)] font-bold text-xs uppercase tracking-widest mb-2 block">
-                  Acerca de AOVET
-                </span>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-aovet-dark)] font-serif mb-6 leading-tight">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-extrabold text-[var(--color-aovet-dark)] font-serif mb-4 sm:mb-6 leading-tight text-center">
                   Comprometidos con la salud y productividad animal
                 </h2>
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-8 text-justify">
+                <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-6 text-justify">
                   En <strong className="text-[var(--color-aovet-primary)]">AOVET</strong> nos especializamos en la importación y distribución estratégica de productos veterinarios certificados con los más rigurosos estándares de bioseguridad. Acompañamos a cada productor con asesoría técnica especializada y soluciones de vanguardia orientadas a optimizar la salud, el bienestar y el rendimiento productivo en granjas de todo el país.
                 </p>
               </div>
 
               {/* 4 Valores Originales */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 {valores.map((valor, idx) => (
-                  <div key={idx} className="flex items-center gap-3 bg-white/80 backdrop-blur-sm p-3.5 sm:p-4 rounded-2xl shadow-sm border border-white/70">
+                  <div key={idx} className="flex items-center gap-3 bg-white/80 backdrop-blur-sm p-3 sm:p-3.5 rounded-2xl shadow-sm border border-white/70">
                     <div className="w-2.5 h-2.5 rounded-full bg-[var(--color-aovet-accent)] flex-shrink-0"></div>
-                    <span className="font-bold text-[var(--color-aovet-dark)] text-sm">{valor}</span>
+                    <span className="font-bold text-[var(--color-aovet-dark)] text-xs sm:text-sm">{valor}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Columna Derecha: Imagen de Laboratorio / Instalaciones con Sello de Garantía */}
-            <div className="relative h-full min-h-[360px] sm:min-h-[440px] lg:min-h-full">
+            {/* Columna Derecha: Imagen más amplia y centrada (7 columnas en desktop) */}
+            <div className="lg:col-span-7 relative h-full min-h-[380px] sm:min-h-[460px] lg:min-h-[520px] overflow-hidden">
               <img 
-                src={nosMainVet} 
-                alt="Instalaciones y centro de distribución AOVET" 
-                width="700"
-                height="500"
+                src={aovetComprometidos} 
+                alt="Comprometidos con la salud y productividad animal AOVET" 
+                width="800"
+                height="600"
                 decoding="async"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center scale-100"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-aovet-dark)]/60 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-aovet-dark)]/50 via-transparent to-transparent"></div>
               
               {/* Sello flotante de garantía */}
               <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-white/95 backdrop-blur-md p-5 rounded-2xl border border-white/60 shadow-lg flex items-center gap-4">
+                <div className="bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-white/60 shadow-lg flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-[var(--color-aovet-primary)] text-white flex items-center justify-center flex-shrink-0 shadow-md">
                     <Award size={24} />
                   </div>
                   <div>
-                    <p className="font-bold text-[var(--color-aovet-dark)] text-base">Garantía Internacional</p>
+                    <p className="font-bold text-[var(--color-aovet-dark)] text-sm sm:text-base">Garantía Internacional</p>
                     <p className="text-gray-600 text-xs mt-0.5">Productos certificados y bioseguros para el campo.</p>
                   </div>
                 </div>
@@ -336,7 +339,7 @@ const Nosotros = () => {
               { 
                 role: "Dirección Técnica Veterinaria", 
                 desc: "Médicos veterinarios dedicados al diagnóstico y seguimiento sanitario en finca.", 
-                img: nosTeamTech,
+                img: imgDireccionTecnica,
                 pos: "object-center"
               }
             ].map((team, idx) => (
@@ -423,10 +426,10 @@ const Nosotros = () => {
           {/* Columna Derecha: Imagen que ocupa todo el espacio vertical del contenedor */}
           <div className="relative w-full h-full min-h-[300px] sm:min-h-[360px] lg:min-h-full overflow-hidden group">
             <img 
-              src={catGanado} 
-              alt="Ganadería sostenible AOVET" 
+              src={imgSostenibilidad} 
+              alt="Economía circular y sostenibilidad pecuaria AOVET" 
               width="600"
-              height="400"
+              height="600"
               loading="lazy"
               decoding="async"
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 absolute inset-0" 

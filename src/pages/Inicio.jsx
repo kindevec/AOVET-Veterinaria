@@ -13,7 +13,7 @@ import catAves from '../assets/images/cat_aves_1785906732448.webp';
 import catGanado from '../assets/images/cat_ganado_1785906742113.webp';
 import catMascotas from '../assets/images/cat_mascotas_1785906749507.webp';
 import prodVitamina from '../assets/images/prod_vitamina_1785906757394.webp';
-import secIndustrial from '../assets/images/sec_industrial.webp';
+import secIndustrial from '../assets/images/aovet_industrial.jpg';
 
 import secArchCow from '../assets/images/aovet_ganado_campo.webp';
 import secArchVet from '../assets/images/aovet_ternero_salud.webp';
@@ -252,7 +252,7 @@ const Inicio = () => {
             {[
               { id: 'avicultura', name: 'Avicultura', desc: 'Salud integral y bioseguridad para aves.', img: catAves },
               { id: 'ganaderia', name: 'Ganadería', desc: 'Tratamientos y nutrición de precisión.', img: catGanado },
-              { id: 'industrial', name: 'Industrial', desc: 'Soluciones veterinarias productivas.', img: secVetProducts }
+              { id: 'industrial', name: 'Industrial', desc: 'Soluciones veterinarias productivas.', img: secIndustrial }
             ].map((cat, idx) => (
               <motion.div 
                 key={idx} 
