@@ -31,17 +31,17 @@ export const Timeline3D = ({
   return (
     <div
       ref={containerRef}
-      className={`w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden relative ${className}`}
+      className={`w-full pt-3 sm:pt-4 pb-3 sm:pb-5 px-4 sm:px-6 lg:px-8 overflow-hidden relative ${className}`}
     >
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Cabecera de la Sección */}
-        <div className="text-center mb-16 sm:mb-20">
+        <div className="text-center mb-6 sm:mb-8">
           {badge && (
             <motion.span 
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[var(--color-aovet-primary)]/10 text-[var(--color-aovet-primary)] border border-[var(--color-aovet-primary)]/20 font-bold text-xs uppercase tracking-widest mb-3"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[var(--color-aovet-primary)]/10 text-[var(--color-aovet-primary)] border border-[var(--color-aovet-primary)]/20 font-bold text-xs uppercase tracking-widest mb-2.5"
             >
               <Sparkles size={13} className="text-[var(--color-aovet-accent)]" />
               {badge}
@@ -53,7 +53,7 @@ export const Timeline3D = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-aovet-dark)] font-serif leading-tight mb-4"
+              className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-aovet-dark)] font-serif leading-tight mb-2.5"
             >
               {title}
             </motion.h2>
@@ -64,7 +64,7 @@ export const Timeline3D = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed"
+              className="text-gray-600 max-w-2xl mx-auto text-xs sm:text-sm md:text-base leading-relaxed"
             >
               {subtitle}
             </motion.p>
@@ -82,18 +82,18 @@ export const Timeline3D = ({
           />
 
           {/* Eventos del Timeline */}
-          <div className="space-y-16 sm:space-y-24">
+          <div className="space-y-6 sm:space-y-10">
             {events.map((event, index) => {
               const isEven = index % 2 === 0;
               const isHighlighted = activeEvent === event.id;
 
-              // Componente Tarjeta de Imagen (limpia, sin etiquetas)
+              // Componente Tarjeta de Imagen (compacta)
               const imageCard = (
                 <motion.div
-                  className={`relative rounded-3xl overflow-hidden border transition-all duration-500 shadow-lg h-56 sm:h-64 md:h-72 lg:h-80 w-full bg-gray-900 group ${
+                  className={`relative rounded-2xl md:rounded-3xl overflow-hidden border transition-all duration-500 shadow-md h-44 sm:h-52 md:h-56 lg:h-60 w-full bg-gray-900 group ${
                     isHighlighted
-                      ? 'border-[var(--color-aovet-primary)] shadow-[0_20px_45px_rgba(13,61,32,0.18)] ring-2 ring-[var(--color-aovet-accent)]/50'
-                      : 'border-gray-100 hover:border-gray-200 hover:shadow-xl'
+                      ? 'border-[var(--color-aovet-primary)] shadow-[0_16px_35px_rgba(13,61,32,0.18)] ring-2 ring-[var(--color-aovet-accent)]/50'
+                      : 'border-gray-100 hover:border-gray-200 hover:shadow-lg'
                   }`}
                   style={{
                     transformStyle: 'preserve-3d',
@@ -115,13 +115,13 @@ export const Timeline3D = ({
                 </motion.div>
               );
 
-              // Componente Tarjeta de Texto: Solo Título (centrado) y Descripción
+              // Componente Tarjeta de Texto (compacta)
               const textCard = (
                 <motion.div
-                  className={`relative bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 md:p-9 border transition-all duration-500 shadow-lg flex flex-col justify-center h-full min-h-[200px] md:min-h-[260px] ${
+                  className={`relative bg-white/95 backdrop-blur-md rounded-2xl md:rounded-3xl p-4 sm:p-5 md:p-6 border transition-all duration-500 shadow-md flex flex-col justify-center h-full min-h-[140px] md:min-h-[170px] ${
                     isHighlighted
-                      ? 'border-[var(--color-aovet-primary)] shadow-[0_20px_45px_rgba(13,61,32,0.15)] ring-1 ring-[var(--color-aovet-accent)]/40 bg-emerald-50/30'
-                      : 'border-gray-100 hover:border-gray-200 hover:shadow-xl'
+                      ? 'border-[var(--color-aovet-primary)] shadow-[0_16px_35px_rgba(13,61,32,0.15)] ring-1 ring-[var(--color-aovet-accent)]/40 bg-emerald-50/30'
+                      : 'border-gray-100 hover:border-gray-200 hover:shadow-lg'
                   }`}
                   style={{
                     transformStyle: 'preserve-3d',
@@ -130,11 +130,11 @@ export const Timeline3D = ({
                     }deg) rotateX(${mousePosition.y * -2.5}deg)`,
                   }}
                 >
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--color-aovet-dark)] font-serif leading-tight mb-3 text-center">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-extrabold text-[var(--color-aovet-dark)] font-serif leading-tight mb-2 text-center">
                     {event.title}
                   </h3>
 
-                  <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed text-justify font-normal">
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed text-justify font-normal">
                     {event.text || event.description}
                   </p>
 
@@ -149,51 +149,79 @@ export const Timeline3D = ({
               );
 
               return (
-                <motion.div
+                <div
                   key={event.id || index}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.7, delay: index * 0.1 }}
                   className="relative flex flex-col md:flex-row items-center"
                   onMouseEnter={() => setActiveEvent(event.id)}
                   onMouseLeave={() => setActiveEvent(null)}
                 >
-                  {/* Nodo central / Hito del año */}
-                  <div className="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-30 flex items-center justify-center top-4 md:top-1/2 md:-translate-y-1/2">
+                  {/* Nodo central / Hito del año con animación de entrada elástica */}
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.3, rotate: isEven ? -10 : 10 }}
+                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                    viewport={{ once: true, margin: "-70px" }}
+                    transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                    className="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-30 flex items-center justify-center top-4 md:top-1/2 md:-translate-y-1/2"
+                  >
                     <motion.div
-                      whileHover={{ scale: 1.12 }}
+                      whileHover={{ scale: 1.08 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setActiveEvent(isHighlighted ? null : event.id)}
-                      className={`min-w-[3.5rem] sm:min-w-[4.25rem] px-3.5 sm:px-4 h-12 sm:h-14 rounded-2xl flex items-center justify-center border-2 transition-all duration-500 cursor-pointer shadow-lg whitespace-nowrap ${
+                      className={`min-w-[3.25rem] sm:min-w-[3.75rem] px-3 sm:px-3.5 h-10 sm:h-11 rounded-2xl flex items-center justify-center border-2 transition-all duration-500 cursor-pointer shadow-md whitespace-nowrap ${
                         isHighlighted
-                          ? 'bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)] border-white ring-4 ring-[var(--color-aovet-accent)]/40 scale-110 shadow-[0_0_25px_rgba(244,185,66,0.6)]'
-                          : 'bg-[var(--color-aovet-primary)] text-white border-white/80 hover:bg-[var(--color-aovet-dark)] shadow-[0_4px_15px_rgba(13,61,32,0.3)]'
+                          ? 'bg-[var(--color-aovet-accent)] text-[var(--color-aovet-dark)] border-white ring-4 ring-[var(--color-aovet-accent)]/40 scale-105 shadow-[0_0_20px_rgba(244,185,66,0.6)]'
+                          : 'bg-[var(--color-aovet-primary)] text-white border-white/80 hover:bg-[var(--color-aovet-dark)] shadow-[0_4px_12px_rgba(13,61,32,0.25)]'
                       }`}
                     >
-                      <span className="font-mono font-black text-xs sm:text-sm md:text-base tracking-wide text-center">
+                      <span className="font-mono font-black text-xs sm:text-xs md:text-sm tracking-wide text-center">
                         {event.year}
                       </span>
                     </motion.div>
-                  </div>
+                  </motion.div>
 
-                  {/* Desktop Layout: Dos columnas simétricas separadas por el nodo central */}
-                  {/* LADO IZQUIERDO */}
-                  <div className="hidden md:block md:w-1/2 md:pr-14 lg:md:pr-18">
+                  {/* Desktop Layout: Dos columnas simétricas con separación equilibrada */}
+                  {/* LADO IZQUIERDO (Entrada desde la izquierda) */}
+                  <motion.div 
+                    initial={{ opacity: 0, x: -55, scale: 0.95 }}
+                    whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+                    className="hidden md:block md:w-1/2 md:pr-16 lg:pr-18"
+                  >
                     {isEven ? imageCard : textCard}
-                  </div>
+                  </motion.div>
 
-                  {/* LADO DERECHO */}
-                  <div className="hidden md:block md:w-1/2 md:pl-14 lg:md:pl-18">
+                  {/* LADO DERECHO (Entrada desde la derecha) */}
+                  <motion.div 
+                    initial={{ opacity: 0, x: 55, scale: 0.95 }}
+                    whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.75, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                    className="hidden md:block md:w-1/2 md:pl-16 lg:pl-18"
+                  >
                     {isEven ? textCard : imageCard}
-                  </div>
+                  </motion.div>
 
-                  {/* Mobile Layout (< md): En columna con nodo a la izquierda */}
+                  {/* Mobile Layout (< md): En columna con animación de entrada ascendente */}
                   <div className="w-full md:hidden pl-16 space-y-4">
-                    {imageCard}
-                    {textCard}
+                    <motion.div
+                      initial={{ opacity: 0, y: 35, scale: 0.96 }}
+                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                      viewport={{ once: true, margin: "-60px" }}
+                      transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      {imageCard}
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, y: 35, scale: 0.96 }}
+                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                      viewport={{ once: true, margin: "-60px" }}
+                      transition={{ duration: 0.65, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      {textCard}
+                    </motion.div>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

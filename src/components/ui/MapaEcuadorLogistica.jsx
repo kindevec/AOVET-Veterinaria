@@ -374,13 +374,13 @@ const MapaEcuadorLogistica = () => {
   const matriz = cityPins.find(p => p.esMatriz) || cityPins[0];
 
   return (
-    <div className="relative w-full h-full min-h-[500px] sm:min-h-[580px] md:min-h-[640px] lg:min-h-[700px] flex items-center justify-center bg-transparent select-none p-0 m-0">
+    <div className="relative w-full h-full min-h-[400px] sm:min-h-[460px] md:min-h-[500px] lg:min-h-[540px] flex items-start justify-center bg-transparent select-none p-0 m-0">
       
       {/* Contenedor SVG con Estilo Google Maps y Fondo Transparente en Gran Formato */}
-      <div className="relative w-full h-full flex items-center justify-center">
+      <div className="relative w-full h-full flex items-start justify-center">
         <svg 
           viewBox="0 0 600 560" 
-          className="w-full h-full max-h-[720px] lg:max-h-[820px] drop-shadow-xl overflow-visible"
+          className="w-full h-full max-h-[580px] lg:max-h-[620px] drop-shadow-xl overflow-visible"
           fill="none" 
           xmlns="http://www.w3.org/2000/svg"
         >

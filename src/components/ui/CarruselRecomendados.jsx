@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, ArrowRight, MessageCircle, Sparkles, ShieldCheck } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Sparkles, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { productos } from '../../data/productos';
+import WhatsappIcon from '../icons/WhatsappIcon';
 
 const CarruselRecomendados = () => {
   const navigate = useNavigate();
@@ -77,7 +78,7 @@ const CarruselRecomendados = () => {
     >
       {/* Contenedor del Carrusel 3D Cards */}
       <div 
-        className="relative w-full h-[580px] sm:h-[660px] md:h-[720px] lg:h-[780px] flex items-center justify-center touch-pan-y overflow-visible"
+        className="relative w-full h-[470px] xs:h-[510px] sm:h-[660px] md:h-[720px] lg:h-[780px] flex items-center justify-center touch-pan-y overflow-visible"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -99,21 +100,21 @@ const CarruselRecomendados = () => {
           } else if (idx === (currentSlide - 1 + len) % len) {
             position = 'left';
             transform = isMobile 
-              ? 'translateX(-48%) scale(0.76)' 
+              ? 'translateX(-50%) scale(0.72)' 
               : isTablet 
                 ? 'translateX(-58%) scale(0.82)' 
                 : 'translateX(-65%) scale(0.86)';
             zIndex = 10;
-            opacity = 0.88;
+            opacity = 0.85;
           } else if (idx === (currentSlide + 1) % len) {
             position = 'right';
             transform = isMobile 
-              ? 'translateX(48%) scale(0.76)' 
+              ? 'translateX(50%) scale(0.72)' 
               : isTablet 
                 ? 'translateX(58%) scale(0.82)' 
                 : 'translateX(65%) scale(0.86)';
             zIndex = 10;
-            opacity = 0.88;
+            opacity = 0.85;
           } else {
             transform = 'translateX(0) scale(0.4)';
             opacity = 0;
@@ -126,7 +127,7 @@ const CarruselRecomendados = () => {
           return (
             <div
               key={prod.slug || idx}
-              className="absolute w-[78vw] max-w-[310px] sm:w-[82vw] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[530px] h-[95%] sm:h-[94%] transition-all duration-700 ease-out cursor-pointer group"
+              className="absolute w-[58vw] max-w-[220px] xs:w-[60vw] xs:max-w-[245px] sm:w-[82vw] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[530px] h-[96%] sm:h-[94%] transition-all duration-700 ease-out cursor-pointer group"
               style={{ transform, zIndex, opacity }}
               onClick={() => {
                 if (position === 'left') prevSlide();
@@ -136,10 +137,10 @@ const CarruselRecomendados = () => {
             >
               {/* Tarjeta del Producto Estilo Tuntun & AOVET */}
               <div 
-                className={`relative w-full h-full rounded-2xl sm:rounded-[2.5rem] bg-white p-4 sm:p-8 md:p-9 flex flex-col justify-between transition-all duration-700 overflow-hidden border ${
+                className={`relative w-full h-full rounded-2xl sm:rounded-[2.5rem] bg-white p-3 xs:p-4 sm:p-8 md:p-9 flex flex-col justify-between transition-all duration-700 overflow-hidden border ${
                   isCenter 
-                    ? 'border-[var(--color-aovet-primary)] shadow-[0_20px_50px_rgba(13,61,32,0.18)] ring-2 ring-[var(--color-aovet-accent)]/50' 
-                    : 'border-gray-200 shadow-xl hover:border-[var(--color-aovet-primary)]/40 hover:shadow-2xl'
+                    ? 'border-[var(--color-aovet-primary)] shadow-[0_14px_35px_rgba(13,61,32,0.18)] ring-2 ring-[var(--color-aovet-accent)]/50' 
+                    : 'border-gray-200 shadow-md hover:border-[var(--color-aovet-primary)]/40 hover:shadow-xl'
                 }`}
               >
                 {/* Elementos de Fondo Suave */}
@@ -147,20 +148,20 @@ const CarruselRecomendados = () => {
                 <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[var(--color-aovet-accent)]/5 rounded-full pointer-events-none"></div>
 
                 {/* Cabecera de la Tarjeta */}
-                <div className="relative z-10 flex items-center justify-between gap-1.5 sm:gap-2">
-                  <span className="bg-[var(--color-aovet-bg)] text-[var(--color-aovet-primary)] text-[10px] sm:text-xs font-black uppercase tracking-wider px-3 py-1 sm:px-4 sm:py-1.5 rounded-full border border-[var(--color-aovet-primary)]/20 shadow-sm flex items-center gap-1.5">
-                    <ShieldCheck size={14} className="text-[var(--color-aovet-accent)] sm:w-4 sm:h-4" />
-                    <span className="truncate max-w-[100px] sm:max-w-none">{prod.categoria}</span>
+                <div className="relative z-10 flex items-center justify-between gap-1 sm:gap-2">
+                  <span className="bg-[var(--color-aovet-bg)] text-[var(--color-aovet-primary)] text-[9px] xs:text-[10px] sm:text-xs font-black uppercase tracking-wider px-2 py-0.5 sm:px-4 sm:py-1.5 rounded-full border border-[var(--color-aovet-primary)]/20 shadow-sm flex items-center gap-1">
+                    <ShieldCheck size={11} className="text-[var(--color-aovet-accent)] sm:w-4 sm:h-4 flex-shrink-0" />
+                    <span className="truncate max-w-[65px] xs:max-w-[90px] sm:max-w-none">{prod.categoria}</span>
                   </span>
-                  <span className="bg-amber-100/80 text-amber-900 text-[10px] sm:text-xs font-bold px-3 py-1 sm:px-3.5 sm:py-1 rounded-full flex items-center gap-1 border border-amber-200">
-                    <Sparkles size={13} className="text-amber-500 sm:w-3.5 sm:h-3.5" />
+                  <span className="bg-amber-100/80 text-amber-900 text-[9px] xs:text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:px-3.5 sm:py-1 rounded-full flex items-center gap-1 border border-amber-200 flex-shrink-0">
+                    <Sparkles size={10} className="text-amber-500 sm:w-3.5 sm:h-3.5" />
                     <span className="hidden xs:inline sm:inline">Recomendado</span>
                   </span>
                 </div>
 
                 {/* Imagen Central del Producto Directa y Limpia */}
-                <div className="relative z-10 flex-grow flex items-center justify-center my-2 sm:my-4 py-1">
-                  <picture className="flex items-center justify-center">
+                <div className="relative z-10 flex-grow flex items-center justify-center my-1 sm:my-3 py-0.5 min-h-0">
+                  <picture className="flex items-center justify-center max-h-full">
                     <source srcSet={prod.imagen.replace('.webp', '.avif')} type="image/avif" />
                     <source srcSet={prod.imagen} type="image/webp" />
                     <img 
@@ -170,32 +171,32 @@ const CarruselRecomendados = () => {
                       height="260" 
                       loading="lazy" 
                       decoding="async" 
-                      className="h-44 sm:h-60 md:h-72 lg:h-80 w-auto max-w-full object-contain mix-blend-multiply drop-shadow-xl group-hover:scale-105 transition-transform duration-500"
+                      className="h-28 xs:h-36 sm:h-60 md:h-72 lg:h-80 w-auto max-w-full object-contain mix-blend-multiply drop-shadow-md group-hover:scale-105 transition-transform duration-500"
                     />
                   </picture>
                 </div>
 
                 {/* Información y Títulos */}
-                <div className="relative z-10 space-y-1.5 sm:space-y-2.5 text-center sm:text-left">
-                  <h3 className="text-base sm:text-2xl md:text-3xl font-black text-[var(--color-aovet-dark)] font-serif leading-tight group-hover:text-[var(--color-aovet-primary)] transition-colors line-clamp-1">
+                <div className="relative z-10 space-y-0.5 xs:space-y-1 sm:space-y-2.5 text-center sm:text-left">
+                  <h3 className="text-xs xs:text-sm sm:text-2xl md:text-3xl font-black text-[var(--color-aovet-dark)] font-serif leading-tight group-hover:text-[var(--color-aovet-primary)] transition-colors line-clamp-1">
                     {prod.nombre}
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 leading-tight sm:leading-relaxed font-normal text-justify">
+                  <p className="text-[10px] xs:text-xs sm:text-sm text-gray-600 line-clamp-2 leading-tight sm:leading-relaxed font-normal text-justify">
                     {prod.descripcionBreve || prod.descripcion}
                   </p>
                 </div>
 
                 {/* Botones de Acción */}
-                <div className="relative z-10 pt-2 sm:pt-4 flex items-center gap-2 sm:gap-3">
+                <div className="relative z-10 pt-1 xs:pt-1.5 sm:pt-4 flex items-center gap-1.5 sm:gap-3">
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       navigate(`/producto/${prod.slug}`);
                     }}
-                    className="flex-1 bg-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-dark)] text-white font-bold py-2.5 sm:py-3.5 px-3 sm:px-4 rounded-full text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 transition-all shadow-md active:scale-95 cursor-pointer"
+                    className="flex-1 bg-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-dark)] text-white font-bold py-1.5 xs:py-2 sm:py-3.5 px-2 sm:px-4 rounded-full text-[10px] xs:text-xs sm:text-sm flex items-center justify-center gap-1 sm:gap-2 transition-all shadow-md active:scale-95 cursor-pointer"
                   >
                     <span>Ver Detalles</span>
-                    <ArrowRight size={14} />
+                    <ArrowRight size={12} />
                   </button>
 
                   <a
@@ -203,11 +204,11 @@ const CarruselRecomendados = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-emerald-50 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-emerald-200 flex items-center justify-center transition-all shadow-sm active:scale-95 flex-shrink-0 cursor-pointer"
+                    className="w-7 h-7 xs:w-8 xs:h-8 sm:w-12 sm:h-12 rounded-full bg-emerald-50 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-emerald-200 flex items-center justify-center transition-all shadow-sm active:scale-95 flex-shrink-0 cursor-pointer"
                     title="Cotizar por WhatsApp"
                     aria-label="Cotizar por WhatsApp"
                   >
-                    <MessageCircle size={17} />
+                    <WhatsappIcon size={16} />
                   </a>
                 </div>
 
@@ -225,7 +226,7 @@ const CarruselRecomendados = () => {
         {/* Flechas de Navegación laterales: perfectamente ubicadas en los bordes de las tarjetas, sincronizadas y persistentes */}
         {len > 1 && (
           <>
-            {/* Flecha Izquierda: en el borde de la tarjeta izquierda */}
+            {/* Flecha Izquierda */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -233,14 +234,14 @@ const CarruselRecomendados = () => {
               }}
               onMouseEnter={() => setIsHovered(true)}
               aria-label="Producto anterior"
-              className={`absolute top-1/2 -translate-y-1/2 z-50 left-2 sm:left-[calc(50%-415px)] md:left-[calc(50%-518px)] lg:left-[calc(50%-572px)] -translate-x-1/2 w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-md hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white border border-gray-200/90 shadow-[0_10px_35px_rgba(0,0,0,0.25)] flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-all duration-300 group/btn focus-visible:outline-2 focus-visible:outline-[var(--color-aovet-primary)] ${
+              className={`absolute top-1/2 -translate-y-1/2 z-50 left-1 sm:left-[calc(50%-415px)] md:left-[calc(50%-518px)] lg:left-[calc(50%-572px)] -translate-x-1/2 w-8 h-8 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-md hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white border border-gray-200/90 shadow-md flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-all duration-300 group/btn focus-visible:outline-2 focus-visible:outline-[var(--color-aovet-primary)] ${
                 isHovered ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
               }`}
             >
-              <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 group-hover/btn:-translate-x-0.5 transition-transform" />
+              <ChevronLeft className="w-4 h-4 sm:w-7 sm:h-7 group-hover/btn:-translate-x-0.5 transition-transform" />
             </button>
 
-            {/* Flecha Derecha: en el borde de la tarjeta derecha */}
+            {/* Flecha Derecha */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -248,11 +249,11 @@ const CarruselRecomendados = () => {
               }}
               onMouseEnter={() => setIsHovered(true)}
               aria-label="Producto siguiente"
-              className={`absolute top-1/2 -translate-y-1/2 z-50 right-2 sm:right-[calc(50%-415px)] md:right-[calc(50%-518px)] lg:right-[calc(50%-572px)] translate-x-1/2 w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-md hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white border border-gray-200/90 shadow-[0_10px_35px_rgba(0,0,0,0.25)] flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-all duration-300 group/btn focus-visible:outline-2 focus-visible:outline-[var(--color-aovet-primary)] ${
+              className={`absolute top-1/2 -translate-y-1/2 z-50 right-1 sm:right-[calc(50%-415px)] md:right-[calc(50%-518px)] lg:right-[calc(50%-572px)] translate-x-1/2 w-8 h-8 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-md hover:bg-[var(--color-aovet-primary)] text-[var(--color-aovet-dark)] hover:text-white border border-gray-200/90 shadow-md flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-all duration-300 group/btn focus-visible:outline-2 focus-visible:outline-[var(--color-aovet-primary)] ${
                 isHovered ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
               }`}
             >
-              <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 group-hover/btn:translate-x-0.5 transition-transform" />
+              <ChevronRight className="w-4 h-4 sm:w-7 sm:h-7 group-hover/btn:translate-x-0.5 transition-transform" />
             </button>
           </>
         )}

@@ -1,8 +1,8 @@
 import { motion } from 'motion/react';
 
-const SeparadorGrieta = () => {
+const SeparadorGrieta = ({ className = "" }) => {
   return (
-    <div className="w-full h-12 flex justify-center items-center my-8 opacity-40">
+    <div className={`w-full h-8 flex justify-center items-center my-2 sm:my-3 opacity-40 ${className}`}>
       <motion.svg 
         width="200" 
         height="20" 

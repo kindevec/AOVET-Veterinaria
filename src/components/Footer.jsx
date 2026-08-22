@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { motion } from 'motion/react';
 import logoImg from '../assets/logo-aovet-white.webp';
+import kindevIcon from '../assets/kindev_icon.webp';
 
 const Footer = () => {
   return (
-    <footer className="bg-[var(--color-aovet-dark)] text-white pt-16 pb-8">
+    <footer className="bg-[var(--color-aovet-dark)] text-white pt-16 pb-24 md:pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           
@@ -75,8 +77,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 text-center text-gray-400 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-center md:text-left">
+        <div className="pt-8 border-t border-white/10 text-gray-400 text-sm grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12 items-center">
+          <div className="md:col-span-1 lg:col-span-3 flex flex-col sm:flex-row items-center md:items-start lg:items-center gap-2 sm:gap-6 text-center md:text-left">
             <p>&copy; {new Date().getFullYear()} AOVET. Todos los derechos reservados.</p>
             <div className="flex gap-4 text-xs sm:text-sm">
               <a href="#" className="hover:text-white transition-colors">Política de Privacidad</a>
@@ -84,14 +86,38 @@ const Footer = () => {
             </div>
           </div>
           
-          <a 
-            href="https://kindevx.web.app/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="hover:text-white transition-colors text-sm md:text-right"
-          >
-            Desarrollado por <strong className="text-[var(--color-aovet-accent)] font-bold hover:underline">KINDEV</strong>
-          </a>
+          <div className="md:col-span-1 lg:col-span-1 flex justify-center md:justify-start">
+            <a 
+              href="https://kindevx.web.app/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-white transition-all text-sm flex items-center gap-2.5 group"
+              title="Desarrollado por KINDEV"
+              aria-label="Desarrollado por KINDEV"
+            >
+              {/* Logo de Colibrí KINDEV estático con efectos visuales de resplandor y hover */}
+              <div className="relative inline-flex items-center justify-center flex-shrink-0 group/icon">
+                {/* Halo de luz de fondo con efecto de respiración sutil */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#00E5FF]/20 to-[#00B0FF]/20 blur-md opacity-70 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500 pointer-events-none"></div>
+                
+                <img 
+                  src={kindevIcon} 
+                  alt="KINDEV Logo" 
+                  width="44" 
+                  height="44" 
+                  loading="lazy" 
+                  decoding="async" 
+                  className="relative z-10 w-10 h-10 sm:w-11 sm:h-11 object-contain drop-shadow-[0_2px_10px_rgba(0,229,255,0.45)] group-hover:drop-shadow-[0_4px_18px_rgba(0,229,255,0.85)] group-hover:scale-115 group-hover:-rotate-6 group-hover:brightness-110 transition-all duration-300 ease-out inline-block"
+                />
+              </div>
+              <span className="text-sm sm:text-base text-gray-400 group-hover:text-white transition-colors">
+                Desarrollado por{" "}
+                <span className="font-extrabold text-[var(--color-aovet-accent)] drop-shadow-[0_0_8px_rgba(255,193,7,0.35)] group-hover:drop-shadow-[0_0_16px_rgba(255,193,7,0.95)] group-hover:brightness-110 group-hover:tracking-wider inline-block transition-all duration-300">
+                  KINDEV
+                </span>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

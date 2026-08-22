@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { MessageCircle } from 'lucide-react';
+import WhatsappIcon from '../icons/WhatsappIcon';
 
 const ProductoCard = ({ producto, isDestacado = false }) => {
   const numeroWhatsApp = "593985401224";
@@ -70,7 +70,7 @@ const ProductoCard = ({ producto, isDestacado = false }) => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <MessageCircle size={16} className="flex-shrink-0" />
+            <WhatsappIcon size={18} className="flex-shrink-0" />
             <span>Solicitar cotización</span>
           </motion.a>
         </div>

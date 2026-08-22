@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Users, Leaf, ShieldCheck, Milestone, Award, CheckCircle2, HeartHandshake, Sparkles, Building2, Truck, Target, Compass, Check, MessageCircle, PackageCheck, Recycle, Zap, Snowflake } from 'lucide-react';
 import SeparadorGrieta from '../components/ui/SeparadorGrieta';
 import BotonCTA from '../components/ui/BotonCTA';
+import WhatsappIcon from '../components/icons/WhatsappIcon';
 import Timeline3D from '../components/ui/Timeline3D';
 
 // Imágenes
@@ -79,14 +80,14 @@ const Nosotros = () => {
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${nosotrosBg})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-transparent to-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-black/45 to-black/60"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center pt-12 pb-24">
-          <div className="mb-4 sm:mb-6 flex justify-center w-full -translate-y-4 sm:-translate-y-6 md:-translate-y-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center pt-24 sm:pt-16 md:pt-14 pb-16 sm:pb-24">
+          <div className="mb-4 sm:mb-6 flex justify-center w-full translate-y-3 sm:-translate-y-4 md:-translate-y-6">
             <motion.svg width="80" height="100" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" initial="hidden" animate="visible">
-              <motion.path d="M40 90 C 15 90 5 65 5 50 C 5 20 20 5 40 5 C 60 5 75 20 75 50 C 75 65 65 90 40 90 Z" stroke="var(--color-aovet-accent)" strokeWidth="3" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1.5, ease: "easeInOut" } } }} />
-              <motion.path d="M20 40 L 40 50 L 30 65 L 50 75 L 45 90" stroke="var(--color-aovet-accent)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1, delay: 1.2, ease: "easeOut" } } }} />
+              <motion.path d="M40 90 C 15 90 5 65 5 50 C 5 20 20 5 40 5 C 60 5 75 20 75 50 C 75 65 65 90 40 90 Z" stroke="#2EE59D" strokeWidth="3" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1.5, ease: "easeInOut" } } }} />
+              <motion.path d="M20 40 L 40 50 L 30 65 L 50 75 L 45 90" stroke="#2EE59D" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1, delay: 1.2, ease: "easeOut" } } }} />
             </motion.svg>
           </div>
 
@@ -101,24 +102,29 @@ const Nosotros = () => {
                   transition: { type: "spring", stiffness: 110, damping: 12, duration: 0.8 } 
                 } 
               }} 
-              animate={{
-                y: [0, -6, 0],
-                transition: { repeat: Infinity, duration: 4.5, ease: "easeInOut" }
-              }}
-              whileHover={{ scale: 1.02 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center leading-[1.12] tracking-tight mb-8 sm:mb-12 antialiased cursor-default select-none mx-auto max-w-5xl -translate-y-4 sm:-translate-y-6 md:-translate-y-8"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center leading-[1.12] tracking-tight mb-4 sm:mb-6 antialiased cursor-default select-none mx-auto max-w-5xl translate-y-2 sm:-translate-y-4 md:-translate-y-6 drop-shadow-2xl"
             >
-              <motion.span className="text-[var(--color-aovet-accent)] inline-block drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+              <motion.span className="text-[#2EE59D] inline-block drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)] drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] [text-shadow:_0_2px_14px_rgba(0,0,0,0.85)]">
                 Sobre Nosotros
               </motion.span>
             </motion.h1>
 
-            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", damping: 12, stiffness: 100 } } }} className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto mx-auto -translate-y-2 sm:-translate-y-4">
+            <motion.p
+              variants={{ 
+                hidden: { opacity: 0, y: 20 }, 
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } 
+              }}
+              className="text-base sm:text-lg md:text-xl text-white/95 font-medium max-w-2xl mx-auto text-center mb-8 sm:mb-10 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] [text-shadow:_0_1px_8px_rgba(0,0,0,0.85)] translate-y-2 sm:-translate-y-4 md:-translate-y-6"
+            >
+              Más de una década transformando la productividad y el bienestar animal en el Ecuador con respaldo técnico, bioseguridad y productos de calidad internacional.
+            </motion.p>
+
+            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", damping: 12, stiffness: 100 } } }} className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto mx-auto translate-y-1 sm:-translate-y-2 md:-translate-y-4">
               <BotonCTA 
                 text="Contáctanos" 
                 onClick={() => navigate('/contacto')} 
                 variant="primary" 
-                icon={MessageCircle} 
+                icon={WhatsappIcon} 
               />
               <BotonCTA 
                 text="Ver Servicios" 
@@ -132,12 +138,12 @@ const Nosotros = () => {
       </section>
 
       {/* SECCIÓN 1: COMPROMETIDOS CON LA SALUD Y PRODUCTIVIDAD ANIMAL */}
-      <section className="py-12 sm:py-16 relative overflow-hidden bg-white">
+      <section className="pt-10 sm:pt-14 pb-3 sm:pb-4 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 30 }} 
             whileInView={{ opacity: 1, y: 0 }} 
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, margin: "-50px" }} 
             transition={{ duration: 0.8 }}
             className="bg-[#E7ECE4] rounded-3xl lg:rounded-[2.5rem] overflow-hidden shadow-xl border border-white/60 grid grid-cols-1 lg:grid-cols-12"
           >
@@ -192,17 +198,19 @@ const Nosotros = () => {
         </div>
       </section>
 
-      <SeparadorGrieta />
+      <div className="py-2 sm:py-4">
+        <SeparadorGrieta />
+      </div>
 
       {/* SECCIÓN 2: MISIÓN Y VISIÓN */}
-      <section className="py-16 sm:py-24 bg-white relative overflow-hidden">
+      <section className="pt-3 sm:pt-5 pb-3 sm:pb-4 relative overflow-hidden">
         {/* Decoración de Fondo */}
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-[var(--color-aovet-bg)] rounded-full filter blur-3xl opacity-70 pointer-events-none"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-emerald-50 rounded-full filter blur-3xl opacity-60 pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12 sm:mb-16">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[var(--color-aovet-bg)] text-[var(--color-aovet-primary)] border border-[var(--color-aovet-primary)]/20 font-bold text-xs uppercase tracking-widest mb-3">
+          <div className="text-center mb-8 sm:mb-12">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[var(--color-aovet-bg)] text-[var(--color-aovet-primary)] border border-[var(--color-aovet-primary)]/20 font-bold text-xs uppercase tracking-widest mb-2.5">
               <Sparkles size={13} className="text-[var(--color-aovet-accent)]" />
               Nuestra Razón de Ser
             </span>
@@ -320,9 +328,9 @@ const Nosotros = () => {
       </div>
 
       {/* SECCIÓN 4: NUESTRO EQUIPO (Con Fotos Profesionales) */}
-      <section className="pt-16 sm:pt-20 pb-8 sm:pb-10 bg-white">
+      <section className="pt-2 sm:pt-4 pb-2 sm:pb-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 sm:mb-10">
             <span className="text-[var(--color-aovet-primary)] font-bold text-xs uppercase tracking-widest mb-1 block">Talento Humano</span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--color-aovet-dark)] font-serif mb-4">El equipo detrás de AOVET</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">Profesionales apasionados por la salud animal y el servicio técnico.</p>
@@ -377,8 +385,8 @@ const Nosotros = () => {
         </div>
       </section>
 
-      {/* Separador Orgánico igual a Inicio */}
-      <div className="-my-3">
+      {/* Separador Orgánico antes de Compromiso con la Sostenibilidad */}
+      <div className="py-2 sm:py-3">
         <SeparadorGrieta />
       </div>
 

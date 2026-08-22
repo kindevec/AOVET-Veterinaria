@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 
 // SVG del logo oficial de WhatsApp
-const WhatsappIcon = ({ size = 26, className = "" }) => (
+const WhatsappIcon = ({ size = 28, className = "" }) => (
   <svg 
     width={size} 
     height={size} 
@@ -17,135 +16,90 @@ const WhatsappIcon = ({ size = 26, className = "" }) => (
 );
 
 const WhatsAppFloat = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isOtherVisible, setIsOtherVisible] = useState(false);
-  const location = useLocation();
+  const [isRevealed, setIsRevealed] = useState(false);
+  const containerRef = useRef(null);
   const numeroWhatsApp = "593985401224";
-  const whatsappUrl = `https://wa.me/${numeroWhatsApp}`;
+  const whatsappUrl = `https://wa.me/${numeroWhatsApp}?text=Hola,%20deseo%20asesor%C3%ADa%20sobre%20los%20productos%20y%20servicios%20de%20AOVET`;
 
-  // Hook to detect screen width (mobile vs PC)
+  // Auto-ocultar después de 4.5 segundos si se encuentra afuera
   useEffect(() => {
-    const media = window.matchMedia('(max-width: 767px)');
-    const listener = () => setIsMobile(media.matches);
-    listener(); // Initial check
-    media.addEventListener('change', listener);
-    return () => media.removeEventListener('change', listener);
-  }, []);
+    if (!isRevealed) return;
+    const timer = setTimeout(() => {
+      setIsRevealed(false);
+    }, 4500);
+    return () => clearTimeout(timer);
+  }, [isRevealed]);
 
-  const handleClick = (e) => {
-    // Only intercept clicks and require two-step slide-out on mobile view
-    if (isMobile && !isOpen) {
+  // Ocultar al hacer clic en cualquier parte fuera
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
+        setIsRevealed(false);
+      }
+    };
+    if (isRevealed) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [isRevealed]);
+
+  const handleInteraction = (e) => {
+    if (!isRevealed) {
+      // Primer toque: aparece el icono completo
       e.preventDefault();
-      setIsOpen(true);
+      setIsRevealed(true);
+    } else {
+      // Segundo toque (ya visible): abre la conversación
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     }
   };
 
-  useEffect(() => {
-    if (isOpen && isMobile) {
-      const timer = setTimeout(() => {
-        setIsOpen(false);
-      }, 4000);
-      return () => clearTimeout(timer);
-    }
-  }, [isOpen, isMobile]);
-
-  // Hook to observe visibility of other WhatsApp buttons on the page
-  useEffect(() => {
-    // Small timeout to allow the route elements to mount and render fully
-    const timer = setTimeout(() => {
-      const otherButtons = Array.from(
-        document.querySelectorAll(
-          'a[href*="wa.me"]:not(#whatsapp-float), a[href*="whatsapp.com"]:not(#whatsapp-float), button[id*="whatsapp"]:not(#whatsapp-float)'
-        )
-      ).filter(btn => {
-        // Exclude buttons inside cards/recommendations to avoid hiding the bubble for minor links
-        let parent = btn.parentElement;
-        while (parent) {
-          if (
-            parent.tagName !== 'HEADER' && 
-            parent.tagName !== 'FOOTER' && 
-            parent.tagName !== 'NAV'
-          ) {
-            const classes = Array.from(parent.classList);
-            const isCard = classes.some(c => 
-              c.includes('card') || 
-              c === 'shadow-lg' || 
-              c === 'shadow-md' || 
-              c === 'rounded-2xl' || 
-              c === 'rounded-3xl' ||
-              c.includes('rounded-[')
-            );
-            if (isCard) {
-              return false; // Exclude card buttons
-            }
-          }
-          parent = parent.parentElement;
-        }
-        return true; // Keep main page CTAs
-      });
-
-      if (otherButtons.length === 0) {
-        setIsOtherVisible(false);
-        return;
-      }
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          const isAnyVisible = entries.some((entry) => entry.isIntersecting);
-          setIsOtherVisible(isAnyVisible);
-        },
-        {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.1
-        }
-      );
-
-      otherButtons.forEach((btn) => observer.observe(btn));
-
-      return () => {
-        otherButtons.forEach((btn) => observer.unobserve(btn));
-        observer.disconnect();
-      };
-    }, 150);
-
-    return () => clearTimeout(timer);
-  }, [location.pathname]);
-
   return (
-    <motion.a
-      id="whatsapp-float"
-      href={whatsappUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={handleClick}
-      className={
-        isMobile
-          ? "fixed bottom-24 right-0 z-50 bg-[#25D366] text-white p-3 rounded-full shadow-2xl hover:bg-[#20bd5a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] flex items-center justify-center cursor-pointer border border-[#1fbd58]"
-          : "fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-xl hover:bg-[#20bd5a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] flex items-center justify-center cursor-pointer"
-      }
-      animate={
-        isOtherVisible
-          ? { scale: 0, opacity: 0 }
-          : isMobile
-            ? { x: isOpen ? -16 : 24, scale: 1, opacity: 1 }
-            : { x: 0, scale: 1, opacity: 1 }
-      }
-      transition={{
-        type: "spring",
-        stiffness: 260,
-        damping: 20
-      }}
-      style={{
-        pointerEvents: isOtherVisible ? 'none' : 'auto'
-      }}
-      whileHover={isOtherVisible ? {} : { scale: 1.08 }}
-      whileTap={isOtherVisible ? {} : { scale: 0.95 }}
-      aria-label="Contactar por WhatsApp"
+    <div 
+      ref={containerRef}
+      className="fixed bottom-20 right-0 sm:bottom-6 sm:right-0 z-50 select-none flex items-center"
+      onMouseEnter={() => setIsRevealed(true)}
+      onMouseLeave={() => setIsRevealed(false)}
     >
-      <WhatsappIcon size={isMobile ? 26 : 32} />
-    </motion.a>
+      <motion.div
+        drag="x"
+        dragConstraints={{ left: -100, right: 0 }}
+        dragElastic={{ left: 0.15, right: 0 }}
+        onDragEnd={(e, info) => {
+          if (info.offset.x < -30 || info.velocity.x < -150) {
+            setIsRevealed(true);
+          } else if (info.offset.x > 20) {
+            setIsRevealed(false);
+          }
+        }}
+        animate={{
+          x: isRevealed ? -16 : 30
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 300,
+          damping: 24
+        }}
+        className="cursor-pointer touch-pan-y"
+      >
+        {/* Botón circular de WhatsApp que se oculta y aparece */}
+        <div
+          id="whatsapp-float"
+          onClick={handleInteraction}
+          className="relative w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-[0_8px_25px_rgba(37,211,102,0.45)] hover:shadow-[0_10px_35px_rgba(37,211,102,0.6)] flex items-center justify-center cursor-pointer transition-colors border-2 border-white"
+          title={isRevealed ? "Toca para abrir WhatsApp" : "Toca o hala para mostrar WhatsApp"}
+          aria-label="Contactar por WhatsApp"
+        >
+          {/* Anillo de pulso sutil cuando está oculto */}
+          {!isRevealed && (
+            <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30 pointer-events-none"></span>
+          )}
+
+          {/* Icono de WhatsApp */}
+          <WhatsappIcon size={28} className="relative z-10 sm:w-7 sm:h-7" />
+        </div>
+      </motion.div>
+    </div>
   );
 };
 

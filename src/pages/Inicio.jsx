@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, Plus, ArrowRight, ShieldCheck, Zap, PackageCheck, Award, HeartHandshake, Sparkles, CheckCircle, MessageCircle, Stethoscope, Headphones, CheckCircle2, Truck } from 'lucide-react';
 import BotonCTA from '../components/ui/BotonCTA';
+import WhatsappIcon from '../components/icons/WhatsappIcon';
 import SeparadorGrieta from '../components/ui/SeparadorGrieta';
 import CarruselRecomendados from '../components/ui/CarruselRecomendados';
 import { productos } from '../data/productos';
@@ -54,18 +55,18 @@ const Inicio = () => {
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroBg})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-transparent to-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-black/45 to-black/60"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center pt-12 pb-24">
-          <div className="mb-4 sm:mb-6 flex justify-center w-full -translate-y-4 sm:-translate-y-6 md:-translate-y-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center pt-24 sm:pt-16 md:pt-14 pb-16 sm:pb-24">
+          <div className="mb-4 sm:mb-6 flex justify-center w-full translate-y-3 sm:-translate-y-4 md:-translate-y-6">
             <motion.svg width="80" height="100" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" initial="hidden" animate="visible">
-              <motion.path d="M40 90 C 15 90 5 65 5 50 C 5 20 20 5 40 5 C 60 5 75 20 75 50 C 75 65 65 90 40 90 Z" stroke="var(--color-aovet-accent)" strokeWidth="3" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1.5, ease: "easeInOut" } } }} />
-              <motion.path d="M20 40 L 40 50 L 30 65 L 50 75 L 45 90" stroke="var(--color-aovet-accent)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1, delay: 1.2, ease: "easeOut" } } }} />
+              <motion.path d="M40 90 C 15 90 5 65 5 50 C 5 20 20 5 40 5 C 60 5 75 20 75 50 C 75 65 65 90 40 90 Z" stroke="#2EE59D" strokeWidth="3" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1.5, ease: "easeInOut" } } }} />
+              <motion.path d="M20 40 L 40 50 L 30 65 L 50 75 L 45 90" stroke="#2EE59D" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1, delay: 1.2, ease: "easeOut" } } }} />
             </motion.svg>
           </div>
 
-          <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 1.5 } } }} className="w-full">
+          <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } } }} className="w-full">
             <motion.h1 
               variants={{ 
                 hidden: { opacity: 0, y: 35, scale: 0.95 }, 
@@ -81,39 +82,20 @@ const Inicio = () => {
                   } 
                 } 
               }} 
-              animate={{
-                y: [0, -6, 0],
-                transition: {
-                  repeat: Infinity,
-                  duration: 4.5,
-                  ease: "easeInOut"
-                }
-              }}
-              whileHover={{ scale: 1.02 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center leading-[1.12] tracking-tight mb-12 sm:mb-14 md:mb-16 antialiased cursor-default select-none mx-auto max-w-5xl -translate-y-4 sm:-translate-y-6 md:-translate-y-8 drop-shadow-2xl"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center leading-[1.12] tracking-tight mb-8 sm:mb-10 md:mb-12 antialiased cursor-default select-none mx-auto max-w-5xl translate-y-2 sm:-translate-y-4 md:-translate-y-6 drop-shadow-2xl"
             >
-              <motion.span 
-                className="text-white inline-block drop-shadow-[0_4px_14px_rgba(0,0,0,0.85)]"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7, delay: 0.15 }}
-              >
+              <motion.span className="text-white inline-block drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)] drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] [text-shadow:_0_2px_14px_rgba(0,0,0,0.85)]">
                 Importamos confianza
               </motion.span> 
               <br/>
-              <motion.span 
-                className="text-[#2EE59D] inline-block font-serif mt-2 drop-shadow-[0_4px_18px_rgba(0,0,0,0.9)]"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7, delay: 0.35 }}
-              >
+              <motion.span className="text-[#2EE59D] inline-block font-serif mt-2 drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)] drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] [text-shadow:_0_2px_14px_rgba(0,0,0,0.85)]">
                 Distribuimos salud animal
               </motion.span>
             </motion.h1>
             
-            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", damping: 12, stiffness: 100 } } }} className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto mx-auto">
+            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", damping: 12, stiffness: 100 } } }} className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto mx-auto translate-y-1 sm:-translate-y-2 md:-translate-y-4">
               <BotonCTA text="Catálogo" onClick={() => navigate('/productos')} variant="primary" icon={PackageCheck} />
-              <BotonCTA text="WhatsApp" href="https://wa.me/593985401224" variant="secondary" icon={MessageCircle} />
+              <BotonCTA text="WhatsApp" href="https://wa.me/593985401224" variant="secondary" icon={WhatsappIcon} />
             </motion.div>
           </motion.div>
         </div>
@@ -208,7 +190,7 @@ const Inicio = () => {
         </motion.div>
       </div>
       
-      <div className="-my-3">
+      <div className="pt-6 sm:pt-10 pb-2 sm:pb-4">
         <SeparadorGrieta />
       </div>
       
@@ -465,7 +447,7 @@ const Inicio = () => {
                     onClick={() => window.open('https://wa.me/593985401224?text=Hola,%20deseo%20consultar%20con%20un%20especialista%20de%20AOVET%20acerca%20de%20asesoria%20tecnica', '_blank')} 
                     className="w-full bg-[var(--color-aovet-primary)] hover:bg-[var(--color-aovet-dark)] text-white font-bold py-3.5 sm:py-4 px-6 rounded-full transition-all flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg active:scale-95 text-xs sm:text-sm cursor-pointer"
                   >
-                    <MessageCircle size={18} className="flex-shrink-0" />
+                    <WhatsappIcon size={20} className="flex-shrink-0" />
                     <span>Consultar un especialista</span>
                   </button>
                 </div>
@@ -475,8 +457,12 @@ const Inicio = () => {
         </motion.div>
       </section>
 
+      <div className="pt-4 sm:pt-6 pb-2 sm:pb-4">
+        <SeparadorGrieta />
+      </div>
+
       {/* SECCIÓN 4: POR QUÉ ELEGIRNOS */}
-      <section className="py-6 sm:py-12 px-0 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+      <section className="pt-2 sm:pt-4 pb-6 sm:pb-12 px-0 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
         <motion.div 
           initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}
           className="bg-[#E7ECE4] rounded-none sm:rounded-[2.5rem] flex flex-col lg:flex-row overflow-hidden shadow-lg border-0 sm:border border-gray-100"

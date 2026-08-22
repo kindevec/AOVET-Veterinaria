@@ -5,6 +5,8 @@ import { cn } from '../lib/utils';
 import { productos } from '../data/productos';
 import ProductoCard from '../components/ui/ProductoCard';
 import BotonCTA from '../components/ui/BotonCTA';
+import WhatsappIcon from '../components/icons/WhatsappIcon';
+import SeparadorGrieta from '../components/ui/SeparadorGrieta';
 
 // Imagen de fondo para el banner estático
 import heroBgProductos from '../assets/images/aovet_productos_banner.jpg';
@@ -27,7 +29,7 @@ const Productos = () => {
   const destacados = productos.slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="flex flex-col min-h-screen bg-[var(--color-aovet-bg)] font-sans">
       
       {/* 1. HERO BANNER ESTÁTICO DE PRODUCTOS */}
       <section className="relative flex flex-col justify-center bg-gray-900 pt-20 pb-24 md:pb-36 overflow-hidden h-[580px] sm:h-[660px] md:h-[720px] lg:h-[760px] min-h-[580px] md:min-h-[660px] lg:min-h-[760px]">
@@ -35,11 +37,11 @@ const Productos = () => {
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroBgProductos})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-transparent to-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-black/45 to-black/60"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center pt-12 pb-24">
-          <div className="mb-4 sm:mb-6 flex justify-center w-full -translate-y-4 sm:-translate-y-6 md:-translate-y-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center pt-24 sm:pt-16 md:pt-14 pb-16 sm:pb-24">
+          <div className="mb-4 sm:mb-6 flex justify-center w-full translate-y-3 sm:-translate-y-4 md:-translate-y-6">
             <motion.svg width="80" height="100" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" initial="hidden" animate="visible">
               <motion.path d="M40 90 C 15 90 5 65 5 50 C 5 20 20 5 40 5 C 60 5 75 20 75 50 C 75 65 65 90 40 90 Z" stroke="var(--color-aovet-accent)" strokeWidth="3" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1.5, ease: "easeInOut" } } }} />
               <motion.path d="M20 40 L 40 50 L 30 65 L 50 75 L 45 90" stroke="var(--color-aovet-accent)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1, transition: { duration: 1, delay: 1.2, ease: "easeOut" } } }} />
@@ -57,19 +59,24 @@ const Productos = () => {
                   transition: { type: "spring", stiffness: 110, damping: 12, duration: 0.8 } 
                 } 
               }} 
-              animate={{
-                y: [0, -6, 0],
-                transition: { repeat: Infinity, duration: 4.5, ease: "easeInOut" }
-              }}
-              whileHover={{ scale: 1.02 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center leading-[1.12] tracking-tight mb-8 sm:mb-12 antialiased cursor-default select-none mx-auto max-w-5xl -translate-y-4 sm:-translate-y-6 md:-translate-y-8"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center leading-[1.12] tracking-tight mb-4 sm:mb-6 antialiased cursor-default select-none mx-auto max-w-5xl translate-y-2 sm:-translate-y-4 md:-translate-y-6 drop-shadow-2xl"
             >
-              <motion.span className="text-[#2EE59D] inline-block drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+              <motion.span className="text-[var(--color-aovet-accent)] inline-block drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)] drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] [text-shadow:_0_2px_14px_rgba(0,0,0,0.85)]">
                 Catálogo de Productos
               </motion.span>
             </motion.h1>
 
-            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", damping: 12, stiffness: 100 } } }} className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto mx-auto -translate-y-2 sm:-translate-y-4">
+            <motion.p
+              variants={{ 
+                hidden: { opacity: 0, y: 20 }, 
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } 
+              }}
+              className="text-base sm:text-lg md:text-xl text-white/95 font-medium max-w-2xl mx-auto text-center mb-8 sm:mb-10 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] [text-shadow:_0_1px_8px_rgba(0,0,0,0.85)] translate-y-2 sm:-translate-y-4 md:-translate-y-6"
+            >
+              Explora nuestra línea integral de fármacos, biológicos, nutrición y suplementos de alta eficacia para avicultura, ganadería y animales de producción.
+            </motion.p>
+
+            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", damping: 12, stiffness: 100 } } }} className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto mx-auto translate-y-1 sm:-translate-y-2 md:-translate-y-4">
               <BotonCTA 
                 text="Explorar Catálogo" 
                 onClick={() => {
@@ -83,7 +90,7 @@ const Productos = () => {
                 text="Cotizar por WhatsApp" 
                 href="https://wa.me/593985401224" 
                 variant="secondary" 
-                icon={MessageCircle} 
+                icon={WhatsappIcon} 
               />
             </motion.div>
           </motion.div>
@@ -91,9 +98,9 @@ const Productos = () => {
       </section>
 
       {/* 2. Productos Destacados del Mes */}
-      <section className="py-16 bg-white">
+      <section className="pt-8 sm:pt-12 pb-4 sm:pb-6 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-10">
+          <div className="flex items-center gap-3 mb-8 sm:mb-10">
             <div className="w-2 h-8 bg-[var(--color-aovet-accent)] rounded-full"></div>
             <h2 className="text-3xl font-bold text-[var(--color-aovet-dark)] font-serif">Destacados del Mes</h2>
           </div>
@@ -109,7 +116,7 @@ const Productos = () => {
       </section>
 
       {/* 3. Catálogo Principal con Filtros */}
-      <section id="catalogo-seccion" className="py-16 bg-[var(--color-aovet-bg)] border-y border-gray-100">
+      <section id="catalogo-seccion" className="pt-4 sm:pt-6 pb-12 sm:pb-16 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-aovet-dark)] font-serif mb-8">Explora nuestro portafolio</h2>
@@ -120,10 +127,10 @@ const Productos = () => {
                 <button
                   key={cat.id}
                   onClick={() => setFiltroActivo(cat.id)}
-                  className={`px-6 py-3 rounded-full font-bold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)] text-sm ${
+                  className={`px-6 py-3 rounded-full font-bold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-aovet-primary)] text-sm cursor-pointer ${
                     filtroActivo === cat.id 
                       ? 'bg-[var(--color-aovet-primary)] text-white shadow-md scale-105'
-                      : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-100'
+                      : 'bg-white/80 backdrop-blur-xs text-gray-700 border border-gray-300/80 hover:bg-white shadow-xs'
                   }`}
                 >
                   {cat.label}
@@ -149,8 +156,12 @@ const Productos = () => {
         </div>
       </section>
 
-      {/* 4. Garantía y Cadena de Frío - Sección Independiente con Fondo Cálido */}
-      <section className="py-20 bg-gradient-to-b from-[#F7F9F5] via-[#EFEBE4] to-[#E5DFD4] text-[var(--color-aovet-text)] overflow-hidden border-t border-b border-gray-200">
+      <div className="py-2 sm:py-4">
+        <SeparadorGrieta />
+      </div>
+
+      {/* 4. Garantía y Cadena de Frío */}
+      <section className="pt-4 sm:pt-6 pb-16 sm:pb-20 bg-transparent text-[var(--color-aovet-text)] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             
